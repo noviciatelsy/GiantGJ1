@@ -803,11 +803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e043618c7378f4a9123f0e8b437ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoatMove
-  baseForwardSpeed: 15
-  maxForwardSpeed: 20
-  minForwardSpeed: 12
-  maxHorizontalSpeed: 10
-  acceleration: 20
+  baseForwardSpeed: 20
+  maxForwardSpeed: 30
+  minForwardSpeed: 15
+  maxHorizontalSpeed: 20
+  acceleration: 30
   deceleration: 10
   Drive: 0
 --- !u!1 &832575517
