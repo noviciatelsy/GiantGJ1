@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 3893289538015292290}
   - component: {fileID: 2928931862677662422}
   - component: {fileID: 5027234562552842611}
+  - component: {fileID: -4703249606395319280}
   m_Layer: 0
   m_Name: Cube1
   m_TagString: Untagged
@@ -374,12 +375,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.8990818, y: 1.3996086, z: 0.869548}
+  m_Center: {x: -0.0058543207, y: 0.19980355, z: -0.002963066}
+--- !u!114 &-4703249606395319280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331882959072976545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344e0e76efd3a824c94664df96964e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CubeBase
+  cubePos: {x: 0, y: 0}
+  CurrentPlayer: {fileID: 0}
 --- !u!1 &1464993350156150988
 GameObject:
   m_ObjectHideFlags: 0

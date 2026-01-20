@@ -75,6 +75,7 @@ public class PLControl : MonoBehaviour
             // 松开时，如果是短按
             if (eHoldTime < longPressTime)
             {
+                //Debug.Log("E Short Press");
                 HandleShortPress();
             }
             else
@@ -124,13 +125,14 @@ public class PLControl : MonoBehaviour
     private void HandleShortPress()
     {
         if (currentCube == null) return;
-
+        Debug.Log("SHort Press");
         if (!isInteracting)
         {
             currentCube.CurrentPlayer = this; //单人逻辑
 
             currentCube.IsChoose();
             currentCube.OnInteractEnterBase();
+
             isInteracting = true;
         }
         else

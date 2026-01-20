@@ -41,7 +41,7 @@ public class CubeBase : MonoBehaviour
     public void OnInteractEnterBase()
     {
         //将PLmove所代表的gameobject移动到自己位置
-        Vector3 targetPos = transform.position + Vector3.up * 5f; // 向上5个单位
+        Vector3 targetPos = transform.position + Vector3.up * 7.5f; // 向上5个单位
         StartCoroutine(MoveToCoroutine(CurrentPlayer.transform, targetPos, 0.2f));
         OnInteractEnter();
     }

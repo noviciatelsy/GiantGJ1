@@ -27,6 +27,7 @@ public class BoatMove : MonoBehaviour
 
         if (Drive)
         {
+            Debug.Log("Boat is being driven");
             HandleInputExternally(); // 有人操控，读输入
         }
         else
@@ -53,12 +54,12 @@ public class BoatMove : MonoBehaviour
 
     private void ApplyInput(float horizontalInput, int verticalInput)
     {
-        // 横向输入（-1到1）
-        if (Input.GetKey(KeyCode.A)) horizontalInput = -1f;
-        else if (Input.GetKey(KeyCode.D)) horizontalInput = 1f;
-        // 纵向输入 -1 (S), 0 (无输入), 1 (W)
-        if (Input.GetKey(KeyCode.W)) verticalInput = 1;
-        else if (Input.GetKey(KeyCode.S)) verticalInput = -1;
+        //// 横向输入（-1到1）
+        //if (Input.GetKey(KeyCode.A)) horizontalInput = -1f;
+        //else if (Input.GetKey(KeyCode.D)) horizontalInput = 1f;
+        //// 纵向输入 -1 (S), 0 (无输入), 1 (W)
+        //if (Input.GetKey(KeyCode.W)) verticalInput = 1;
+        //else if (Input.GetKey(KeyCode.S)) verticalInput = -1;
 
         // ----------- 横向速度 -----------
         if (horizontalInput != 0f)
