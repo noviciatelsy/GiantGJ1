@@ -6,6 +6,13 @@ public class CubeBase : MonoBehaviour
 {
     public Vector2Int cubePos;
     public PLControl currentPlayer {  get; private set; }
+    public HandleFix handlefix;
+
+    void Start()
+    {
+        CubeCrush();
+        CubeCrush();
+    }
 
     public virtual void IsChoose()
     {
@@ -63,10 +70,17 @@ public class CubeBase : MonoBehaviour
     public void OnRepairEnd()
     {
         Debug.Log("RepairEnd");
+        handlefix.HealthBarFix();
     }
 
     public void SetCurrentPlayer(PLControl currentPlayer)
     {
         this.currentPlayer = currentPlayer;
     }
+
+    public void CubeCrush()
+    {
+        handlefix.HealthBarCrush();
+    }
+
 }

@@ -12,11 +12,14 @@ public class PLControl : MonoBehaviour
     public Vector2 moveLimitX = new Vector2(3f, 3f);
     public Vector2 moveLimitY = new Vector2(3f, 3f);
 
-
-    public float interactRange = 2.5f;
     private CubeBase currentCube;
     private bool isInteracting = false;
 
+    //长按阈值设置
+    private bool isPressing = false;        // 是否正在按下交互键4
+    private bool LongerPressTriggered = false;
+    private float holdTimer = 0f;            // 按下计时
+    private const float holdThreshold = 2f; // 长按判定阈值（秒）
     private bool longPressTriggered;
     private Vector2 moveInput; // 缓存的移动输入（来自 PlayerInput 的回调）
     private readonly List<CubeBase> nearbyCubes = new List<CubeBase>(); // 所有进入交互范围的 Cube
@@ -30,6 +33,19 @@ public class PLControl : MonoBehaviour
     void FixedUpdate()
     {
         HandlePLMove();
+    }
+
+    void Update()
+    {
+        if (isPressing && !LongerPressTriggered)
+        {
+            holdTimer += Time.deltaTime;
+            if (holdTimer >= holdThreshold)
+            {
+                LongerPressTriggered = true;
+                currentCube?.OnRepairStart(); // 2秒长按触发
+            }
+        }
     }
 
     public void TransMoveLimit()
@@ -99,6 +115,9 @@ public class PLControl : MonoBehaviour
         if (context.started)
         {
             longPressTriggered = false;
+            LongerPressTriggered = false;
+            isPressing = true;
+            holdTimer = 0f;
             return;
         }
 
@@ -106,13 +125,15 @@ public class PLControl : MonoBehaviour
         if (context.performed)
         {
             longPressTriggered = true;
-            currentCube.OnRepairStart(); //长按触发
+            //currentCube.OnRepairStart(); //长按触发
             return;
         }
 
         // 3) canceled：松开 / 被取消
         if (context.canceled)
         {
+            isPressing = false;
+            LongerPressTriggered = false; holdTimer = 0f;
             if (longPressTriggered) // 如果触发了长按
             {
                 currentCube?.OnRepairEnd();
