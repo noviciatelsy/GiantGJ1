@@ -1,8 +1,6 @@
-using UnityEngine;
-
 using System.Collections.Generic;
-using UnityEngine.Rendering.Universal;
-using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class PLControl : MonoBehaviour
@@ -19,8 +17,8 @@ public class PLControl : MonoBehaviour
     private CubeBase currentCube;
     private bool isInteracting = false;
 
-    private float eHoldTime = 0f;
-    private float longPressTime = 0.4f;//识别长按时间
+    private bool longPressTriggered;
+    private Vector2 moveInput; // 缓存的移动输入（来自 PlayerInput 的回调）
     private readonly List<CubeBase> nearbyCubes = new List<CubeBase>(); // 所有进入交互范围的 Cube
 
 
@@ -29,11 +27,6 @@ public class PLControl : MonoBehaviour
         TransMoveLimit();
     }
 
-    void Update()
-    {
-        HandleInput();
-    }
-    // Update is called once per frame
     void FixedUpdate()
     {
         HandlePLMove();
@@ -51,58 +44,12 @@ public class PLControl : MonoBehaviour
     }
 
 
-    private void HandleInput()
-    {
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            eHoldTime = 0f;
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            eHoldTime += Time.deltaTime;
-
-            // 长按 → 修理
-            if (eHoldTime >= longPressTime && currentCube != null)
-            {
-                currentCube.OnRepairStart();
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            // 松开时，如果是短按
-            if (eHoldTime < longPressTime)
-            {
-                //Debug.Log("E Short Press");
-                HandleShortPress();
-            }
-            else
-            {
-                currentCube?.OnRepairEnd();
-            }
-
-            eHoldTime = 0f;
-        }
-    }
-
     private void HandlePLMove()
     {
-        if (isInteracting) return; //在于浮块交互时不处理其他输入
-
-        //处理wasd移动
-        float horizontalInput = 0f;
-        if (Input.GetKey(KeyCode.A)) horizontalInput = -1f;
-        else if (Input.GetKey(KeyCode.D)) horizontalInput = 1f;
-        int verticalInput = 0;
-        if (Input.GetKey(KeyCode.W)) verticalInput = 1;
-        else if (Input.GetKey(KeyCode.S)) verticalInput = -1;
-
         Vector3 delta = new Vector3(
-            horizontalInput * playerSpeed * Time.fixedDeltaTime,
+            moveInput.x * playerSpeed * Time.fixedDeltaTime,
             0f,
-            verticalInput * playerSpeed * Time.fixedDeltaTime
+            moveInput.y * playerSpeed * Time.fixedDeltaTime
         );
 
         Vector3 targetPos = transform.position + delta;
@@ -120,6 +67,61 @@ public class PLControl : MonoBehaviour
         );
 
         transform.position = targetPos;
+    }
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        // 在于浮块交互时不处理其他输入
+        if (isInteracting)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
+        // Value/Vector2 的 Action：
+        // performed：有输入变化（非零/变化）
+        if (context.performed)
+        {
+            moveInput = context.ReadValue<Vector2>();
+            return;
+        }
+
+        // canceled：输入归零（松开键或摇杆回中）
+        if (context.canceled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        // 1) started：按下那一刻（不做决定，只重置状态）
+        if (context.started)
+        {
+            longPressTriggered = false;
+            return;
+        }
+
+        // 2) performed：Hold 达成那一刻（长按成功）
+        if (context.performed)
+        {
+            longPressTriggered = true;
+            currentCube.OnRepairStart(); //长按触发
+            return;
+        }
+
+        // 3) canceled：松开 / 被取消
+        if (context.canceled)
+        {
+            if (longPressTriggered) // 如果触发了长按
+            {
+                currentCube?.OnRepairEnd();
+            }
+            else
+            {
+                HandleShortPress();
+            }
+        }
     }
 
     private void HandleShortPress()
@@ -144,6 +146,7 @@ public class PLControl : MonoBehaviour
         }
     }
 
+  
 
     private void OnTriggerEnter(Collider other)
     {
