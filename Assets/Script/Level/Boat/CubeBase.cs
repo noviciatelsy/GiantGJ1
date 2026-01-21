@@ -5,7 +5,7 @@ using UnityEngine;
 public class CubeBase : MonoBehaviour
 {
     public Vector2Int cubePos;
-    public PLControl CurrentPlayer;
+    public PLControl currentPlayer {  get; private set; }
 
     public virtual void IsChoose()
     {
@@ -42,7 +42,7 @@ public class CubeBase : MonoBehaviour
     {
         //将PLmove所代表的gameobject移动到自己位置
         Vector3 targetPos = transform.position + Vector3.up * 7.5f; // 向上5个单位
-        StartCoroutine(MoveToCoroutine(CurrentPlayer.transform, targetPos, 0.2f));
+        StartCoroutine(MoveToCoroutine(currentPlayer.transform, targetPos, 0.2f));
         OnInteractEnter();
     }
     public virtual void OnInteractEnter()
@@ -63,5 +63,10 @@ public class CubeBase : MonoBehaviour
     public void OnRepairEnd()
     {
         Debug.Log("RepairEnd");
+    }
+
+    public void SetCurrentPlayer(PLControl currentPlayer)
+    {
+        this.currentPlayer = currentPlayer;
     }
 }

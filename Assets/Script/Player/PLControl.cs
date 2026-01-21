@@ -126,12 +126,15 @@ public class PLControl : MonoBehaviour
 
     private void HandleShortPress()
     {
-        if (currentCube == null) return;
+        if (currentCube == null) return; // 如果脚下没有浮块
+        if(currentCube.currentPlayer!=null&&currentCube.currentPlayer!=this)
+        {
+            return;
+        } //  如果其他玩家正在操作该浮块
         Debug.Log("SHort Press");
         if (!isInteracting)
         {
-            currentCube.CurrentPlayer = this; //单人逻辑
-
+            currentCube.SetCurrentPlayer( this); // 设置浮块所有权
             currentCube.IsChoose();
             currentCube.OnInteractEnterBase();
 
@@ -139,7 +142,7 @@ public class PLControl : MonoBehaviour
         }
         else
         {
-            currentCube.CurrentPlayer = null; //单人逻辑
+            currentCube.SetCurrentPlayer(null); // 还原浮块所有权
 
             currentCube.OnInteractExit();
             isInteracting = false;
