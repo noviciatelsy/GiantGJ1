@@ -14,7 +14,7 @@ public class PLControl : MonoBehaviour
     // 交互
     private bool isInteracting = false;
     private bool longPressTriggered;
-    private Vector2 moveInput; // 缓存的移动输入（来自 PlayerInput 的回调）
+    public Vector2 moveInput { get; private set; } // 缓存的移动输入（来自 PlayerInput 的回调）
 
     // currentCube判定
     private CubeBase currentCube;
@@ -52,6 +52,10 @@ public class PLControl : MonoBehaviour
 
     private void HandlePLMove()
     {
+        if(isInteracting)
+        {
+            return;
+        }
         Vector3 delta = new Vector3(
             moveInput.x * playerSpeed * Time.fixedDeltaTime,
             0f,
@@ -76,12 +80,6 @@ public class PLControl : MonoBehaviour
     }
     public void OnMovement(InputAction.CallbackContext context)
     {
-        // 在于浮块交互时不处理其他输入
-        if (isInteracting)
-        {
-            moveInput = Vector2.zero;
-            return;
-        }
 
         // Value/Vector2 的 Action：
         // performed：有输入变化（非零/变化）

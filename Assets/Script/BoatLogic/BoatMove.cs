@@ -13,22 +13,20 @@ public class BoatMove : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private float currentForwardSpeed;
     private float currentHorizontalSpeed;
-    
-    public bool Drive = false;
+
+    private PLControl currentDriver; // 当前驾驶的玩家
     void Start()
     {
         currentForwardSpeed = baseForwardSpeed;  // 初始纵向速度
         currentHorizontalSpeed = 0f;              // 初始横向速度
-        Drive = false;
+        ResetCurrentDriver(); // 重置当前驾驶的玩家
     }
 
     void FixedUpdate()
     {
-
-        if (Drive)
+        if (currentDriver!=null) // 如果当前有玩家驾驶
         {
-            Debug.Log("Boat is being driven");
-            HandleInputExternally(); // 有人操控，读输入
+            ApplyInput(currentDriver.moveInput.x, currentDriver.moveInput.y); // 读取当前玩家的移动输入
         }
         else
         {
@@ -39,28 +37,9 @@ public class BoatMove : MonoBehaviour
     }
 
 
-    public void HandleInputExternally()
+
+    private void ApplyInput(float horizontalInput, float verticalInput)
     {
-        float horizontalInput = 0f;
-        if (Input.GetKey(KeyCode.A)) horizontalInput = -1f;
-        else if (Input.GetKey(KeyCode.D)) horizontalInput = 1f;
-
-        int verticalInput = 0;
-        if (Input.GetKey(KeyCode.W)) verticalInput = 1;
-        else if (Input.GetKey(KeyCode.S)) verticalInput = -1;
-
-        ApplyInput(horizontalInput, verticalInput);
-    }
-
-    private void ApplyInput(float horizontalInput, int verticalInput)
-    {
-        //// 横向输入（-1到1）
-        //if (Input.GetKey(KeyCode.A)) horizontalInput = -1f;
-        //else if (Input.GetKey(KeyCode.D)) horizontalInput = 1f;
-        //// 纵向输入 -1 (S), 0 (无输入), 1 (W)
-        //if (Input.GetKey(KeyCode.W)) verticalInput = 1;
-        //else if (Input.GetKey(KeyCode.S)) verticalInput = -1;
-
         // ----------- 横向速度 -----------
         if (horizontalInput != 0f)
         {
@@ -108,6 +87,16 @@ public class BoatMove : MonoBehaviour
 
         // 合成速度向量
         velocity = new Vector3(currentHorizontalSpeed, 0f, currentForwardSpeed);
+    }
+
+    public void SetCurrentDriver(PLControl currentDriver)
+    {
+        this.currentDriver = currentDriver;
+    }
+
+    public void  ResetCurrentDriver()
+    {
+        currentDriver = null;
     }
 
 }

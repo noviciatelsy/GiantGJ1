@@ -6,7 +6,12 @@ public class CubeBase : MonoBehaviour
 {
     public Vector2Int cubePos;
     public PLControl currentPlayer {  get; private set; }
-    public HandleFix handlefix;
+    private HandleFix handlefix;
+
+    protected virtual void Awake()
+    {
+        handlefix = GetComponent<HandleFix>();
+    }
 
     void Start()
     {
