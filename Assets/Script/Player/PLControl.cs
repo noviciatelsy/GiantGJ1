@@ -103,21 +103,29 @@ public class PLControl : MonoBehaviour
         if (context.started)
         {
             longPressTriggered = false;
+            if(!isInteracting&&currentCube.GetCurrentFixingPlayer()==null) 
+            // 如果在非互动阶段且玩家没有在修理该浮块
+            {
+                currentCube.OnRepairBegin(this); // 标记为开始累计修理时间
+            }
             return;
         }
 
-        // 2) performed：Hold 达成那一刻（长按成功）
+        // 2) performed：达到performed阶段后不再被视为短按
         if (context.performed)
         {
             longPressTriggered = true;
-            currentCube.OnRepair(); // 长按触发修理
             return;
         }
 
         // 3) canceled：松开 / 被取消
         if (context.canceled)
         {
-            if (longPressTriggered) // 如果触发了长按修理
+            if (!isInteracting) // 如果在非互动阶段
+            {
+                currentCube.OnRepairEnd(); // 标记为停止累计修理时间
+            }
+            if (longPressTriggered) // 如果触发了长按
             {
                 return;
             }

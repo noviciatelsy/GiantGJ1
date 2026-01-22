@@ -1840,6 +1840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalGameRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 1812435914428378186, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3568
@@ -1879,6 +1883,18 @@ PrefabInstance:
     - target: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807876741024937347, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: fadeHoldTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807876741024937347, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: fadeInDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807876741024937347, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

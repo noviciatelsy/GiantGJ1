@@ -67,9 +67,20 @@ public class CubeBase : MonoBehaviour
         Debug.Log("EndInteract");
     }
 
-    public void OnRepair()
+    public void OnRepairBegin(PLControl currentFixingPlayer)
     {
-        handlefix.HealthBarFix();
+        handlefix.StartFix(currentFixingPlayer);
+
+    }
+
+    public void OnRepairEnd()
+    {
+        handlefix.EndFix();
+    }
+
+    public PLControl GetCurrentFixingPlayer()
+    {
+        return handlefix.currentFixingPlayer;
     }
 
     public void SetCurrentPlayer(PLControl currentPlayer)
