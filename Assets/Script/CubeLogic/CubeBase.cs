@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CubeBase : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CubeBase : MonoBehaviour
     public PLControl currentPlayer {  get; private set; }
     private HandleFix handlefix;
 
+    private InputAction mousePositionAction; //鼠标位置的输入操作
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
@@ -59,6 +61,7 @@ public class CubeBase : MonoBehaviour
         StartCoroutine(MoveToCoroutine(currentPlayer.transform, targetPos, 0.2f));
         OnInteractEnter();
     }
+
     public virtual void OnInteractEnter()
     {
         Debug.Log("OnInteract");

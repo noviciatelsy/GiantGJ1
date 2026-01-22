@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rudder
       objectReference: {fileID: 0}
+    - target: {fileID: 2777579138076315518, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f26e27c86dd0641a20f93d12f0327f, type: 2}
     - target: {fileID: 2928931862677662422, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -177,18 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rudder
   cubePos: {x: 0, y: 0}
-  CubeOrigin: {fileID: 5215270369516532043}
-  CubeCrushed: {fileID: 7175511520899701527}
---- !u!1 &5215270369516532043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7325484858116251021, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
-  m_PrefabInstance: {fileID: 3299174173659802822}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7175511520899701527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5646824382531745745, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
-  m_PrefabInstance: {fileID: 3299174173659802822}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8081908989537635613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6764881670627647963, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
