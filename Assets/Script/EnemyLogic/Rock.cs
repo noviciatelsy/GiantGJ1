@@ -3,15 +3,20 @@ using System.Collections;
 
 public class Rock : MonoBehaviour
 {
-
+    private bool isDestroy = false;
     private void OnTriggerEnter(Collider other)
     {
         CubeBase cube = other.GetComponent<CubeBase>();
         if (cube != null)
         {
-            cube.CubeCrush();
-            Debug.Log("Crush");
-            StartCoroutine(DestroySelf());
+            //ÄÍ¾Ã¶È>0²Å»áÅö×²
+            if (cube.CheckCubeHealth() > 0 && !isDestroy)
+            {
+                isDestroy = true;  
+                cube.CubeCrush();
+                Debug.Log("Crush");
+                StartCoroutine(DestroySelf());
+            }
         }
     }
 

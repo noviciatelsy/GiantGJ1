@@ -5,17 +5,19 @@ using UnityEngine;
 public class CubeBase : MonoBehaviour
 {
     public Vector2Int cubePos;
+
     public PLControl currentPlayer {  get; private set; }
     private HandleFix handlefix;
 
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
+
     }
 
     void Start()
     {
-        CubeCrush();
+        //CubeCrush();
         CubeCrush();
     }
 
@@ -76,6 +78,7 @@ public class CubeBase : MonoBehaviour
     public void OnRepairEnd()
     {
         handlefix.EndFix();
+
     }
 
     public PLControl GetCurrentFixingPlayer()
@@ -91,6 +94,11 @@ public class CubeBase : MonoBehaviour
     public void CubeCrush()
     {
         handlefix.HealthBarCrush();
+
     }
 
+    public int CheckCubeHealth()
+    {
+        return handlefix.currentBarCount;
+    }
 }

@@ -8,7 +8,7 @@ public class HandleFix : MonoBehaviour
     public GameObject HealthBar;
     public List<GameObject> Bars;
 
-    private int currentBarCount = 0;
+    public int currentBarCount = 0;
     private CanvasGroup canvasGroup;
 
     private Coroutine hideDelayCoroutine;
@@ -20,6 +20,9 @@ public class HandleFix : MonoBehaviour
     private float showFixBarDelay = 0.5f;
     private float timeToFix = 2f;
     private float fixingTimer;
+    public bool isCrushed = false; //是否完全损坏
+    public GameObject CubeOrigin;
+    public GameObject CubeCrushed;
     private bool isfixing = false;
     public PLControl currentFixingPlayer {  get; private set; } // 正在修理该浮块的玩家 
 
@@ -30,6 +33,8 @@ public class HandleFix : MonoBehaviour
         HealthBar.SetActive(false);
         currentBarCount = Bars.Count;
 
+        CubeOrigin.SetActive(true);
+        CubeCrushed.SetActive(false);
         // 初始：全部显示（满耐久）
         for (int i = 0; i < Bars.Count; i++)
         {
@@ -60,6 +65,12 @@ public class HandleFix : MonoBehaviour
                 if (fixingTimer >= timeToFix)
                 {
                     currentBarCount += 1; // 耐久度+1
+
+                    isCrushed = false; //不是完全损坏版本了
+                    Debug.Log("totallyCrushed");
+                    CubeOrigin.SetActive(true);
+                    CubeCrushed.SetActive(false);
+
                     fixingTimer = 0;
                     if (currentBarCount >= Bars.Count) // 如果此时刚好修满
                     {
@@ -73,9 +84,11 @@ public class HandleFix : MonoBehaviour
 
     public void HealthBarCrush()
     {
-        if(currentBarCount==0)
+
+        if (currentBarCount == 0)
         {
-            return ;
+            isCrushed = true;
+            return;
         }
         StartCoroutine(HealthBarCrush1());
     }
@@ -84,8 +97,6 @@ public class HandleFix : MonoBehaviour
     //{
     //    StartCoroutine(HealthBarFix1());
     //}
-
-
 
     //public  IEnumerator EzTest()
     //{
@@ -113,6 +124,15 @@ public class HandleFix : MonoBehaviour
     {
         if (currentBarCount <= 0)
             yield break;
+
+        //如果耐久度归零就变为完全损坏版本
+        if (currentBarCount == 1)
+        {
+            Debug.Log("totallyCrushed");
+            CubeOrigin.SetActive(false);
+            CubeCrushed.SetActive(true);
+        }
+
         yield return StartCoroutine(ShowHealthBar());
 
         DoDamageToBar(); // 修理条-1

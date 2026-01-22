@@ -14,6 +14,7 @@ public class GeRiver : MonoBehaviour
         //在(0,0,0)和（0,0,500）之间生成河流
         SpawnRiver(0f);
         SpawnRiver(500f);
+        SpawnRiver(1000f);
     }
 
     void SpawnRiver(float zPos)

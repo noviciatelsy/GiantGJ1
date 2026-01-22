@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3071548186263175880}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.11, z: 0.073}
+  m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 1.11, z: 0.07300001}
   m_LocalScale: {x: 0.15, y: 0.3, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5490482998919899627}
+  m_Father: {fileID: 8081908989537635613}
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!212 &9217777511067726585
 SpriteRenderer:
@@ -151,7 +151,7 @@ PrefabInstance:
     - {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7060263628457608493, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6764881670627647963, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2484753674446974919}
     m_AddedComponents:
@@ -159,17 +159,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4414482228464547246}
   m_SourcePrefab: {fileID: 100100000, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
---- !u!114 &3011401356662354261 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 289251797940280723, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
-  m_PrefabInstance: {fileID: 3299174173659802822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4589952044035633767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd63b361839e2fe46adae76dd119cccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HandleFix
 --- !u!1 &4589952044035633767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1331882959072976545, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
@@ -188,10 +177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rudder
   cubePos: {x: 0, y: 0}
-  handlefix: {fileID: 3011401356662354261}
-  boatMove: {fileID: 0}
---- !u!4 &5490482998919899627 stripped
+  CubeOrigin: {fileID: 5215270369516532043}
+  CubeCrushed: {fileID: 7175511520899701527}
+--- !u!1 &5215270369516532043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7325484858116251021, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+  m_PrefabInstance: {fileID: 3299174173659802822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7175511520899701527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5646824382531745745, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+  m_PrefabInstance: {fileID: 3299174173659802822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8081908989537635613 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7060263628457608493, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6764881670627647963, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
   m_PrefabInstance: {fileID: 3299174173659802822}
   m_PrefabAsset: {fileID: 0}
