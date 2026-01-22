@@ -5,24 +5,22 @@ using UnityEngine.InputSystem;
 
 public class PLControl : MonoBehaviour
 {
-
+    // 移动
     private float playerSpeed = 15f;
-
     public Vector2Int boatSize = new Vector2Int(3, 3); // x = 宽，y = 长
     public Vector2 moveLimitX = new Vector2(3f, 3f);
     public Vector2 moveLimitY = new Vector2(3f, 3f);
 
-    private CubeBase currentCube;
+    // 交互
     private bool isInteracting = false;
-
-    //长按阈值设置
-    private bool isPressing = false;        // 是否正在按下交互键4
-    private bool LongerPressTriggered = false;
-    private float holdTimer = 0f;            // 按下计时
-    private const float holdThreshold = 2f; // 长按判定阈值（秒）
     private bool longPressTriggered;
     private Vector2 moveInput; // 缓存的移动输入（来自 PlayerInput 的回调）
+
+    // currentCube判定
+    private CubeBase currentCube;
     private readonly List<CubeBase> nearbyCubes = new List<CubeBase>(); // 所有进入交互范围的 Cube
+    private float refreshCurrentCubeInterval = 0.1f;
+    private float refreshCurrentCubeITimer=0f;
 
 
     void Start()
@@ -37,15 +35,7 @@ public class PLControl : MonoBehaviour
 
     void Update()
     {
-        if (isPressing && !LongerPressTriggered)
-        {
-            holdTimer += Time.deltaTime;
-            if (holdTimer >= holdThreshold)
-            {
-                LongerPressTriggered = true;
-                currentCube?.OnRepairStart(); // 2秒长按触发
-            }
-        }
+        FindNearestCube();
     }
 
     public void TransMoveLimit()
@@ -115,9 +105,6 @@ public class PLControl : MonoBehaviour
         if (context.started)
         {
             longPressTriggered = false;
-            LongerPressTriggered = false;
-            isPressing = true;
-            holdTimer = 0f;
             return;
         }
 
@@ -125,18 +112,16 @@ public class PLControl : MonoBehaviour
         if (context.performed)
         {
             longPressTriggered = true;
-            //currentCube.OnRepairStart(); //长按触发
+            currentCube.OnRepair(); // 长按触发修理
             return;
         }
 
         // 3) canceled：松开 / 被取消
         if (context.canceled)
         {
-            isPressing = false;
-            LongerPressTriggered = false; holdTimer = 0f;
-            if (longPressTriggered) // 如果触发了长按
+            if (longPressTriggered) // 如果触发了长按修理
             {
-                currentCube?.OnRepairEnd();
+                return;
             }
             else
             {
@@ -182,7 +167,6 @@ public class PLControl : MonoBehaviour
             nearbyCubes.Add(cube);
         }
 
-        RefreshCurrentCube();
     }
 
     private void OnTriggerExit(Collider other)
@@ -201,8 +185,6 @@ public class PLControl : MonoBehaviour
             cube.OnInteractExit();
             isInteracting = false;
         }
-
-        RefreshCurrentCube();
     }
 
 
@@ -215,9 +197,9 @@ public class PLControl : MonoBehaviour
         {
             if (cube == null) continue;
 
-            float dist = Vector3.Distance(
-                transform.position,
-                cube.transform.position
+            float dist = Vector2.Distance(
+                 new Vector2( transform.position.x,transform.position.z),
+                new Vector2( cube.transform.position.x,cube.transform.position.z)
             );
 
             if (dist < minDist)
@@ -243,6 +225,20 @@ public class PLControl : MonoBehaviour
             {
                 currentCube.OnLand();
             }
+        }
+    }
+
+    private void FindNearestCube()
+    {
+        if(refreshCurrentCubeITimer<refreshCurrentCubeInterval)
+        {
+            refreshCurrentCubeITimer += Time.deltaTime;
+            return;
+        }
+        else
+        {
+            RefreshCurrentCube();
+            refreshCurrentCubeITimer = 0;
         }
     }
 

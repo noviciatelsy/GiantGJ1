@@ -62,14 +62,8 @@ public class CubeBase : MonoBehaviour
         Debug.Log("EndInteract");
     }
 
-    public void OnRepairStart()
+    public void OnRepair()
     {
-        Debug.Log("RepairStart");
-    }
-
-    public void OnRepairEnd()
-    {
-        Debug.Log("RepairEnd");
         handlefix.HealthBarFix();
     }
 
