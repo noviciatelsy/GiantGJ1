@@ -9,12 +9,14 @@ public class CubeBase : MonoBehaviour
 
     public PLControl currentPlayer {  get; private set; }
     private HandleFix handlefix;
+    private ChosenImage chosenImage;
+    public int landNumber {  get; private set; }
 
-    private InputAction mousePositionAction; //鼠标位置的输入操作
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
-
+        chosenImage = GetComponentInChildren<ChosenImage>();
+        landNumber = 0;
     }
 
     void Start()
@@ -30,11 +32,21 @@ public class CubeBase : MonoBehaviour
 
     public void OnLand()
     {
-        StartCoroutine(MoveToCoroutine(transform, transform.position + Vector3.down * 0.8f, 0.1f));
+        landNumber++;
+        if(landNumber==1)
+        {
+            StartCoroutine(MoveToCoroutine(transform, transform.position + Vector3.down * 0.8f, 0.1f));
+        }
+        chosenImage.ChooseCube();
     }
     public void EndLand()
     {
-        StartCoroutine(MoveToCoroutine(transform, transform.position - Vector3.down * 0.8f, 0.1f));
+        landNumber--;
+        if(landNumber==0)
+        {
+            StartCoroutine(MoveToCoroutine(transform, transform.position - Vector3.down * 0.8f, 0.1f));
+        }
+        chosenImage.EndChooseCube();
     }
 
     private IEnumerator MoveToCoroutine(Transform target, Vector3 targetPos, float duration)
