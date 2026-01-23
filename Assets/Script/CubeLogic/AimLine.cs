@@ -7,7 +7,7 @@ public class AimLine : MonoBehaviour
     [SerializeField] private int dotsAmount = 15;
     [SerializeField] private float dotDistance = 0.5f;
 
-    [SerializeField] private float maxHeight = 0.5f;
+    [SerializeField] private float maxHeight = 0.3f;
     [SerializeField] private float cutT = 0.75f;   // 只走到抛物线的 75%
     [SerializeField] private float forwardStretch = 1.1f;
     private float scrollSpeed = 0.05f; // 点前进速度
@@ -59,7 +59,7 @@ public class AimLine : MonoBehaviour
 
             float forward = totalForwardLength * (t / cutT);
             float height = maxHeight * (1f - Mathf.Pow(Mathf.Abs(2f * t - 1f), 2.5f));
-            dots[i].localPosition = new Vector3(0f, forward, -height);
+            dots[i].localPosition = new Vector3(0f, height, forward);
 
             // 根据 t 动态计算透明度，t在0~cutT之间，alpha 0~1
             float alpha = 1 - (t / cutT);

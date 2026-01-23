@@ -79,14 +79,6 @@ public class CubeBase : MonoBehaviour
 
     public void OnInteractEnterBase()
     {
-        //if (handlefix.isCrushed)
-        //{
-        //    SetCurrentPlayer(null); // 还原浮块所有权
-        //    OnInteractExit();
-            
-        //    return; //完全损坏无法交互
-        //}
-
         //将PLmove所代表的gameobject移动到自己位置
         Vector3 targetPos = transform.position + Vector3.up * 7.5f; // 向上5个单位
         StartCoroutine(MoveToCoroutine(currentPlayer.transform, targetPos, 0.2f));
@@ -118,7 +110,7 @@ public class CubeBase : MonoBehaviour
 
     }
 
-    public void OnCubeUse()
+    public virtual void OnCubeUse()
     {
         Debug.Log("Use"+gameObject.name);
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Rock : MonoBehaviour
+public class Rock : EnemyCommonLogic
 {
     private bool isDestroy = false;
     private void OnTriggerEnter(Collider other)
