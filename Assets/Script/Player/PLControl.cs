@@ -138,6 +138,18 @@ public class PLControl : MonoBehaviour
         }
     }
 
+    public void OnUse(InputAction.CallbackContext context)
+    {
+        if(!isInteracting)
+        {
+            return ;
+        }
+        if (context.performed)
+        {
+            currentCube.OnCubeUse();
+        }
+    }
+
     private void HandleShortPress()
     {
         if (currentCube == null) return; // 如果脚下没有浮块

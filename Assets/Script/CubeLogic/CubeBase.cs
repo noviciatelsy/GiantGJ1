@@ -118,6 +118,11 @@ public class CubeBase : MonoBehaviour
 
     }
 
+    public void OnCubeUse()
+    {
+        Debug.Log("Use"+gameObject.name);
+    }
+
     public PLControl GetCurrentFixingPlayer()
     {
         return handlefix.currentFixingPlayer;
