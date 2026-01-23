@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595939968016976999}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.75, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 638562621674847393}
   m_Father: {fileID: 8806925095393487834}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &6087340539032884281
 SpriteRenderer:
   serializedVersion: 2
@@ -268,13 +268,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6380335020656424978}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.75, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47825410018419883}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4301391978706044731
 SpriteRenderer:
   serializedVersion: 2
@@ -359,7 +359,7 @@ Transform:
   m_GameObject: {fileID: 7888863414398651703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,9 +570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919d0138aa0a10d49a7509a8d5858010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimLine
-  aimLineDotPrefab: {fileID: 2369385069951048656, guid: 84acb269e16e91942bc9f899c060f765, type: 3}
-  dotsAmount: 25
-  dotDistance: 0.75
+  aimLineDotPrefab: {fileID: 2369385069951048656, guid: 5696b2841514c5141bf819be98252d44, type: 3}
+  dotsAmount: 12
+  dotDistance: 0.35
+  maxHeight: 0.5
   aimLineDotsTranform: {fileID: 638562621674847393}
 --- !u!1 &4787487025348253580 stripped
 GameObject:

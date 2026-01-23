@@ -33,6 +33,7 @@ public class Cannon : CubeBase
             // 计算本帧旋转角度
             float deltaAngle = -inputX * rotateSpeed * Time.deltaTime;
             CannonSprite.transform.Rotate(0,0,deltaAngle);  
+
             //aim = RotateVector2(aim, deltaAngle);
             //aim.Normalize();
             //Debug.Log(aim);
