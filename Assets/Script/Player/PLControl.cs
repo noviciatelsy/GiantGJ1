@@ -15,8 +15,6 @@ public class PLControl : MonoBehaviour
     private bool isInteracting = false;
     private bool longPressTriggered;
 
-    public bool NeedReadInput = true;
-    private InputAction moveAction;
     public Vector2 moveInput { get; private set; } // 缓存的移动输入（来自 PlayerInput 的回调）
 
     // currentCube判定
@@ -38,10 +36,6 @@ public class PLControl : MonoBehaviour
 
     void Update()
     {
-        //if(NeedReadInput)
-        //{
-        //    moveInput = moveAction.ReadValue<Vector2>();
-        //}
 
         FindNearestCube();
     }
