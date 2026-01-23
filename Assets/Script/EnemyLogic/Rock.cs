@@ -15,11 +15,16 @@ public class Rock : EnemyCommonLogic
                 isDestroy = true;  
                 cube.CubeCrush();
                 Debug.Log("Crush");
-                StartCoroutine(DestroySelf());
+                ToDestroySelf();
             }
         }
     }
 
+    public override void ToDestroySelf()
+    {
+        base.ToDestroySelf();
+        StartCoroutine(DestroySelf());
+    }
 
     private IEnumerator DestroySelf()
     {

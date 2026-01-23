@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyCommonLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int EnemyHealth = 20;
+
     void Start()
     {
         
@@ -12,5 +13,20 @@ public class EnemyCommonLogic : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Ondamage(int Damage)
+    {
+        EnemyHealth -= Damage;
+        Debug.Log("目前敌人血量"+EnemyHealth);
+        if(EnemyHealth <= 0)
+        { 
+            ToDestroySelf();
+        }
+    }
+
+    public virtual void ToDestroySelf()
+    {
+
     }
 }

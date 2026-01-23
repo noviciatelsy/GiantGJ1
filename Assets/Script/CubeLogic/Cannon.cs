@@ -13,8 +13,8 @@ public class Cannon : CubeBase
     [SerializeField] private Transform aimLineDots2; //子弹发射点
     [SerializeField] private GameObject bulletPrefab;
 
-    //private LineRenderer aimLine;
-    //private float aimLineLength = 25f;
+    private float fireCooldown = 0.5f; // 发射冷却时间，0.5秒
+    private float lastFireTime = -Mathf.Infinity; // 上次发射时间，初始化为负无穷大
 
     protected override void Awake()
     {
@@ -60,6 +60,14 @@ public class Cannon : CubeBase
     public override void OnCubeUse()
     {
         base.OnCubeUse();
+
+        // 判断冷却时间
+        if (Time.time - lastFireTime < fireCooldown)
+        {
+            // 冷却中，不能发射
+            return;
+        }
+
         Debug.Log("加农炮：发射！");
 
         // 从aimLineDots第一个点位置发射炮弹
@@ -75,6 +83,8 @@ public class Cannon : CubeBase
                 bullet.direction = CannonSprite.forward;
             }
         }
+
+        lastFireTime = Time.time;
     }
 
 }

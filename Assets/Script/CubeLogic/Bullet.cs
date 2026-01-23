@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             Debug.Log("子弹打到敌人");
+            enemy.Ondamage(damage); // 对敌人造成伤害
             Destroy(gameObject); // 碰到敌人销毁子弹
         }
     }
