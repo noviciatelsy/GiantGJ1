@@ -14,6 +14,9 @@ public class PLControl : MonoBehaviour
     // 交互
     private bool isInteracting = false;
     private bool longPressTriggered;
+
+    public bool NeedReadInput = true;
+    private InputAction moveAction;
     public Vector2 moveInput { get; private set; } // 缓存的移动输入（来自 PlayerInput 的回调）
 
     // currentCube判定
@@ -35,6 +38,11 @@ public class PLControl : MonoBehaviour
 
     void Update()
     {
+        //if(NeedReadInput)
+        //{
+        //    moveInput = moveAction.ReadValue<Vector2>();
+        //}
+
         FindNearestCube();
     }
 
@@ -45,8 +53,8 @@ public class PLControl : MonoBehaviour
         moveLimitY.y = -5 + boatSize.x * 10;
         moveLimitX.x = -boatSize.y / 2 * 10 - isodd * 5;
         moveLimitX.y = boatSize.y / 2 * 10 + isodd * 5;
-        Debug.Log("PL Move Limit X: " + moveLimitX);
-        Debug.Log("PL Move Limit Y: " + moveLimitY);
+        //Debug.Log("PL Move Limit X: " + moveLimitX);
+        //Debug.Log("PL Move Limit Y: " + moveLimitY);
     }
 
 
@@ -146,7 +154,9 @@ public class PLControl : MonoBehaviour
         Debug.Log("SHort Press");
         if (!isInteracting)
         {
-            currentCube.SetCurrentPlayer( this); // 设置浮块所有权
+            if (currentCube.CheckCubeHealth() == 0) return; //完全损坏就无法交互了
+
+            currentCube.SetCurrentPlayer(this); // 设置浮块所有权
             currentCube.IsChoose();
             currentCube.OnInteractEnterBase();
 

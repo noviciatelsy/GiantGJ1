@@ -44,38 +44,37 @@ public class HandleFix : MonoBehaviour
 
     private void Update()
     {
+        if (!isfixing) return; // 如果该浮块正在被玩家按住修理
+
         if (currentBarCount >= Bars.Count)
         {
             return; // 如果此刻耐久为满
         }
         else
         {
-            if (isfixing) // 如果该浮块正在被玩家按住修理
+            fixingTimer += Time.deltaTime; // 累计修理时间
+            if (!isShowing) // 如果此时未显示进度条
             {
-                fixingTimer += Time.deltaTime; // 累计修理时间
-                if (!isShowing) // 如果此时未显示进度条
+                if (fixingTimer >= showFixBarDelay) // 如果达到足够显示进度条的时间
                 {
-                    if (fixingTimer >= showFixBarDelay) // 如果达到足够显示进度条的时间
-                    {
 
-                        StartCoroutine(ShowHealthBar());
-                    }
+                    StartCoroutine(ShowHealthBar());
                 }
-                UpdateCurrentBarFixedPercent(); // 更新当前修理条的进度
-                if (fixingTimer >= timeToFix)
+            }
+            UpdateCurrentBarFixedPercent(); // 更新当前修理条的进度
+            if (fixingTimer >= timeToFix)
+            {
+                currentBarCount += 1; // 耐久度+1
+
+                isCrushed = false; //不是完全损坏版本了
+                Debug.Log("totallyCrushed");
+                CubeOrigin.SetActive(true);
+                CubeCrushed.SetActive(false);
+
+                fixingTimer = 0;
+                if (currentBarCount >= Bars.Count) // 如果此时刚好修满
                 {
-                    currentBarCount += 1; // 耐久度+1
-
-                    isCrushed = false; //不是完全损坏版本了
-                    Debug.Log("totallyCrushed");
-                    CubeOrigin.SetActive(true);
-                    CubeCrushed.SetActive(false);
-
-                    fixingTimer = 0;
-                    if (currentBarCount >= Bars.Count) // 如果此时刚好修满
-                    {
-                        EndFix(); // 强制结束修理过程
-                    }
+                    EndFix(); // 强制结束修理过程
                 }
             }
         }
@@ -131,6 +130,7 @@ public class HandleFix : MonoBehaviour
             Debug.Log("totallyCrushed");
             CubeOrigin.SetActive(false);
             CubeCrushed.SetActive(true);
+            isCrushed = true;
         }
 
         yield return StartCoroutine(ShowHealthBar());

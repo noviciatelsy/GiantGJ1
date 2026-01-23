@@ -12,6 +12,8 @@ public class CubeBase : MonoBehaviour
     private ChosenImage chosenImage;
     public int landNumber {  get; private set; }
 
+    public bool isInteracting = false;
+
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
@@ -24,6 +26,15 @@ public class CubeBase : MonoBehaviour
         //CubeCrush();
         CubeCrush();
     }
+
+    void Update()
+    {
+        if(isInteracting)
+        {
+            //Debug.Log(currentPlayer.moveInput.x);
+        }
+    }
+
 
     public virtual void IsChoose()
     {
@@ -68,6 +79,14 @@ public class CubeBase : MonoBehaviour
 
     public void OnInteractEnterBase()
     {
+        //if (handlefix.isCrushed)
+        //{
+        //    SetCurrentPlayer(null); // 还原浮块所有权
+        //    OnInteractExit();
+            
+        //    return; //完全损坏无法交互
+        //}
+
         //将PLmove所代表的gameobject移动到自己位置
         Vector3 targetPos = transform.position + Vector3.up * 7.5f; // 向上5个单位
         StartCoroutine(MoveToCoroutine(currentPlayer.transform, targetPos, 0.2f));
@@ -76,12 +95,15 @@ public class CubeBase : MonoBehaviour
 
     public virtual void OnInteractEnter()
     {
+
         Debug.Log("OnInteract");
+        isInteracting = true;
     }
 
     public virtual void OnInteractExit()
     {
         Debug.Log("EndInteract");
+        isInteracting = false;
     }
 
     public void OnRepairBegin(PLControl currentFixingPlayer)
@@ -109,11 +131,24 @@ public class CubeBase : MonoBehaviour
     public void CubeCrush()
     {
         handlefix.HealthBarCrush();
-
     }
 
     public int CheckCubeHealth()
     {
         return handlefix.currentBarCount;
+    }
+
+    //旋转瞄准线用
+    public Vector2 RotateVector2(Vector2 v, float deltaAngle)
+    {
+        float rad = deltaAngle * Mathf.Deg2Rad;
+
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+
+        return new Vector2(
+            v.x * cos - v.y * sin,
+            v.x * sin + v.y * cos
+        );
     }
 }
