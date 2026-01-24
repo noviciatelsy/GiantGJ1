@@ -7,14 +7,14 @@ public class GeRiver : MonoBehaviour
     public GameObject riverPrefab;
     public List<GameObject> Rivers;
 
-    private float riverLength = 500f;
+    private float riverLength = 600f;
 
     void Start()
     {
         //在(0,0,0)和（0,0,500）之间生成河流
         SpawnRiver(0f);
-        SpawnRiver(500f);
-        SpawnRiver(1000f);
+        SpawnRiver(600f);
+        SpawnRiver(1200f);
     }
 
     void SpawnRiver(float zPos)

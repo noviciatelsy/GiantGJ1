@@ -10,6 +10,10 @@ public class BoatMove : MonoBehaviour
     public float acceleration = 20f;        // 加速度
     public float deceleration = 15f;        // 减速度（无输入时恢复用）
 
+    private float maxTiltAngle = 4f;         // 最大倾斜角度
+    private float targetTiltAngle;          // 目标倾斜角度
+    private float currentTiltAngle;         // 当前船的倾斜角度
+
     private Vector3 velocity = Vector3.zero;
     private float currentForwardSpeed;
     private float currentHorizontalSpeed;
@@ -32,6 +36,9 @@ public class BoatMove : MonoBehaviour
         {
             ApplyInput(0f, 0);       // 无输入 → 回到基础速度
         }
+
+        // 更新船的倾斜角度（根据横向速度调整）
+        UpdateBoatTilt();
 
         GameData.BoatVelocity = velocity;
     }
@@ -97,6 +104,26 @@ public class BoatMove : MonoBehaviour
     public void  ResetCurrentDriver()
     {
         currentDriver = null;
+    }
+
+    // 更新船的倾斜角度
+    private void UpdateBoatTilt()
+    {
+        // 计算横向速度对应的目标倾斜角度，横向速度越大，倾斜角度越大
+        if (currentHorizontalSpeed != 0)
+        {
+            targetTiltAngle = Mathf.Clamp(-currentHorizontalSpeed / maxHorizontalSpeed * maxTiltAngle, -maxTiltAngle, maxTiltAngle);
+        }
+        else
+        {
+            targetTiltAngle = 0f;  // 无横向速度时，船回到水平
+        }
+
+        // 直接将目标倾斜角度设置为当前倾斜角度（减少惯性）
+        currentTiltAngle = targetTiltAngle;
+
+        // 更新船的旋转，倾斜角度应用到Z轴
+        transform.rotation = Quaternion.Euler(0f, -currentTiltAngle/2, currentTiltAngle);
     }
 
 }
