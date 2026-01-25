@@ -30,7 +30,7 @@ public class Fishing : CubeBase
             float inputX = currentPlayer.moveInput.x;
             if (Mathf.Abs(inputX) < 0.01f) return;
             // 计算本帧旋转角度
-            float deltaAngle = -inputX * rotateSpeed * Time.deltaTime;
+            float deltaAngle = inputX * rotateSpeed * Time.deltaTime;
             //CannonSprite.transform.Rotate(0,0,deltaAngle);
             FishingSprite.transform.Rotate(0, deltaAngle, 0);
         }

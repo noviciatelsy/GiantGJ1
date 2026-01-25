@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611247718667646702}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: 0.1, z: -0.038}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8548357862575804315}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2771797036086374417
 SpriteRenderer:
   serializedVersion: 2
@@ -277,13 +277,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7043811523435874879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12278779, y: -0.6963643, z: 0.12278779, w: 0.6963643}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.04, y: 0.1, z: 0.2}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6301250949807361951}
-  m_LocalEulerAnglesHint: {x: 20, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!212 &3351843620116656350
 SpriteRenderer:
   serializedVersion: 2
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fishing
   cubePos: {x: 0, y: 0}
   isInteracting: 0
-  rotateSpeed: 180
+  rotateSpeed: 90
   FishingSprite: {fileID: 6301250949807361951}
   aimLineDots: {fileID: 8144427819434498299}
   aimLineDots2: {fileID: 2027038359266757594}

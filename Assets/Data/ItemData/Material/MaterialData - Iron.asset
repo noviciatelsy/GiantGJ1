@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b89f0daa7fc0c409b29eb12b79b86b, type: 3}
+  m_Name: MaterialData - Iron
+  m_EditorClassIdentifier: Assembly-CSharp::MaterialItemDataSO
+  itemName: "\u94C1\u7247"
+  itemDescription: "\u575A\u56FA\u7684\u94C1\u7247\uFF0C\u53EF\u7528\u4E8E\u52A0\u56FA\u8239\u4F53"
+  itemID: bf895d5c-40ec-4936-80e4-32116d695cd5
+  itemType: 0
+  itemIcon: {fileID: 1896525157, guid: b5b63a21c0a3311448bed77948a951d0, type: 3}
+  maxStackSize: 16

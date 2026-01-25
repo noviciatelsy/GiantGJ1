@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e036b64f1caf754090ec04599803033, type: 3}
+  m_Name: CubeData - Rudder
+  m_EditorClassIdentifier: Assembly-CSharp::CubeItemDataSO
+  itemName: "\u8235"
+  itemDescription: 
+  itemID: e4708d4b-e4db-4974-a4ec-8f3d328357ad
+  itemType: 1
+  itemIcon: {fileID: 21300000, guid: 131fdb8a92303e741b472f7f87c70385, type: 3}
+  cubePrefab: {fileID: 4589952044035633767, guid: 3f6ab5eb30dc3b44185576005b403596, type: 3}
+  cubeToShow: {fileID: 0}
+  howToUse: "\u6309\u4E0B\u952E\u76D8\u201DE\u201C/\u624B\u67C4\u201DA\"\u6765\u64CD\u4F5C\u8239\u8235\uFF0C\u518D\u6B21\u6309\u4E0B\u53EF\u9000\u51FA\u64CD\u4F5C\u3002\n\u64CD\u4F5C\u671F\u95F4\u53EF\u4EE5\u901A\u8FC7\u65B9\u5411\u6309\u952E\u8C03\u6574\u8239\u53EA\u884C\u8FDB\u901F\u5EA6\n"
