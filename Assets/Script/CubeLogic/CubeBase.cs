@@ -98,6 +98,12 @@ public class CubeBase : MonoBehaviour
         isInteracting = false;
     }
 
+    public virtual void OnEasyInteract()
+    {
+        Debug.Log("EndInteract");
+        isInteracting = false;
+    }
+
     public void OnRepairBegin(PLControl currentFixingPlayer)
     {
         handlefix.StartFix(currentFixingPlayer);
