@@ -619,7 +619,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   cubePos: {x: 0, y: 0}
   isInteracting: 0
-  CanBeUse: 1
   rotateSpeed: 90
   CannonSprite: {fileID: 4084508772228165700}
   aimLineDots: {fileID: 638562621674847393}
@@ -640,11 +639,10 @@ MonoBehaviour:
   aimLineDotPrefab: {fileID: 2369385069951048656, guid: 5696b2841514c5141bf819be98252d44, type: 3}
   dotsAmount: 12
   dotDistance: 0.35
-  isLand: 0
+  maxHeight: 0.35
   cutT: 0.75
   forwardStretch: 1.1
   aimLineDotsTranform: {fileID: 638562621674847393}
-  landPointPrefab: {fileID: 1282431908679554348, guid: 7581ee89380798c429bae3a3a0bd0230, type: 3}
 --- !u!1 &4787487025348253580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7325484858116251021, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
