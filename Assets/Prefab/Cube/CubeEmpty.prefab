@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: CubeCrushed
       value: 
       objectReference: {fileID: 7753050426355575065}
+    - target: {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+      propertyPath: canBeInteracted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1331882959072976545, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
       propertyPath: m_Name
       value: CubeEmpty

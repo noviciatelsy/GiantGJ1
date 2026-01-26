@@ -2,7 +2,7 @@ using System;
 
 
 [Serializable]
-public class Inventory_ItemSlot
+public class InventoryItemSlot
 {
     public InventoryItem itemInSlot; // 槽位所填充的物品InventoryItem对象
 

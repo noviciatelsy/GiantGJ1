@@ -2,35 +2,44 @@ using UnityEngine;
 
 public class StorageCube : CubeBase
 {
-    void Start()
-    {
+    private InventoryStorage inventoryStorage;
 
+    // 临时测试用
+    [SerializeField] private ItemDataSO wood;
+    [SerializeField] private ItemDataSO iron;
+    [SerializeField] private ItemDataSO cannon;
+    [SerializeField] private ItemDataSO fishing;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        inventoryStorage = GetComponent<InventoryStorage>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        
+        if(Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            inventoryStorage.AddItem(wood, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            inventoryStorage.AddItem(iron, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            inventoryStorage.AddItem(cannon, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            inventoryStorage.AddItem(fishing, 1);
+        }
     }
-
-    public override void OnInteractEnter()
+    public override void OnEasyInteract()
     {
-        base.OnInteractEnter();
-        Debug.Log("储物箱：开始控制储物箱");
-
-    }
-
-    public override void OnInteractExit()
-    {
-        base.OnInteractExit();
-        Debug.Log("储物箱：停止控制储物箱");
-
-    }
-
-    public override void OnCubeUse()
-    {
-        base.OnCubeUse();
-        //other function
+        base.OnEasyInteract();
+        LevelUI.Instance.ToggleStoragePanel(inventoryStorage);
     }
 
 }

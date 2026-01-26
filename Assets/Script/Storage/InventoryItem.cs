@@ -11,5 +11,9 @@ public class InventoryItem
         this.ItemData = ItemData;
     }
 
-    
+    public bool CanAddStack()
+    {
+        return stackSize < ItemData.maxStackSize;
+    }
+
 }

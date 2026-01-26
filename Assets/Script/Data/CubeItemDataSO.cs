@@ -4,6 +4,6 @@ using UnityEngine;
 public class CubeItemDataSO : ItemDataSO
 {
     public GameObject cubePrefab; // 用于从SO中提取的cube预制体
-    public GameObject cubeToShow; // 用于展示的模型
+    public Sprite spriteToShow; // 用于展示的贴图
     [TextArea] public string howToUse; 
 }

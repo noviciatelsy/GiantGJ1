@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Vector3 multiPlayerTwoSpawnPosition;
     private bool isMultiPlayer=false;
 
+    public GameObject playerKeyboard {  get; private set; }
+    public GameObject playerGamepad {  get; private set; }
     public void SpawnPlayer()
     {
         if (isMultiPlayer)
@@ -25,16 +27,16 @@ public class PlayerManager : MonoBehaviour
 
     private void SpawnSinglePlayer()
     {
-        GameObject player=Instantiate(playerKeyboardPrefab,singlePlayerSpwanPosition,Quaternion.identity,transform);
+        playerKeyboard=Instantiate(playerKeyboardPrefab,singlePlayerSpwanPosition,Quaternion.identity,transform);
     }
 
     private void SpawnMultiPlayerOne()
     {
-        GameObject player = Instantiate(playerKeyboardPrefab, multiPlayerOneSpawnPosition, Quaternion.identity,transform);
+        playerKeyboard = Instantiate(playerKeyboardPrefab, multiPlayerOneSpawnPosition, Quaternion.identity,transform);
     }
     private void SpawnMultiPlayerTwo()
     {
-        GameObject player = Instantiate(playerGamepadPrefab, multiPlayerTwoSpawnPosition, Quaternion.identity,transform);
+        playerGamepad = Instantiate(playerGamepadPrefab, multiPlayerTwoSpawnPosition, Quaternion.identity,transform);
     }
 
     public void SetSinglePlayer()
@@ -46,6 +48,5 @@ public class PlayerManager : MonoBehaviour
     {
         isMultiPlayer = true;
     }
-
 
 }
