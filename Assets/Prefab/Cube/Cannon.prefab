@@ -638,11 +638,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AimLine
   aimLineDotPrefab: {fileID: 2369385069951048656, guid: 5696b2841514c5141bf819be98252d44, type: 3}
   dotsAmount: 12
-  dotDistance: 0.35
-  maxHeight: 0.35
+  currentLength: 5
+  isLand: 0
   cutT: 0.75
-  forwardStretch: 1.1
   aimLineDotsTranform: {fileID: 638562621674847393}
+  landPointPrefab: {fileID: 2095598194738954439, guid: 3fbb90a5ab34edd45916ef407f050d85, type: 3}
 --- !u!1 &4787487025348253580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7325484858116251021, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}

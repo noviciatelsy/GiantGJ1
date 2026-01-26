@@ -148,6 +148,10 @@ public class PLControl : MonoBehaviour
         {
             currentCube.OnCubeUse();
         }
+        else if (context.canceled)
+        {
+            currentCube.EndCubeUse();
+        }
     }
 
     private void HandleShortPress()

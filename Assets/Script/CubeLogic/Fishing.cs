@@ -11,16 +11,20 @@ public class Fishing : CubeBase
     [SerializeField] private Transform aimLineDots;
     [SerializeField] private Transform aimLineDots2; //子弹发射点
 
-    //private LineRenderer aimLine;
-    //private float aimLineLength = 25f;
+    private AimLine aimLine;
+    private float chargeTimer = 0f;
+    private float maxChargetime = 3.0f;
+    private bool isCharging = false;
+    private float mindist = 1.5f;
+    private float maxdist = 10.0f;
 
     protected override void Awake()
     {
         base.Awake();
         boatMove = GetComponentInParent<BoatMove>();
         aimLineDots.gameObject.SetActive(false);
-        //if (aimLine == null)
-        //    aimLine = GetComponentInChildren<LineRenderer>();
+        if (aimLine == null)
+            aimLine = GetComponent<AimLine>();
     }
 
     void Update()
@@ -28,12 +32,24 @@ public class Fishing : CubeBase
         if (isInteracting && currentPlayer != null)
         {
             float inputX = currentPlayer.moveInput.x;
-            if (Mathf.Abs(inputX) < 0.01f) return;
-            // 计算本帧旋转角度
-            float deltaAngle = inputX * rotateSpeed * Time.deltaTime;
-            //CannonSprite.transform.Rotate(0,0,deltaAngle);
-            FishingSprite.transform.Rotate(0, deltaAngle, 0);
+            if (Mathf.Abs(inputX) >= 0.01f)
+            {
+                float deltaAngle = inputX * rotateSpeed * Time.deltaTime;
+                FishingSprite.transform.Rotate(0, deltaAngle, 0);
+            }
         }
+
+        if (isCharging && aimLine != null)
+        {
+            chargeTimer += Time.deltaTime;
+            float t = Mathf.Clamp01(chargeTimer / maxChargetime);
+
+            float dist = Mathf.Lerp(mindist, maxdist, t);
+            aimLine.currentLength = dist;
+            //Debug.Log(dist);
+        }
+
+
     }
 
 
@@ -43,6 +59,12 @@ public class Fishing : CubeBase
         //aimLine.enabled=true;
         aimLineDots.gameObject.SetActive(true);
         Debug.Log("钓鱼竿：开始控制钓鱼竿");
+
+        if (aimLine == null)
+        {
+            return;
+        }
+        aimLine.currentLength = mindist;
 
     }
 
@@ -59,6 +81,24 @@ public class Fishing : CubeBase
     {
         base.OnCubeUse();
         Debug.Log("使用钓鱼竿");
+        if (aimLine == null)
+        {
+            return;
+        }
 
+        if (!isCharging)
+        {
+            aimLine.currentLength = mindist;
+            isCharging = true;
+            chargeTimer = 0f;
+        }
+
+    }
+
+    public override void EndCubeUse()
+    {
+        base.EndCubeUse();
+
+        isCharging = false;
     }
 }

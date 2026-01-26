@@ -481,11 +481,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AimLine
   aimLineDotPrefab: {fileID: 2369385069951048656, guid: 5696b2841514c5141bf819be98252d44, type: 3}
   dotsAmount: 18
-  dotDistance: 0.35
-  maxHeight: 0.5
+  currentLength: 1.5
+  isLand: 1
   cutT: 0.75
-  forwardStretch: 1.1
   aimLineDotsTranform: {fileID: 8144427819434498299}
+  landPointPrefab: {fileID: 2095598194738954439, guid: 3fbb90a5ab34edd45916ef407f050d85, type: 3}
 --- !u!4 &4377647213599133790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2841810173931794090, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
