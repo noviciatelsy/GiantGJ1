@@ -13,6 +13,7 @@ public class CubeBase : MonoBehaviour
     public int landNumber {  get; private set; }
 
     public bool isInteracting = false;
+    public bool CanBeUse = true;  // «∑Ò‘ –ÌΩªª•
 
     protected virtual void Awake()
     {
@@ -113,6 +114,11 @@ public class CubeBase : MonoBehaviour
     public virtual void OnCubeUse()
     {
         Debug.Log("Use"+gameObject.name);
+    }
+
+    public virtual void EndCubeUse()
+    {
+        Debug.Log("EndUse" + gameObject.name);
     }
 
     public PLControl GetCurrentFixingPlayer()

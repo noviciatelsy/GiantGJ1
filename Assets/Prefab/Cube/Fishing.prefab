@@ -463,6 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fishing
   cubePos: {x: 0, y: 0}
   isInteracting: 0
+  CanBeUse: 1
   rotateSpeed: 90
   FishingSprite: {fileID: 6301250949807361951}
   aimLineDots: {fileID: 8144427819434498299}
@@ -480,12 +481,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimLine
   aimLineDotPrefab: {fileID: 2369385069951048656, guid: 5696b2841514c5141bf819be98252d44, type: 3}
-  dotsAmount: 18
+  dotsAmount: 15
   dotDistance: 0.35
-  maxHeight: 0.5
+  isLand: 1
   cutT: 0.75
   forwardStretch: 1.1
   aimLineDotsTranform: {fileID: 8144427819434498299}
+  landPointPrefab: {fileID: 1282431908679554348, guid: 7581ee89380798c429bae3a3a0bd0230, type: 3}
 --- !u!4 &4377647213599133790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2841810173931794090, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}

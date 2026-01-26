@@ -140,13 +140,17 @@ public class PLControl : MonoBehaviour
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if(!isInteracting)
+        if (!isInteracting)
         {
-            return ;
+            return;
         }
         if (context.performed)
         {
             currentCube.OnCubeUse();
+        }
+        else if (context.canceled)
+        {
+            currentCube.EndCubeUse();
         }
     }
 

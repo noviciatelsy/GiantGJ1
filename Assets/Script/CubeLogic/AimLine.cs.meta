@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 919d0138aa0a10d49a7509a8d5858010
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - aimLineDotPrefab: {instanceID: 0}
+  - aimLineDotsTranform: {instanceID: 0}
+  - landPointPrefab: {fileID: 1282431908679554348, guid: 7581ee89380798c429bae3a3a0bd0230, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
