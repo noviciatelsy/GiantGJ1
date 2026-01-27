@@ -3,6 +3,7 @@ using UnityEngine;
 public class StorageCube : CubeBase
 {
     private InventoryStorage inventoryStorage;
+    public static StorageCube Instance;
 
     // ¡Ÿ ±≤‚ ‘”√
     [SerializeField] private ItemDataSO wood;
@@ -14,6 +15,12 @@ public class StorageCube : CubeBase
     {
         base.Awake();
         inventoryStorage = GetComponent<InventoryStorage>();
+        if(Instance!=null&&Instance!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
     private void Update()
@@ -21,19 +28,19 @@ public class StorageCube : CubeBase
         
         if(Input.GetKeyUp(KeyCode.Alpha1))
         {
-            inventoryStorage.AddItem(wood, 1);
+            GetItem(wood, 1);
         }
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            inventoryStorage.AddItem(iron, 1);
+            GetItem(iron, 1);
         }
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
-            inventoryStorage.AddItem(cannon, 1);
+            GetItem(cannon, 1);
         }
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
-            inventoryStorage.AddItem(fishing, 1);
+            GetItem(fishing, 1);
         }
     }
     public override void OnEasyInteract(PLControl interactPlayer)
@@ -42,4 +49,9 @@ public class StorageCube : CubeBase
         LevelUI.Instance.ToggleStoragePanel(inventoryStorage,interactPlayer);
     }
 
+
+    public void GetItem(ItemDataSO itemToGet,int amount)
+    {
+        inventoryStorage.AddItem(itemToGet, amount);
+    }
 }

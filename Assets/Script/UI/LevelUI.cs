@@ -4,7 +4,7 @@ public class LevelUI : MonoBehaviour
 {
     public static LevelUI Instance;
     public StoragePanel storagePanel { get; private set; }
-    public CubeDetails[] cubeDetails {  get; private set; }
+    public CubeDetailsUI[] cubeDetails {  get; private set; }
     private bool timeIsPaused = false;
     private bool storagePanelEnabled;
     private void Awake()
@@ -16,7 +16,7 @@ public class LevelUI : MonoBehaviour
         }
         Instance = this;
         storagePanel = GetComponentInChildren<StoragePanel>(true);
-        cubeDetails = GetComponentsInChildren<CubeDetails>(true);
+        cubeDetails = GetComponentsInChildren<CubeDetailsUI>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
     }
 

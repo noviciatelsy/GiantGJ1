@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CubeDetails : MonoBehaviour
+public class CubeDetailsUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI cubeName;
     [SerializeField] private Image cubeIcon;

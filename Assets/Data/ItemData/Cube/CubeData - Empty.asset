@@ -21,3 +21,6 @@ MonoBehaviour:
   cubePrefab: {fileID: 0}
   spriteToShow: {fileID: 0}
   howToUse: 
+  materialsToRepair:
+  - materialData: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
+    amount: 1

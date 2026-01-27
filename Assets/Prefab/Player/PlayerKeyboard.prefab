@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerKeyboard
       objectReference: {fileID: 0}
+    - target: {fileID: 5862462215992325065, guid: dbf13df95a8faac4295b9fa9773f5567, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f122d6801165c74cacf39c373cf0b0d, type: 3}
+    - target: {fileID: 7118645393644182375, guid: dbf13df95a8faac4295b9fa9773f5567, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 376c4f060a4872848a16be56df1b4849, type: 2}
     - target: {fileID: 8271331932707630184, guid: dbf13df95a8faac4295b9fa9773f5567, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

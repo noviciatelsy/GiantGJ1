@@ -15,19 +15,26 @@ public class PLControl : MonoBehaviour
     private bool isInteracting = false;
     private bool longPressTriggered;
 
+    private Animator animator;
     public Vector2 moveInput { get; private set; } // 缓存的移动输入（来自 PlayerInput 的回调）
 
     // currentCube判定
     private CubeBase currentCube;
     private readonly List<CubeBase> nearbyCubes = new List<CubeBase>(); // 所有进入交互范围的 Cube
     private float refreshCurrentCubeInterval = 0.1f;
-    private float refreshCurrentCubeITimer=0f;
+    private float refreshCurrentCubeITimer = 0f;
 
     // 局内UI
-    private CubeDetails currentCubeDetailsUI;
+    private CubeDetailsUI currentCubeDetailsUI;
 
     // 浮块替换
-    public CubeItemDataSO cubeToEquip {  get; private set; }
+    public CubeItemDataSO cubeToEquip { get; private set; }
+    [SerializeField] private SpriteRenderer cubeToEquipSprite;
+    [SerializeField] private Sprite emptySprite;
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
 
     void Start()
     {
@@ -59,9 +66,18 @@ public class PLControl : MonoBehaviour
 
     private void HandlePLMove()
     {
-        if(isInteracting)
+        if (isInteracting) // 交互阶段强制静止
         {
+            animator.SetBool("isMoving", false);
             return;
+        }
+        if (moveInput != Vector2.zero)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
         Vector3 delta = new Vector3(
             moveInput.x * playerSpeed * Time.fixedDeltaTime,
@@ -110,7 +126,7 @@ public class PLControl : MonoBehaviour
         if (context.started)
         {
             longPressTriggered = false;
-            if(!isInteracting&&currentCube.GetCurrentFixingPlayer()==null) 
+            if (!isInteracting && currentCube.GetCurrentFixingPlayer() == null)
             // 如果在非互动阶段且玩家没有在修理该浮块
             {
                 currentCube.OnRepairBegin(this); // 标记为开始累计修理时间
@@ -145,14 +161,15 @@ public class PLControl : MonoBehaviour
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if(!isInteracting)
+        if (!isInteracting)
         {
-            return ;
+            return;
         }
         if (currentCube.currentPlayer != this)
         {
             return;
-        } 
+        }
+        if (currentCube.CheckCubeHealth() == 0) return; // 完全损坏就无法使用
         if (context.performed)
         {
             currentCube.OnCubeUse();
@@ -166,11 +183,11 @@ public class PLControl : MonoBehaviour
     private void HandleShortPress()
     {
         if (currentCube == null) return; // 如果脚下没有浮块
-        if(currentCube.currentPlayer!=null&&currentCube.currentPlayer!=this)
+        if (currentCube.currentPlayer != null && currentCube.currentPlayer != this)
         {
             return;
         } //  如果其他玩家正在操作该浮块
-        if(currentCube.allowInteract==false) // 如果该浮块不支持交互
+        if (currentCube.allowInteract == false) // 如果该浮块不支持交互
         {
             return;
         }
@@ -198,7 +215,7 @@ public class PLControl : MonoBehaviour
 
     }
 
-  
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -241,8 +258,8 @@ public class PLControl : MonoBehaviour
             if (cube == null) continue;
 
             float dist = Vector2.Distance(
-                 new Vector2( transform.position.x,transform.position.z),
-                new Vector2( cube.transform.position.x,cube.transform.position.z)
+                 new Vector2(transform.position.x, transform.position.z),
+                new Vector2(cube.transform.position.x, cube.transform.position.z)
             );
 
             if (dist < minDist)
@@ -275,7 +292,7 @@ public class PLControl : MonoBehaviour
 
     private void FindNearestCube()
     {
-        if(refreshCurrentCubeITimer<refreshCurrentCubeInterval)
+        if (refreshCurrentCubeITimer < refreshCurrentCubeInterval)
         {
             refreshCurrentCubeITimer += Time.deltaTime;
             return;
@@ -288,18 +305,25 @@ public class PLControl : MonoBehaviour
         }
     }
 
-    public void SetCubeDetailsUI(CubeDetails cubeDetails)
+    public void SetCubeDetailsUI(CubeDetailsUI cubeDetails)
     {
         currentCubeDetailsUI = cubeDetails;
     }
 
     public void SetCubeToEquip(CubeItemDataSO cubeData)
     {
-        cubeToEquip=cubeData;
+        cubeToEquip = cubeData;
+        cubeToEquipSprite.sprite=cubeData.spriteToShow;
     }
 
     public void ResetCubeToEquip()
     {
         cubeToEquip = null;
+        cubeToEquipSprite.sprite = emptySprite;
+    }
+
+    public void SetPlayerInteractingState(bool isInteracting)
+    {
+        this.isInteracting = isInteracting;
     }
 }

@@ -135,6 +135,12 @@ public class CubeBase : MonoBehaviour
     public void CubeCrush()
     {
         handlefix.HealthBarCrush();
+        if(CheckCubeHealth()==1&&currentPlayer!=null) // 如果撞坏时（被撞时剩1血）刚好有玩家处于交互
+        {
+            currentPlayer.SetPlayerInteractingState(false); // 强制人物退出交互
+            SetCurrentPlayer(null);
+            OnInteractExit();
+        }
     }
 
     public int CheckCubeHealth()
