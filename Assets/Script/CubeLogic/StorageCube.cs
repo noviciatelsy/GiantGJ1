@@ -36,10 +36,10 @@ public class StorageCube : CubeBase
             inventoryStorage.AddItem(fishing, 1);
         }
     }
-    public override void OnEasyInteract()
+    public override void OnEasyInteract(PLControl interactPlayer)
     {
-        base.OnEasyInteract();
-        LevelUI.Instance.ToggleStoragePanel(inventoryStorage);
+        base.OnEasyInteract(interactPlayer);
+        LevelUI.Instance.ToggleStoragePanel(inventoryStorage,interactPlayer);
     }
 
 }

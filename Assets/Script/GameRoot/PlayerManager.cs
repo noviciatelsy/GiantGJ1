@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Vector3 multiPlayerOneSpawnPosition;
     [SerializeField] private Vector3 multiPlayerTwoSpawnPosition;
     private bool isMultiPlayer=false;
-    public Action onPlayerSpawned;
+    public event Action onPlayerSpawned;
 
     public GameObject playerKeyboard {  get; private set; }
     public GameObject playerGamepad {  get; private set; }

@@ -36,21 +36,21 @@ public class LevelUI : MonoBehaviour
         }
     }
 
-    public void ToggleStoragePanel(InventoryStorage currentStorage)
+    public void ToggleStoragePanel(InventoryStorage currentStorage,PLControl interactPlayer)
     {
         storagePanelEnabled = !storagePanelEnabled;
         if (storagePanelEnabled) // 如果要开启面板
         {
             PauseGame(true);
-            storagePanel.SetCurrentStorage(currentStorage); // 传入当前storage
+            storagePanel.SetupStoragePanel(currentStorage,interactPlayer); // 传入当前storage和interactPlayer
             storagePanel.gameObject.SetActive(true);
 
         }
         else
         {
             PauseGame(false);
-            storagePanel.ResetCurrentStorage();
             storagePanel.gameObject.SetActive(false);
+            storagePanel.ResetStoragePanel();
         }
     }
 
@@ -87,7 +87,7 @@ public class LevelUI : MonoBehaviour
     {
         if (storagePanelEnabled)
         {
-            ToggleStoragePanel(null);
+            ToggleStoragePanel(null,null);
         }
 
     }

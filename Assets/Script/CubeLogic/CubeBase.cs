@@ -16,6 +16,8 @@ public class CubeBase : MonoBehaviour
     public bool isInteracting = false;
     public bool shouldMoveCurrentPlayerToCentre=false;
     public bool allowInteract=false;
+
+    protected Vector3 positionOffset = Vector3.down * 0.8f;
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
@@ -42,7 +44,7 @@ public class CubeBase : MonoBehaviour
         landNumber++;
         if(landNumber==1)
         {
-            StartCoroutine(MoveToCoroutine(transform, transform.position + Vector3.down * 0.8f, 0.1f));
+            StartCoroutine(MoveToCoroutine(transform, transform.position + positionOffset, 0.1f));
         }
         chosenImage.ChooseCube();
     }
@@ -51,7 +53,7 @@ public class CubeBase : MonoBehaviour
         landNumber--;
         if(landNumber==0)
         {
-            StartCoroutine(MoveToCoroutine(transform, transform.position - Vector3.down * 0.8f, 0.1f));
+            StartCoroutine(MoveToCoroutine(transform, transform.position - positionOffset, 0.1f));
         }
         chosenImage.EndChooseCube();
     }
@@ -93,7 +95,7 @@ public class CubeBase : MonoBehaviour
         isInteracting = false;
     }
 
-    public virtual void OnEasyInteract()
+    public virtual void OnEasyInteract(PLControl interactPlayer)
     {
 
     }

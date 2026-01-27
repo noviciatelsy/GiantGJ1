@@ -72,11 +72,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1331882959072976545, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8564394767453777874}
   m_SourcePrefab: {fileID: 100100000, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+--- !u!1 &4016681917574021225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1331882959072976545, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+  m_PrefabInstance: {fileID: 2721813076894342856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8564394767453777874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016681917574021225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b70553d5c0b2684eb818be457c55b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmptyCube
+  cubePos: {x: 0, y: 0}
+  cubeData: {fileID: 11400000, guid: 682d61bc54e164f4b913920d638bd1c3, type: 2}
+  isInteracting: 0
+  shouldMoveCurrentPlayerToCentre: 0
+  allowInteract: 1
 --- !u!1 &4642238388794639173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7325484858116251021, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}

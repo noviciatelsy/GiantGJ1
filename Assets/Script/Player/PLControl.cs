@@ -26,6 +26,9 @@ public class PLControl : MonoBehaviour
     // ¾ÖÄÚUI
     private CubeDetails currentCubeDetailsUI;
 
+    // ¸¡¿éÌæ»»
+    public CubeItemDataSO cubeToEquip {  get; private set; }
+
     void Start()
     {
         TransMoveLimit();
@@ -190,7 +193,7 @@ public class PLControl : MonoBehaviour
         }
         else
         {
-            currentCube.OnEasyInteract();
+            currentCube.OnEasyInteract(this);
         }
 
     }
@@ -288,5 +291,15 @@ public class PLControl : MonoBehaviour
     public void SetCubeDetailsUI(CubeDetails cubeDetails)
     {
         currentCubeDetailsUI = cubeDetails;
+    }
+
+    public void SetCubeToEquip(CubeItemDataSO cubeData)
+    {
+        cubeToEquip=cubeData;
+    }
+
+    public void ResetCubeToEquip()
+    {
+        cubeToEquip = null;
     }
 }

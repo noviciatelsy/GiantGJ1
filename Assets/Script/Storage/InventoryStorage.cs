@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class InventoryStorage : MonoBehaviour
     [SerializeField] private int maxCubeSize = 16; // 浮块储存容量
     public List<InventoryItemSlot> materialItemSlotList = new(); // 材料物品槽位列表
     public List<InventoryItemSlot> cubeItemSlotList = new(); // 浮块物品槽位列表
-
+    public event Action onStorageChanged;
 
     public void AddItem(ItemDataSO itemData, int amount)
     {
@@ -46,8 +47,31 @@ public class InventoryStorage : MonoBehaviour
                 amount -= take;
             }
         }
+        onStorageChanged?.Invoke();
+    }
+
+    public void DiscardMaterialAtSlot(int slotIndex)
+    {
+        var slot=materialItemSlotList[slotIndex];
+        slot.itemInSlot=null; // 清空该格子
+        onStorageChanged?.Invoke();
     }
     
+    public void DiscardCubeAtSlot(int slotIndex)
+    {
+        var slot = cubeItemSlotList[slotIndex];
+        slot.itemInSlot = null; // 清空该格子
+        onStorageChanged?.Invoke();
+    }
+
+    public CubeItemDataSO equipCubeAtSlot(int slotIndex)
+    {
+        var slot = cubeItemSlotList[slotIndex];
+        var cubeData=slot.itemInSlot;
+        slot.itemInSlot = null; // 清空该格子
+        onStorageChanged?.Invoke();
+        return (CubeItemDataSO)cubeData.ItemData;
+    }
 
     private void ConsumeMaterialsOf(ItemDataSO itemToConsume, int requiredAmount)
     {
@@ -94,6 +118,7 @@ public class InventoryStorage : MonoBehaviour
                 }
             }
         }
+        onStorageChanged?.Invoke();
     }
 
     public bool HasEnoughMaterialsOf(ItemDataSO itemToConsume, int requiredAmount)

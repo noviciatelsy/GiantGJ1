@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerDownHandler,IPointerClickHandler
 {
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Image itemIcon;
@@ -58,6 +58,58 @@ public class SlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(itemInSlot != null )
         {
             storagePanel.itemToolTip.ShowToolTip(false, rect,itemInSlot);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData) // 右键事件
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (itemInSlot == null) // 该格中没有物品则无事发生
+            {
+                return;
+            }
+            if(storagePanel.interactPlayer==null)
+            {
+                return ;
+            }
+            if(storagePanel.interactPlayer.cubeToEquip!=null) // 如果已有待装配的浮块
+            {
+                return;
+            }
+
+            if (itemInSlot.ItemData.itemType == ItemType.material)
+            {
+                return;
+            }
+            else
+            {
+                CubeItemDataSO cubeData = storagePanel.currentStorage.equipCubeAtSlot(slotIndex);
+                storagePanel.interactPlayer.SetCubeToEquip(cubeData); // 将该浮块作为待装配
+                storagePanel.itemToolTip.ShowToolTip(false, rect, itemInSlot);
+
+            }
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData) // 左键事件
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (itemInSlot == null) // 该格中没有物品则无事发生
+            {
+                return;
+            }
+            if (itemInSlot.ItemData.itemType == ItemType.material)
+            {
+                storagePanel.currentStorage.DiscardMaterialAtSlot(slotIndex); // 弃置该格材料
+                storagePanel.itemToolTip.ShowToolTip(false, rect, itemInSlot);
+            }
+            else
+            {
+                storagePanel.currentStorage.DiscardCubeAtSlot(slotIndex); // 弃置该格浮块
+                storagePanel.itemToolTip.ShowToolTip(false, rect, itemInSlot);
+            }
         }
     }
 }

@@ -6,22 +6,41 @@ public class StoragePanel : MonoBehaviour
     [SerializeField] private Transform materialItemSlotsParnet;
     [SerializeField] private Transform cubeItemSlotsParent;
 
-    private InventoryStorage currentStorage; // 当前操作的InventoryStorage对象
+    public InventoryStorage currentStorage { get; private set; } // 当前操作的InventoryStorage对象
+    public PLControl interactPlayer { get; private set; } // 当前查看storage面板的玩家
     private SlotUI[] materialItemSlots;
     private SlotUI[] cubeItemSlots;
-    public UI_ItemToolTip itemToolTip {  get; private set; }
+    public UI_ItemToolTip itemToolTip { get; private set; }
 
     private void Awake()
     {
-        materialItemSlots=materialItemSlotsParnet.GetComponentsInChildren<SlotUI>();
-        cubeItemSlots=cubeItemSlotsParent.GetComponentsInChildren<SlotUI>();
+        materialItemSlots = materialItemSlotsParnet.GetComponentsInChildren<SlotUI>();
+        cubeItemSlots = cubeItemSlotsParent.GetComponentsInChildren<SlotUI>();
         itemToolTip = GetComponentInChildren<UI_ItemToolTip>();
-        enabled=gameObject.activeSelf;
+
+        for (int i = 0; i < materialItemSlots.Length; i++)
+        {
+            materialItemSlots[i].BindItemIndex(i);
+        }
+        for (int i = 0; i < cubeItemSlots.Length; i++)
+        {
+            cubeItemSlots[i].BindItemIndex(i);
+        }
     }
 
     private void OnEnable()
     {
+        if (currentStorage != null)
+        {
+            currentStorage.onStorageChanged += UpdateStoragePanel;
+        }
+
         UpdateStoragePanel();
+    }
+
+    private void OnDisable()
+    {
+        currentStorage.onStorageChanged -= UpdateStoragePanel;
     }
 
 
@@ -34,11 +53,11 @@ public class StoragePanel : MonoBehaviour
 
     private void UpdateMaterialItemSlots()
     {
-        List<InventoryItemSlot> materialItemSlotList=currentStorage.materialItemSlotList;
-        for(int i=0; i<materialItemSlots.Length; i++)
+        List<InventoryItemSlot> materialItemSlotList = currentStorage.materialItemSlotList;
+        for (int i = 0; i < materialItemSlots.Length; i++)
         {
-            InventoryItemSlot materialSlot=materialItemSlotList[i]; 
-            if(materialSlot.HasItem()) // 如果该槽位有物品
+            InventoryItemSlot materialSlot = materialItemSlotList[i];
+            if (materialSlot.HasItem()) // 如果该槽位有物品
             {
                 materialItemSlots[i].UpdateSlot(materialSlot.itemInSlot); // 显示物品
             }
@@ -51,11 +70,11 @@ public class StoragePanel : MonoBehaviour
 
     private void UpdateCubeItemSlots()
     {
-        List<InventoryItemSlot> cubeItemSlotList=currentStorage.cubeItemSlotList;
-        for( int i=0;i<cubeItemSlots.Length;i++)
+        List<InventoryItemSlot> cubeItemSlotList = currentStorage.cubeItemSlotList;
+        for (int i = 0; i < cubeItemSlots.Length; i++)
         {
-            InventoryItemSlot cubeSlot=cubeItemSlotList[i];
-            if(cubeSlot.HasItem())
+            InventoryItemSlot cubeSlot = cubeItemSlotList[i];
+            if (cubeSlot.HasItem())
             {
                 cubeItemSlots[i].UpdateSlot(cubeSlot.itemInSlot);
             }
@@ -66,14 +85,16 @@ public class StoragePanel : MonoBehaviour
         }
     }
 
-    public void SetCurrentStorage(InventoryStorage storage)
+    public void SetupStoragePanel(InventoryStorage storage,PLControl player)
     {
         currentStorage = storage;
+        interactPlayer = player;
     }
 
-    public void ResetCurrentStorage()
+    public void ResetStoragePanel()
     {
         currentStorage = null;
+        interactPlayer = null;
     }
 
 }
