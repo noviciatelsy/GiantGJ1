@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CubeData - Rudder
   m_EditorClassIdentifier: Assembly-CSharp::CubeItemDataSO
   itemName: "\u8235"
-  itemDescription: 
+  itemDescription: "\u63A7\u5236\u65B9\u5411\u7684\u8239\u8235"
   itemID: e4708d4b-e4db-4974-a4ec-8f3d328357ad
   itemType: 1
   itemIcon: {fileID: 21300000, guid: 131fdb8a92303e741b472f7f87c70385, type: 3}

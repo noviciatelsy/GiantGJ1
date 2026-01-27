@@ -9,13 +9,13 @@ public class CubeBase : MonoBehaviour
     public CubeItemDataSO cubeData;
 
     public PLControl currentPlayer {  get; private set; }
-    private HandleFix handlefix;
+    public HandleFix handlefix;
     private ChosenImage chosenImage;
     public int landNumber {  get; private set; }
 
     public bool isInteracting = false;
-    public bool shouldMoveCurrentPlayerToCentre=false;
-    public bool allowInteract=false;
+    public bool shouldMoveCurrentPlayerToCentre = false;
+    public bool allowInteract = false;
 
     protected Vector3 positionOffset = Vector3.down * 0.8f;
     protected virtual void Awake()
@@ -161,4 +161,6 @@ public class CubeBase : MonoBehaviour
             v.x * sin + v.y * cos
         );
     }
+
+
 }
