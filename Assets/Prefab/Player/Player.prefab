@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3224330217839199693}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,6 +242,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b7842392-c2bd-4f4e-bce9-01e24ab93dd9
     m_ActionName: 'Player/Use[/XInputControllerWindows/rightShoulder,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6077297-bf72-4e7b-8c6e-dc962b84f0c1
+    m_ActionName: 'UI/New action[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: -876546973899608171, guid: 25a0ebb4827f3cc47a1af2c79005f65b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,8 +119,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 55.4, y: 1.57, z: 39.8}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 3, y: 4, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4102128372648184183}
   - {fileID: 8019649443409780008}
@@ -145,8 +145,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.1381593, y: 5.4997754, z: 1.9810623}
-  m_Center: {x: -0.05882111, y: 0.016010094, z: 0.74671406}
+  m_Size: {x: 4.5088496, y: 7.7137194, z: 1.9810623}
+  m_Center: {x: -0.012403488, y: 0.9563157, z: 0.7467141}
 --- !u!114 &8658598168486970010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: -876546973899608171, guid: 25a0ebb4827f3cc47a1af2c79005f65b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

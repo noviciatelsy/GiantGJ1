@@ -48,12 +48,12 @@ public class PLControl : MonoBehaviour
     public void TransMoveLimit()
     {
         int isodd = boatSize.y % 2;
-        moveLimitY.x = -5;
-        moveLimitY.y = -5 + boatSize.x * 10;
+        moveLimitY.x = 2f;
+        moveLimitY.y = 2f + boatSize.x * 10;
         moveLimitX.x = -boatSize.y / 2 * 10 - isodd * 5;
         moveLimitX.y = boatSize.y / 2 * 10 + isodd * 5;
         //Debug.Log("PL Move Limit X: " + moveLimitX);
-        //Debug.Log("PL Move Limit Y: " + moveLimitY);
+        Debug.Log("PL Move Limit Y: " + moveLimitY);
     }
 
 

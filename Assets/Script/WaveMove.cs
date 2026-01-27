@@ -3,7 +3,7 @@ using UnityEngine;
 public class WaveMove : MonoBehaviour
 {
     public float Xlimit = 5f;
-    public float Ylimit = 5f;
+    public float Ylimit = 3f;
     private float xOffset;
     private float yOffset;
     private float time;
@@ -17,7 +17,7 @@ public class WaveMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        time += Time.fixedDeltaTime;
+        time += Time.fixedDeltaTime * 0.6f;
 
         float x = Xlimit * Mathf.Sin(time + xOffset);
         float y = Ylimit * Mathf.Sin(time + yOffset);
