@@ -47,6 +47,7 @@ public class InventoryStorage : MonoBehaviour
             }
         }
     }
+    
 
     private void ConsumeMaterialsOf(ItemDataSO itemToConsume, int requiredAmount)
     {

@@ -344,8 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StorageCube
   cubePos: {x: 0, y: 0}
-  shouldLockPlayer: 0
-  canBeInteracted: 1
+  cubeData: {fileID: 11400000, guid: fa8474a2552107441ae7950457fffdc2, type: 2}
+  isInteracting: 0
+  shouldMoveCurrentPlayerToCentre: 0
+  allowInteract: 1
   wood: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
   iron: {fileID: 11400000, guid: 63947bf6270f9f4438224f9558f1a6e8, type: 2}
   cannon: {fileID: 11400000, guid: 79cff48be47ad0148a9b8bd6819fc742, type: 2}

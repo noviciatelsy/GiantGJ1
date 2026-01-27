@@ -618,7 +618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   cubePos: {x: 0, y: 0}
+  cubeData: {fileID: 11400000, guid: 79cff48be47ad0148a9b8bd6819fc742, type: 2}
   isInteracting: 0
+  shouldMoveCurrentPlayerToCentre: 1
+  allowInteract: 1
   rotateSpeed: 90
   CannonSprite: {fileID: 4084508772228165700}
   aimLineDots: {fileID: 638562621674847393}

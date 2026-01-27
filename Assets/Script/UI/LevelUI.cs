@@ -4,7 +4,7 @@ public class LevelUI : MonoBehaviour
 {
     public static LevelUI Instance;
     public StoragePanel storagePanel { get; private set; }
-
+    public CubeDetails[] cubeDetails {  get; private set; }
     private bool timeIsPaused = false;
     private bool storagePanelEnabled;
     private void Awake()
@@ -16,11 +16,20 @@ public class LevelUI : MonoBehaviour
         }
         Instance = this;
         storagePanel = GetComponentInChildren<StoragePanel>(true);
+        cubeDetails = GetComponentsInChildren<CubeDetails>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.playerManager.onPlayerSpawned += BindCubeDetailsUIToPlayer;
+        BindCubeDetailsUIToPlayer();
+
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.playerManager.onPlayerSpawned -= BindCubeDetailsUIToPlayer;
         if (storagePanelEnabled)
         {
             ExitStoragePanel();
@@ -81,5 +90,27 @@ public class LevelUI : MonoBehaviour
             ToggleStoragePanel(null);
         }
 
+    }
+
+    private void BindCubeDetailsUIToPlayer()
+    {
+        if(GameManager.Instance.playerManager.playerKeyboard!=null)
+        {
+            cubeDetails[0].gameObject.SetActive(true);
+            GameManager.Instance.playerManager.playerKeyboard.GetComponent<PLControl>().SetCubeDetailsUI(cubeDetails[0]);
+        }
+        else
+        {
+            cubeDetails[0].gameObject.SetActive(false);
+        }
+        if (GameManager.Instance.playerManager.playerGamepad != null)
+        {
+            cubeDetails[1].gameObject.SetActive(true);
+            GameManager.Instance.playerManager.playerGamepad.GetComponent<PLControl>().SetCubeDetailsUI(cubeDetails[1]);
+        }
+        else
+        {
+            cubeDetails[1].gameObject.SetActive(false);
+        }
     }
 }

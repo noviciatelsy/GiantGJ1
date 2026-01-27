@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CubeBase : MonoBehaviour
 {
     public Vector2Int cubePos;
+    public CubeItemDataSO cubeData;
 
     public PLControl currentPlayer {  get; private set; }
     private HandleFix handlefix;
@@ -13,7 +14,8 @@ public class CubeBase : MonoBehaviour
     public int landNumber {  get; private set; }
 
     public bool isInteracting = false;
-
+    public bool shouldMoveCurrentPlayerToCentre=false;
+    public bool allowInteract=false;
     protected virtual void Awake()
     {
         handlefix = GetComponent<HandleFix>();
@@ -33,12 +35,6 @@ public class CubeBase : MonoBehaviour
         {
             //Debug.Log(currentPlayer.moveInput.x);
         }
-    }
-
-
-    public virtual void IsChoose()
-    {
-        Debug.Log(name + " 被选中");
     }
 
     public void OnLand()
@@ -77,12 +73,11 @@ public class CubeBase : MonoBehaviour
         target.transform.position = targetPos;
     }
 
-    public void OnInteractEnterBase()
+
+    public void MoveCurrentPlayerToCentre()
     {
-        //将PLmove所代表的gameobject移动到自己位置
         Vector3 targetPos = transform.position + Vector3.up * 7.5f; // 向上5个单位
         StartCoroutine(MoveToCoroutine(currentPlayer.transform, targetPos, 0.2f));
-        OnInteractEnter();
     }
 
     public virtual void OnInteractEnter()
@@ -100,8 +95,7 @@ public class CubeBase : MonoBehaviour
 
     public virtual void OnEasyInteract()
     {
-        Debug.Log("EndInteract");
-        isInteracting = false;
+
     }
 
     public void OnRepairBegin(PLControl currentFixingPlayer)

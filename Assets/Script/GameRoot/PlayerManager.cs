@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Vector3 multiPlayerOneSpawnPosition;
     [SerializeField] private Vector3 multiPlayerTwoSpawnPosition;
     private bool isMultiPlayer=false;
+    public Action onPlayerSpawned;
 
     public GameObject playerKeyboard {  get; private set; }
     public GameObject playerGamepad {  get; private set; }
@@ -23,6 +25,7 @@ public class PlayerManager : MonoBehaviour
         {
             SpawnSinglePlayer();
         }
+        onPlayerSpawned?.Invoke();
     }
 
     private void SpawnSinglePlayer()

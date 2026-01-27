@@ -23,6 +23,8 @@ public class PLControl : MonoBehaviour
     private float refreshCurrentCubeInterval = 0.1f;
     private float refreshCurrentCubeITimer=0f;
 
+    // 局内UI
+    private CubeDetails currentCubeDetailsUI;
 
     void Start()
     {
@@ -144,6 +146,10 @@ public class PLControl : MonoBehaviour
         {
             return ;
         }
+        if (currentCube.currentPlayer != this)
+        {
+            return;
+        } 
         if (context.performed)
         {
             currentCube.OnCubeUse();
@@ -161,24 +167,32 @@ public class PLControl : MonoBehaviour
         {
             return;
         } //  如果其他玩家正在操作该浮块
-        Debug.Log("SHort Press");
-        if (!isInteracting)
+        if(currentCube.allowInteract==false) // 如果该浮块不支持交互
         {
-            if (currentCube.CheckCubeHealth() == 0) return; //完全损坏就无法交互了
-
-            currentCube.SetCurrentPlayer(this); // 设置浮块所有权
-            currentCube.IsChoose();
-            currentCube.OnInteractEnterBase();
-
-            isInteracting = true;
+            return;
+        }
+        if (currentCube.CheckCubeHealth() == 0) return; // 完全损坏就无法交互
+        if (currentCube.shouldMoveCurrentPlayerToCentre)
+        {
+            if (!isInteracting)
+            {
+                currentCube.SetCurrentPlayer(this); // 设置浮块所有权
+                currentCube.MoveCurrentPlayerToCentre(); // 将玩家移至浮块中心
+                currentCube.OnInteractEnter();
+                isInteracting = true;
+            }
+            else
+            {
+                currentCube.SetCurrentPlayer(null); // 还原浮块所有权
+                currentCube.OnInteractExit();
+                isInteracting = false;
+            }
         }
         else
         {
-            currentCube.SetCurrentPlayer(null); // 还原浮块所有权
-
-            currentCube.OnInteractExit();
-            isInteracting = false;
+            currentCube.OnEasyInteract();
         }
+
     }
 
   
@@ -238,9 +252,11 @@ public class PLControl : MonoBehaviour
         // 如果最近的 Cube 发生变化
         if (nearest != currentCube)
         {
+
             // 旧的取消高亮
             if (currentCube != null)
             {
+                currentCube.OnRepairEnd(); // 结束旧的修理
                 currentCube.EndLand();
             }
 
@@ -264,8 +280,13 @@ public class PLControl : MonoBehaviour
         else
         {
             RefreshCurrentCube();
+            currentCubeDetailsUI.UpdateCurrentCubeDetails(currentCube.cubeData, currentCube.CheckCubeHealth()); // 刷新浮块UI
             refreshCurrentCubeITimer = 0;
         }
     }
 
+    public void SetCubeDetailsUI(CubeDetails cubeDetails)
+    {
+        currentCubeDetailsUI = cubeDetails;
+    }
 }

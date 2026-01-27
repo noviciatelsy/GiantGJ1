@@ -17,6 +17,7 @@ MonoBehaviour:
   itemID: e4708d4b-e4db-4974-a4ec-8f3d328357ad
   itemType: 1
   itemIcon: {fileID: 21300000, guid: 131fdb8a92303e741b472f7f87c70385, type: 3}
+  maxStackSize: 1
   cubePrefab: {fileID: 4589952044035633767, guid: 3f6ab5eb30dc3b44185576005b403596, type: 3}
-  cubeToShow: {fileID: 0}
+  spriteToShow: {fileID: 21300000, guid: 131fdb8a92303e741b472f7f87c70385, type: 3}
   howToUse: "\u6309\u4E0B\u952E\u76D8\u201DE\u201C/\u624B\u67C4\u201DA\"\u6765\u64CD\u4F5C\u8239\u8235\uFF0C\u518D\u6B21\u6309\u4E0B\u53EF\u9000\u51FA\u64CD\u4F5C\u3002\n\u64CD\u4F5C\u671F\u95F4\u53EF\u4EE5\u901A\u8FC7\u65B9\u5411\u6309\u952E\u8C03\u6574\u8239\u53EA\u884C\u8FDB\u901F\u5EA6\n"

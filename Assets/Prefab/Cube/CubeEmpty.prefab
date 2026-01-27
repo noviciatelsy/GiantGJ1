@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+      propertyPath: cubeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 682d61bc54e164f4b913920d638bd1c3, type: 2}
+    - target: {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
       propertyPath: CubeOrigin
       value: 
       objectReference: {fileID: 4642238388794639173}
@@ -16,6 +20,10 @@ PrefabInstance:
       propertyPath: CubeCrushed
       value: 
       objectReference: {fileID: 7753050426355575065}
+    - target: {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
+      propertyPath: allowInteract
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4703249606395319280, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
       propertyPath: canBeInteracted
       value: 1

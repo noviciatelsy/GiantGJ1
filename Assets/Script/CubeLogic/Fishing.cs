@@ -59,12 +59,11 @@ public class Fishing : CubeBase
         //aimLine.enabled=true;
         aimLineDots.gameObject.SetActive(true);
         Debug.Log("µöÓã¸Í£º¿ªÊ¼¿ØÖÆµöÓã¸Í");
-
+        aimLine.currentLength = mindist;
         if (aimLine == null)
         {
             return;
         }
-        aimLine.currentLength = mindist;
 
     }
 
@@ -73,6 +72,8 @@ public class Fishing : CubeBase
         base.OnInteractExit();
         //aimLine.enabled = false;
         aimLineDots.gameObject.SetActive(false);
+        aimLine.currentLength = mindist;
+
         Debug.Log("µöÓã¸Í£ºÍ£Ö¹¿ØÖÆµöÓã¸Í");
 
     }

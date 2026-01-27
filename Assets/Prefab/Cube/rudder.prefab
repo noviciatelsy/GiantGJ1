@@ -344,8 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rudder
   cubePos: {x: 0, y: 0}
-  shouldLockPlayer: 1
-  canBeInteracted: 1
+  cubeData: {fileID: 11400000, guid: 19c5a525e5e93c543bfc4d3491ada07f, type: 2}
+  isInteracting: 0
+  shouldMoveCurrentPlayerToCentre: 1
+  allowInteract: 1
 --- !u!4 &8081908989537635613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6764881670627647963, guid: 2b3b2684bedaa234c8905b8fad0030e8, type: 3}
