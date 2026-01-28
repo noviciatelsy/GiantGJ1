@@ -106,6 +106,11 @@ public class CubeBase : MonoBehaviour
         {
             return;
         }
+        if(StorageCube.Instance.inventoryStorage.GetCurrentAmountOfWood()<cubeData.materialsToRepair.woodCost
+            || StorageCube.Instance.inventoryStorage.GetCurrentAmountOfIron() < cubeData.materialsToRepair.IronCost) // 如果wood或iron不够
+        {
+            return ;
+        }
         handlefix.StartFix(currentFixingPlayer);
 
     }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class HandleFix : MonoBehaviour
 
     public int currentBarCount = 0;
     private CanvasGroup canvasGroup;
+    private CubeBase cube;
 
     private Coroutine hideDelayCoroutine;
     private bool isShowing = false;
@@ -30,11 +30,12 @@ public class HandleFix : MonoBehaviour
     public bool canAutoFix = false;
     private float TimetoAutoFix = 12.0f;
     private float FixProgress = 0.0f;
-    public PLControl currentFixingPlayer {  get; private set; } // 正在修理该浮块的玩家 
+    public PLControl currentFixingPlayer { get; private set; } // 正在修理该浮块的玩家 
 
     private void Awake()
     {
         canvasGroup = HealthBar.GetComponent<CanvasGroup>();
+        cube = GetComponent<CubeBase>();
         fixingTimer = 0;
         HealthBar.SetActive(false);
         currentBarCount = Bars.Count;
@@ -57,13 +58,13 @@ public class HandleFix : MonoBehaviour
             return; // 如果此刻耐久为满
         }
 
-        if(isfixing)
+        if (isfixing)
         {
             FixProgress += Time.deltaTime / timeToFix;
             fixingTimer += Time.deltaTime; // 累计修理时间
 
         }
-        else if(canAutoFix)
+        else if (canAutoFix)
         {
             FixProgress += Time.deltaTime / TimetoAutoFix;
             fixingTimer += Time.deltaTime; // 累计修理时间
@@ -82,7 +83,23 @@ public class HandleFix : MonoBehaviour
         if (FixProgress >= 1)
         {
             currentBarCount += 1; // 耐久度+1
+            if (StorageCube.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood足够这一次修复
+            {
+                StorageCube.Instance.inventoryStorage.ConsumeWood(cube.cubeData.materialsToRepair.woodCost);
+            }
+            if (!StorageCube.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood不足下一次修复
+            {
+                EndFix();
+            }
 
+            if (StorageCube.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron足够这一次修复
+            {
+                StorageCube.Instance.inventoryStorage.ConsumeIron(cube.cubeData.materialsToRepair.IronCost);
+            }
+            if (!StorageCube.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron不足下一次修复
+            {
+                EndFix();
+            }
             isCrushed = false; //不是完全损坏版本了
             Debug.Log("totallyCrushed");
             CubeOrigin.SetActive(true);
@@ -252,20 +269,20 @@ public class HandleFix : MonoBehaviour
 
     private void ResetCurrentBar()
     {
-        Bars[currentBarCount].transform.localScale = new Vector3(0, 1, 1); 
+        Bars[currentBarCount].transform.localScale = new Vector3(0, 1, 1);
     }
 
     private void DoDamageToBar()
     {
         EndFix();
 
-        Bars[currentBarCount-1].transform.localScale = new Vector3(0, 1, 1);
+        Bars[currentBarCount - 1].transform.localScale = new Vector3(0, 1, 1);
     }
 
     public void StartFix(PLControl currentFixingPlayer)
     {
 
-        this.currentFixingPlayer=currentFixingPlayer;
+        this.currentFixingPlayer = currentFixingPlayer;
         isfixing = true;
         fixingTimer = 0f;
     }

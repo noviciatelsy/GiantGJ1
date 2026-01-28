@@ -9,7 +9,8 @@ public class InventoryStorage : MonoBehaviour
     public List<InventoryItemSlot> materialItemSlotList = new(); // 材料物品槽位列表
     public List<InventoryItemSlot> cubeItemSlotList = new(); // 浮块物品槽位列表
     public event Action onStorageChanged;
-
+    [SerializeField] private MaterialItemDataSO woodData;
+    [SerializeField] private MaterialItemDataSO ironData;
     public void AddItem(ItemDataSO itemData, int amount)
     {
         if (amount <= 0 || itemData == null)
@@ -73,7 +74,7 @@ public class InventoryStorage : MonoBehaviour
         return (CubeItemDataSO)cubeData.ItemData;
     }
 
-    private void ConsumeMaterialsOf(ItemDataSO itemToConsume, int requiredAmount)
+    public void ConsumeMaterialsOf(ItemDataSO itemToConsume, int requiredAmount)
     {
         if (itemToConsume.itemType != ItemType.material)
         {
@@ -236,6 +237,35 @@ public class InventoryStorage : MonoBehaviour
         return avaliableAmount;
     }
 
+    public void ConsumeWood(int amount)
+    {
+        ConsumeMaterialsOf(woodData, amount);
+    }
+
+    public void ConsumeIron(int amount)
+    {
+        ConsumeMaterialsOf(ironData, amount);
+    }
+
+    public bool HasEnoughWood(int needAmout)
+    {
+        return HasEnoughMaterialsOf(woodData, needAmout);
+    }
+
+    public bool HasEnoughIron(int needAmount)
+    {
+        return HasEnoughMaterialsOf(ironData, needAmount);
+    }
+
+    public int GetCurrentAmountOfWood()
+    {
+        return GetAvaliableAmountOf(woodData);
+    }
+
+    public int GetCurrentAmountOfIron()
+    {
+        return GetAvaliableAmountOf(ironData);
+    }
     private void OnValidate()
     {
         EnsureSlotListSize();

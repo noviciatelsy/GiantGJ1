@@ -441,3 +441,5 @@ MonoBehaviour:
   - itemInSlot:
       ItemData: {fileID: 0}
       stackSize: 0
+  woodData: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
+  ironData: {fileID: 11400000, guid: 63947bf6270f9f4438224f9558f1a6e8, type: 2}
