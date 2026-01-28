@@ -201,7 +201,7 @@ public class InventoryStorage : MonoBehaviour
 
     }
 
-    private int GetAvaliableAmountOf(ItemDataSO itemData)
+    public int GetAvaliableAmountOf(ItemDataSO itemData)
     {
         int avaliableAmount = 0;
         if (itemData.itemType == ItemType.material)

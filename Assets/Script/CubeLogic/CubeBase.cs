@@ -102,12 +102,20 @@ public class CubeBase : MonoBehaviour
 
     public void OnRepairBegin(PLControl currentFixingPlayer)
     {
+        if(handlefix.canAutoFix)
+        {
+            return;
+        }
         handlefix.StartFix(currentFixingPlayer);
 
     }
 
     public void OnRepairEnd()
     {
+        if(handlefix.canAutoFix)
+        {
+            return;
+        }
         handlefix.EndFix();
 
     }

@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e036b64f1caf754090ec04599803033, type: 3}
   m_Name: CubeData - AutoFix
   m_EditorClassIdentifier: Assembly-CSharp::CubeItemDataSO
-  itemName: 
-  itemDescription: "\u53EF\u7F13\u6162\u81EA\u6211\u4FEE\u590D\u7684\u690D\u7269\u6D6E\u5757"
+  itemName: "\u81EA\u4FEE\u590D\u6D6E\u5757"
+  itemDescription: "\u7531\u53EF\u7F13\u6162\u81EA\u6211\u4FEE\u590D\u7684\u690D\u7269\u5236\u6210\u7684\u8239\u8EAB\u6D6E\u5757"
   itemID: 596917c2-c175-4d9d-a53f-6b2a89009e66
   itemType: 1
-  itemIcon: {fileID: 21300000, guid: 12d36a5bee1a2f043848c7b3fe3eb6d7, type: 3}
+  itemIcon: {fileID: 21300000, guid: c71d232d3e1a04f4e990b01d2d24cc42, type: 3}
   maxStackSize: 1
-  cubePrefab: {fileID: 0}
-  spriteToShow: {fileID: 0}
+  cubePrefab: {fileID: 1587535574810221213, guid: e773a333491da204c8b756745cf02238, type: 3}
+  spriteToShow: {fileID: 21300000, guid: c71d232d3e1a04f4e990b01d2d24cc42, type: 3}
   howToUse: 
   materialsToRepair: []
+  maxDurability: 2

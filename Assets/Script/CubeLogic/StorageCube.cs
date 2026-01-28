@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StorageCube : CubeBase
 {
-    private InventoryStorage inventoryStorage;
+    public InventoryStorage inventoryStorage {  get; private set; }
     public static StorageCube Instance;
 
     // ¡Ÿ ±≤‚ ‘”√

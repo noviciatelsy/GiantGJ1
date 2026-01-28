@@ -9,6 +9,14 @@ public class CubeDetailsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cubeDurability;
     [SerializeField] private TextMeshProUGUI cubeDescription;
     [SerializeField] private Sprite emptySprite;
+    [SerializeField] private TextMeshProUGUI woodAmountToFix;
+    [SerializeField] private TextMeshProUGUI ironAmountToFix;
+    [SerializeField] private TextMeshProUGUI totalWoodAmount;
+    [SerializeField] private TextMeshProUGUI totalIronAmount;
+
+    [Space]
+    [SerializeField] private MaterialItemDataSO woodData;
+    [SerializeField] private MaterialItemDataSO ironData;
 
     public void UpdateCurrentCubeDetails(CubeItemDataSO cubeDatail,int currentDurability)
     {
@@ -20,6 +28,10 @@ public class CubeDetailsUI : MonoBehaviour
             cubeIcon.sprite = emptySprite;
             cubeDescription.text = "";
             cubeDurability.text = "ÄÍ¾Ã£º" + currentDurability.ToString() + "/2";
+            woodAmountToFix.text = "x"+cubeDatail.materialsToRepair.woodCost;
+            ironAmountToFix.text="x"+cubeDatail.materialsToRepair.IronCost;
+            totalWoodAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
+            totalIronAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
         }
         else
         {
@@ -31,7 +43,11 @@ public class CubeDetailsUI : MonoBehaviour
             cubeName.text = cubeDatail.itemName;
             cubeIcon.sprite = cubeDatail.itemIcon;
             cubeDescription.text = cubeDatail.howToUse;
-            cubeDurability.text = "ÄÍ¾Ã£º" + currentDurability.ToString() + "/2";
+            cubeDurability.text = "ÄÍ¾Ã£º" + currentDurability.ToString() + "/"+cubeDatail.maxDurability.ToString();
+            woodAmountToFix.text = "x" + cubeDatail.materialsToRepair.woodCost;
+            ironAmountToFix.text = "x" + cubeDatail.materialsToRepair.IronCost;
+            totalWoodAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
+            totalIronAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
         }
     }
 

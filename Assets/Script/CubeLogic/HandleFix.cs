@@ -264,6 +264,7 @@ public class HandleFix : MonoBehaviour
 
     public void StartFix(PLControl currentFixingPlayer)
     {
+
         this.currentFixingPlayer=currentFixingPlayer;
         isfixing = true;
         fixingTimer = 0f;
