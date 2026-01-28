@@ -2,23 +2,47 @@ using UnityEngine;
 
 public class BoatMove : MonoBehaviour
 {
+   public static BoatMove Instance { get; private set; }
+
+    //船移速参数
     public float baseForwardSpeed = 15f;    // 纵向默认速度
     public float maxForwardSpeed = 20f;     // W键加速最大纵向速度
     public float minForwardSpeed = 12f;     // S键减速最小纵向速度
     public float maxHorizontalSpeed = 10f;  // 横向最大速度（A,D控制）
-
     public float acceleration = 20f;        // 加速度
     public float deceleration = 15f;        // 减速度（无输入时恢复用）
 
+    //船倾斜参数
     private float maxTiltAngle = 4f;         // 最大倾斜角度
     private float targetTiltAngle;          // 目标倾斜角度
     private float currentTiltAngle;         // 当前船的倾斜角度
+
+    //船受击参数
+    [Header("Impulse")]
+    public float impulseDamping = 40f; // 冲量衰减速度（越大衰减越快）
+    private Vector3 impulseVelocity = Vector3.zero;
+
 
     private Vector3 velocity = Vector3.zero;
     private float currentForwardSpeed;
     private float currentHorizontalSpeed;
 
     private PLControl currentDriver; // 当前驾驶的玩家
+
+    private void Awake()
+    {
+        // -------- 单例处理 --------
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        // 如果船需要跨场景，打开这行
+        // DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         currentForwardSpeed = baseForwardSpeed;  // 初始纵向速度
@@ -40,7 +64,17 @@ public class BoatMove : MonoBehaviour
         // 更新船的倾斜角度（根据横向速度调整）
         UpdateBoatTilt();
 
-        GameData.BoatVelocity = velocity;
+        //GameData.BoatVelocity = velocity;
+        // 冲量衰减
+        impulseVelocity = Vector3.MoveTowards(
+            impulseVelocity,
+            Vector3.zero,
+            impulseDamping * Time.deltaTime
+        );
+
+        // 最终速度 = 控制速度 + 冲量
+        Vector3 finalVelocity = velocity + impulseVelocity;
+        GameData.BoatVelocity = finalVelocity;
     }
 
 
@@ -109,7 +143,6 @@ public class BoatMove : MonoBehaviour
     // 更新船的倾斜角度
     private void UpdateBoatTilt()
     {
-        // 计算横向速度对应的目标倾斜角度，横向速度越大，倾斜角度越大
         if (currentHorizontalSpeed != 0)
         {
             targetTiltAngle = Mathf.Clamp(-currentHorizontalSpeed / maxHorizontalSpeed * maxTiltAngle, -maxTiltAngle, maxTiltAngle);
@@ -118,12 +151,13 @@ public class BoatMove : MonoBehaviour
         {
             targetTiltAngle = 0f;  // 无横向速度时，船回到水平
         }
-
-        // 直接将目标倾斜角度设置为当前倾斜角度（减少惯性）
         currentTiltAngle = targetTiltAngle;
-
-        // 更新船的旋转，倾斜角度应用到Z轴
         transform.rotation = Quaternion.Euler(0f, -currentTiltAngle/2, currentTiltAngle);
+    }
+
+    public void AddImpulse(Vector3 impulse)
+    {
+        impulseVelocity += impulse;
     }
 
 }

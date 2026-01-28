@@ -14,6 +14,8 @@ public class Rock : EnemyCommonLogic
             {
                 isDestroy = true;  
                 cube.CubeCrush();
+                ApplyImpulseToBoat();
+
                 Debug.Log("Crush");
                 ToDestroySelf();
             }

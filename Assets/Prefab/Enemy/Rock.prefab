@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 3232039240257817253}
   - component: {fileID: 9023747753346780699}
   - component: {fileID: 8658598168486970010}
+  - component: {fileID: 2044043604970430053}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -145,8 +146,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.5088496, y: 7.7137194, z: 2.4450014}
-  m_Center: {x: -0.012403488, y: 0.9563155, z: 0.51474464}
+  m_Size: {x: 4.5088496, y: 7.7137194, z: 4.0729494}
+  m_Center: {x: -0.012403488, y: 0.9563155, z: -0.2992289}
 --- !u!114 &8658598168486970010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rock
   EnemyHealth: 20
+  impulseStrength: 50
+--- !u!114 &2044043604970430053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034303998135744201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
 --- !u!1 &9104833745105614764
 GameObject:
   m_ObjectHideFlags: 0

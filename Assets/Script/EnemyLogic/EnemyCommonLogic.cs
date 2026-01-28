@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyCommonLogic : MonoBehaviour
 {
     public int EnemyHealth = 20;
+    public float impulseStrength = 12f;
 
     void Start()
     {
@@ -24,6 +25,18 @@ public class EnemyCommonLogic : MonoBehaviour
             ToDestroySelf();
         }
     }
+
+    public void ApplyImpulseToBoat()
+    {
+        if (BoatMove.Instance == null) return;
+
+        Vector3 dir = (BoatMove.Instance.transform.position - transform.position).normalized;
+        dir.y = 0f;
+
+        Vector3 impulse = dir * impulseStrength;
+        BoatMove.Instance.AddImpulse(impulse);
+    }
+
 
     public virtual void ToDestroySelf()
     {
