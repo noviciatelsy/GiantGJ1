@@ -39,7 +39,7 @@ public class AimLine : MonoBehaviour
         if (isLand)
         {
             CreateLandPoint();
-            cutT = 1;
+            cutT = 1.2f;
         }
     }
 
@@ -146,20 +146,27 @@ public class AimLine : MonoBehaviour
     {
         if (landPointInstance == null) return;
 
-        Vector3 lastDot = new Vector3(0f, 0f, currentLength);
+        // 计算 LandPoint 的 y 轴位置
+        // 获取当前抛物线末尾点的高度
+        float t = cutT;  // 使用cutT，表示轨迹的最终时间点
+        float height = maxHeight * (1f - Mathf.Pow(Mathf.Abs(2f * t - 1f), 2.5f));  // 计算高度
+        Vector3 landPointPosition = new Vector3(0f, height, currentLength);  // 计算landpoint的最终位置
 
+        // 计算 LandPoint 的大小比例
         float minScale = 0.3f;
         float maxScale = 0.5f;
         float lengthMin = 1.5f;  // 你之前 mindist
         float lengthMax = 10.0f; // 你之前 maxdist
 
         // 将 currentLength 映射到 0~1 之间
-        float t = Mathf.InverseLerp(lengthMin, lengthMax, currentLength);
-        float landPointScale = Mathf.Lerp(minScale, maxScale, t);
+        float tScale = Mathf.InverseLerp(lengthMin, lengthMax, currentLength);
+        float landPointScale = Mathf.Lerp(minScale, maxScale, tScale);
 
-        landPointInstance.transform.localPosition = lastDot;
+        // 设置位置和缩放
+        landPointInstance.transform.localPosition = landPointPosition;
         landPointInstance.transform.localScale = new Vector3(landPointScale, landPointScale, landPointScale);
     }
+
 
     private void RebuildDots()
     {

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4037193396500150448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0.2}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658513702350157925}
   - component: {fileID: 5009956144990672429}
+  - component: {fileID: 5434139267464982605}
   m_Layer: 0
   m_Name: WoodMat
   m_TagString: Untagged
@@ -228,3 +229,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
+--- !u!65 &5434139267464982605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7297107096564270129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.734295, y: 16.117489, z: 15}
+  m_Center: {x: 0.21336937, y: 0.25843573, z: 0}
