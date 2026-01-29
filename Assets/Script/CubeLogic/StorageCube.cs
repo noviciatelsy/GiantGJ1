@@ -53,5 +53,7 @@ public class StorageCube : CubeBase
     public void GetItem(ItemDataSO itemToGet,int amount)
     {
         inventoryStorage.AddItem(itemToGet, amount);
+        string getItemMessage = "ÒÑ»ñµÃ£º" + itemToGet.itemName + "x" + amount;
+        LevelUI.Instance.hintMessage.ShowQuickMessage(getItemMessage);
     }
 }

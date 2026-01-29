@@ -180,6 +180,20 @@ public class PLControl : MonoBehaviour
         }
     }
 
+    public void OnCancel(InputAction.CallbackContext contex)
+    {
+        if(cubeToEquip==null)
+        {
+            return ;
+        }
+        if(contex.performed) // 当取消装备时
+        {
+            LevelUI.Instance.hintMessage.StopLongTimeMessage();
+            StorageCube.Instance.GetItem(cubeToEquip, 1);
+            ResetCubeToEquip();
+        }
+    }
+
     private void HandleShortPress()
     {
         if (currentCube == null) return; // 如果脚下没有浮块
@@ -215,7 +229,7 @@ public class PLControl : MonoBehaviour
 
     }
 
-
+    
 
     private void OnTriggerEnter(Collider other)
     {

@@ -13,8 +13,11 @@ public class EmptyCube : CubeBase
         {
             return;
         }
-        CubeItemDataSO cubeData = interactPlayer.cubeToEquip;  
+        CubeItemDataSO cubeData = interactPlayer.cubeToEquip;
+        string equipMessage = "已装备：" + cubeData.itemName;
+        LevelUI.Instance.hintMessage.ShowQuickMessage( equipMessage );
         interactPlayer.ResetCubeToEquip(); // 清除人物待装配的浮块
+        LevelUI.Instance.hintMessage.StopLongTimeMessage();
         ReplaceSelf(cubeData.cubePrefab);
     }
 

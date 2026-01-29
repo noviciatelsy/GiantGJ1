@@ -7,6 +7,8 @@ public class LevelUI : MonoBehaviour
     public StoragePanel storagePanel { get; private set; }
     public PausePanel pausePanel { get; private set; }
     public CubeDetailsUI[] cubeDetails {  get; private set; }
+
+    public HintMessage hintMessage { get; private set; }
     private bool timeIsPaused = false;
     private bool storagePanelEnabled;
     private bool pausePanelEnabled;
@@ -21,6 +23,7 @@ public class LevelUI : MonoBehaviour
         storagePanel = GetComponentInChildren<StoragePanel>(true);
         pausePanel= GetComponentInChildren<PausePanel>(true);
         cubeDetails = GetComponentsInChildren<CubeDetailsUI>(true);
+        hintMessage = GetComponentInChildren<HintMessage>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
         pausePanelEnabled = pausePanel.gameObject.activeSelf;
     }
