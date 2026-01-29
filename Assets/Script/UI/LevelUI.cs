@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelUI : MonoBehaviour
 {
     public static LevelUI Instance;
     public StoragePanel storagePanel { get; private set; }
+    public PausePanel pausePanel { get; private set; }
     public CubeDetailsUI[] cubeDetails {  get; private set; }
     private bool timeIsPaused = false;
     private bool storagePanelEnabled;
+    private bool pausePanelEnabled;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -16,23 +19,40 @@ public class LevelUI : MonoBehaviour
         }
         Instance = this;
         storagePanel = GetComponentInChildren<StoragePanel>(true);
+        pausePanel= GetComponentInChildren<PausePanel>(true);
         cubeDetails = GetComponentsInChildren<CubeDetailsUI>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
+        pausePanelEnabled = pausePanel.gameObject.activeSelf;
     }
 
     private void OnEnable()
     {
-        GameManager.Instance.playerManager.onPlayerSpawned += BindCubeDetailsUIToPlayer;
-        BindCubeDetailsUIToPlayer();
-
+        GameManager.Instance.playerManager.onPlayerSpawned += BindUIToPlayer;
+        BindUIToPlayer();
+        
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.playerManager.onPlayerSpawned -= BindCubeDetailsUIToPlayer;
-        if (storagePanelEnabled)
+        GameManager.Instance.playerManager.onPlayerSpawned -= BindUIToPlayer;
+        PauseGame(false);
+    }
+
+    private void Update()
+    {
+        if(GameManager.Instance.playerManager.playerKeyboard!=null)
         {
-            ExitStoragePanel();
+            if (GameManager.Instance.playerManager.playerKeyboard.GetComponent<PlayerInput>().actions.FindActionMap("UI").FindAction("Pause").WasPerformedThisFrame())
+            {
+                TogglePausePanel();
+            }
+        }
+        if (GameManager.Instance.playerManager.playerGamepad != null)
+        {
+            if (GameManager.Instance.playerManager.playerGamepad.GetComponent<PlayerInput>().actions.FindActionMap("UI").FindAction("Pause").WasPerformedThisFrame())
+            {
+                TogglePausePanel();
+            }
         }
     }
 
@@ -51,6 +71,21 @@ public class LevelUI : MonoBehaviour
             PauseGame(false);
             storagePanel.gameObject.SetActive(false);
             storagePanel.ResetStoragePanel();
+        }
+    }
+
+    public void TogglePausePanel()
+    {
+        pausePanelEnabled = !pausePanelEnabled;
+        if (pausePanelEnabled)
+        {
+            PauseGame(true);
+            pausePanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            PauseGame(false);
+            pausePanel.HideWithMoveOut();
         }
     }
 
@@ -92,12 +127,13 @@ public class LevelUI : MonoBehaviour
 
     }
 
-    private void BindCubeDetailsUIToPlayer()
+    private void BindUIToPlayer()
     {
         if(GameManager.Instance.playerManager.playerKeyboard!=null)
         {
             cubeDetails[0].gameObject.SetActive(true);
             GameManager.Instance.playerManager.playerKeyboard.GetComponent<PLControl>().SetCubeDetailsUI(cubeDetails[0]);
+            GameManager.Instance.playerManager.playerKeyboard.GetComponent<PlayerInput>().actions.FindActionMap("UI").Enable();
         }
         else
         {
@@ -107,10 +143,13 @@ public class LevelUI : MonoBehaviour
         {
             cubeDetails[1].gameObject.SetActive(true);
             GameManager.Instance.playerManager.playerGamepad.GetComponent<PLControl>().SetCubeDetailsUI(cubeDetails[1]);
+            GameManager.Instance.playerManager.playerGamepad.GetComponent<PlayerInput>().actions.FindActionMap("UI").Enable();
         }
         else
         {
             cubeDetails[1].gameObject.SetActive(false);
         }
     }
+
+
 }

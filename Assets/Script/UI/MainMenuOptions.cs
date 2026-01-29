@@ -9,8 +9,9 @@ public class MainMenuOptions : MonoBehaviour
         FadeScreen.Instance.PlayFade(() =>
         {
             GameManager.Instance.playerManager.SetSinglePlayer(); // 设置为单人模式
-            SceneManager.LoadScene(InGameSceneName);
             GameManager.Instance.playerManager.SpawnPlayer();
+            SceneManager.LoadScene(InGameSceneName);
+
         });
 
     }
@@ -20,8 +21,8 @@ public class MainMenuOptions : MonoBehaviour
         FadeScreen.Instance.PlayFade(() =>
         {
             GameManager.Instance.playerManager.SetMultiPlayer(); // 设置为多人模式
-            SceneManager.LoadScene(InGameSceneName);
             GameManager.Instance.playerManager.SpawnPlayer();
+            SceneManager.LoadScene(InGameSceneName);
         });
     }
 

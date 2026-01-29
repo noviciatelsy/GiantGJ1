@@ -23,7 +23,6 @@ public class InputManager : MonoBehaviour
         }
 
     }
-
     public void EnableAllPlayersInput()
     {
         if (gameManager.playerManager.playerKeyboard != null)

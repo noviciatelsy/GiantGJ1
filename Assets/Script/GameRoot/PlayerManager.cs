@@ -52,4 +52,17 @@ public class PlayerManager : MonoBehaviour
         isMultiPlayer = true;
     }
 
+    public void DestroyPlayer()
+    {
+        if(playerGamepad!=null)
+        {
+            Destroy(playerGamepad);
+        }
+        if(playerKeyboard!=null)
+        {
+            Destroy(playerKeyboard);
+        }
+          
+    }
+
 }

@@ -7,11 +7,7 @@ public class GlobalGameRoot : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        //SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
-    public void LoadLevel(string Levelid)
-    {
-        SceneManager.LoadScene(Levelid);
-    }
 }

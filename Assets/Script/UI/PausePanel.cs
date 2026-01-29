@@ -1,16 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PausePanel : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
+    private PanelEntrance panelEntrance;
+
+    private void Awake()
     {
-        
+        panelEntrance = GetComponent<PanelEntrance>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HideWithMoveOut()
     {
-        
+        panelEntrance.HideWithMoveOut();
+    }
+
+    public void ReturnToMainMenuButton()
+    {
+        GameManager.Instance.playerManager.DestroyPlayer();
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
