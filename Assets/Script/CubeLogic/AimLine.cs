@@ -39,7 +39,7 @@ public class AimLine : MonoBehaviour
         if (isLand)
         {
             CreateLandPoint();
-            cutT = 1.2f;
+            cutT = 1.0f;
         }
     }
 

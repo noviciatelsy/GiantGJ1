@@ -15,7 +15,7 @@ public class StorageCube : CubeBase
     {
         base.Awake();
         inventoryStorage = GetComponent<InventoryStorage>();
-        if(Instance!=null&&Instance!=this)
+        if(Instance!=null && Instance!=this)
         {
             Destroy(gameObject);
             return;

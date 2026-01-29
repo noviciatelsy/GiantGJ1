@@ -4,7 +4,7 @@ public class LandPoint : MonoBehaviour
 {
     public float rotationSpeed = 30f;  // 旋转速度（度/秒）
     public float radius = 5f;          // 检测范围半径
-
+    public Transform collidertrans;
     private Collider landPointCollider;  // 当前物体的 Collider
 
     void Start()
@@ -14,8 +14,11 @@ public class LandPoint : MonoBehaviour
 
     void Update()
     {
-        UpdateRotate();  // 持续旋转
-        GetObjectInCollider();
+        if (collidertrans != null)
+        {
+            // 强制子物体世界旋转
+            collidertrans.rotation = Quaternion.Euler(30f, 0f, 0f);
+        }
     }
 
     // 更新物体的旋转
@@ -24,20 +27,9 @@ public class LandPoint : MonoBehaviour
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime); // 每秒旋转一定角度
     }
 
-    // 获取当前物体的 Collider 内的所有物体
-    public void GetObjectInCollider()
+    private void OnTriggerEnter(Collider other)
     {
-        if (landPointCollider == null)
-        {
-            landPointCollider = GetComponent<Collider>();
-        }
-
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-
-        foreach (var hitCollider in hitColliders)
-        {
-            Debug.Log("Collided with: " + hitCollider.gameObject.name);
-            // 你可以在这里对重叠的物体进行其他操作
-        }
+        Debug.Log("进入落点区域: " + other.name);
     }
+
 }
