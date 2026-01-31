@@ -626,11 +626,13 @@ MonoBehaviour:
   isInteracting: 0
   shouldMoveCurrentPlayerToCentre: 1
   allowInteract: 1
+  cannonFireSFX: {fileID: 11400000, guid: 2136c5ab07831cc4fad36b113529d69b, type: 2}
   rotateSpeed: 90
   CannonSprite: {fileID: 4084508772228165700}
   aimLineDots: {fileID: 638562621674847393}
   aimLineDots2: {fileID: 626833610703107351}
   bulletPrefab: {fileID: 6700491380238544713, guid: 44f5dbc7c82a65d44bd1bf75572aebb6, type: 3}
+  fireCooldown: 0.5
 --- !u!114 &7966741040049486676
 MonoBehaviour:
   m_ObjectHideFlags: 0

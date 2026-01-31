@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private AudioEventSO cannonHitSFX;
+
     public Vector3 direction = Vector3.zero;
     [SerializeField] private float speed = 50f;
     public int damage = 10;
@@ -35,7 +37,9 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("子弹打到敌人");
             enemy.Ondamage(damage); // 对敌人造成伤害
+            cannonHitSFX.Play();
             Destroy(gameObject); // 碰到敌人销毁子弹
+
         }
     }
 

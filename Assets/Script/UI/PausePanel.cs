@@ -18,7 +18,11 @@ public class PausePanel : MonoBehaviour
 
     public void ReturnToMainMenuButton()
     {
-        GameManager.Instance.playerManager.DestroyPlayer();
-        SceneManager.LoadScene(mainMenuSceneName);
+        FadeScreen.Instance.PlayFade(() =>
+        {
+            GameManager.Instance.playerManager.DestroyPlayer();
+            StorageManager.Instance.inventoryStorage.ClearStorage();
+            SceneManager.LoadScene(mainMenuSceneName);
+        });
     }
 }

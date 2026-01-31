@@ -8,6 +8,7 @@ public class PLControl : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioEventSO footStepSFX;
     private AudioSource footStepAudioSource;
+    [SerializeField] private AudioEventSO interactSFX;
 
     // 移动
     private float playerSpeed = 15f;
@@ -207,7 +208,7 @@ public class PLControl : MonoBehaviour
         if(contex.performed) // 当取消装备时
         {
             LevelUI.Instance.hintMessage.StopLongTimeMessage();
-            StorageCube.Instance.GetItem(cubeToEquip, 1);
+            StorageManager.Instance.GetItem(cubeToEquip, 1);
             ResetCubeToEquip();
         }
     }
@@ -232,6 +233,7 @@ public class PLControl : MonoBehaviour
                 currentCube.MoveCurrentPlayerToCentre(); // 将玩家移至浮块中心
                 currentCube.OnInteractEnter();
                 isInteracting = true;
+                interactSFX.Play();
             }
             else
             {

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Cannon : CubeBase
 {
+    [Header("Audio")]
+    [SerializeField] private AudioEventSO cannonFireSFX;
+
     private BoatMove boatMove;
 
     //瞄准线
@@ -13,7 +16,7 @@ public class Cannon : CubeBase
     [SerializeField] private Transform aimLineDots2; //子弹发射点
     [SerializeField] private GameObject bulletPrefab;
 
-    private float fireCooldown = 0.5f; // 发射冷却时间，0.5秒
+    [SerializeField] private float fireCooldown = 0.5f; // 发射冷却时间，0.5秒
     private float lastFireTime = -Mathf.Infinity; // 上次发射时间，初始化为负无穷大
 
     protected override void Awake()
@@ -82,6 +85,8 @@ public class Cannon : CubeBase
                 // direction沿CannonSprite的forward（Z轴方向）
                 bullet.direction = CannonSprite.forward;
             }
+
+            cannonFireSFX.Play();
         }
 
         lastFireTime = Time.time;

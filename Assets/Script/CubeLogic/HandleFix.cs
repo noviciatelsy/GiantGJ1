@@ -92,20 +92,20 @@ public class HandleFix : MonoBehaviour
                 boatFixSFX.Play();
             }
 
-            if (StorageCube.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood足够这一次修复
+            if (StorageManager.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood足够这一次修复
             {
-                StorageCube.Instance.inventoryStorage.ConsumeWood(cube.cubeData.materialsToRepair.woodCost);
+                StorageManager.Instance.inventoryStorage.ConsumeWood(cube.cubeData.materialsToRepair.woodCost);
             }
-            if (!StorageCube.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood不足下一次修复
+            if (!StorageManager.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood不足下一次修复
             {
                 EndFix();
             }
 
-            if (StorageCube.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron足够这一次修复
+            if (StorageManager.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron足够这一次修复
             {
-                StorageCube.Instance.inventoryStorage.ConsumeIron(cube.cubeData.materialsToRepair.IronCost);
+                StorageManager.Instance.inventoryStorage.ConsumeIron(cube.cubeData.materialsToRepair.IronCost);
             }
-            if (!StorageCube.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron不足下一次修复
+            if (!StorageManager.Instance.inventoryStorage.HasEnoughIron(cube.cubeData.materialsToRepair.IronCost)) // 如果iron不足下一次修复
             {
                 EndFix();
             }

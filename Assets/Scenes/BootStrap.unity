@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &1123714135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+  m_PrefabInstance: {fileID: 1778351393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693717848
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,11 +255,158 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7028352196634621960, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136903315}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+--- !u!1 &2136903314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136903315}
+  - component: {fileID: 2136903317}
+  - component: {fileID: 2136903316}
+  m_Layer: 0
+  m_Name: StorageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136903315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1123714135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136903316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f0f9c7d0a8ae544a52e7d9bef46d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryStorage
+  maxMaterialSize: 8
+  maxCubeSize: 16
+  materialItemSlotList:
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  cubeItemSlotList:
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  - itemInSlot:
+      ItemData: {fileID: 0}
+      stackSize: 0
+  woodData: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
+  ironData: {fileID: 11400000, guid: 63947bf6270f9f4438224f9558f1a6e8, type: 2}
+--- !u!114 &2136903317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd4208551cfec3448079cb7ac752902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StorageManager
+  getItemSFX: {fileID: 11400000, guid: 9b0293e20b9e03942a0336d0771c8385, type: 2}
+  wood: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
+  iron: {fileID: 11400000, guid: 63947bf6270f9f4438224f9558f1a6e8, type: 2}
+  cannon: {fileID: 11400000, guid: 79cff48be47ad0148a9b8bd6819fc742, type: 2}
+  fishing: {fileID: 11400000, guid: 4280e25afc5f8a340a8fe9a9a6e5d0a0, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

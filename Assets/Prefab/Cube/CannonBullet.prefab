@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf402f239de5424583aaad9da3c163a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  cannonHitSFX: {fileID: 11400000, guid: 6e62b18925e6e9a4d901ed5068572105, type: 2}
   direction: {x: 0, y: 0, z: 0}
   speed: 100
   damage: 10

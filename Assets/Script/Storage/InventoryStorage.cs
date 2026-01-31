@@ -51,6 +51,18 @@ public class InventoryStorage : MonoBehaviour
         onStorageChanged?.Invoke();
     }
 
+    public void ClearStorage()
+    {
+        foreach(var slot in materialItemSlotList)
+        {
+            slot.itemInSlot=null;
+        }
+        foreach(var slot in cubeItemSlotList)
+        {
+            slot.itemInSlot=null;
+        }
+    }
+
     public void DiscardMaterialAtSlot(int slotIndex)
     {
         var slot=materialItemSlotList[slotIndex];

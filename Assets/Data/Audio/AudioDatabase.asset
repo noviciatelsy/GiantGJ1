@@ -16,7 +16,7 @@ MonoBehaviour:
   - audioName: MainMenuBGM
     clips:
     - {fileID: 8300000, guid: 16b61c44089c4e740836d10a8c35da19, type: 3}
-    volume: 0.25
+    volume: 0.15
   - audioName: LevelBGM
     clips:
     - {fileID: 8300000, guid: b4db15a2c7821934a8b2064f5102e429, type: 3}
@@ -67,4 +67,24 @@ MonoBehaviour:
   - audioName: WaveBreakSFX
     clips:
     - {fileID: 8300000, guid: 51e28a3ec20526f49b033e9d0e8d6c77, type: 3}
+    volume: 1
+  - audioName: CannonFireSFX
+    clips:
+    - {fileID: 8300000, guid: 1286dca3ba3e12248a62f66015c75a44, type: 3}
+    volume: 1
+  - audioName: CannonHitSFX
+    clips:
+    - {fileID: 8300000, guid: a61e4edbd5bea6c4e880ef39d51bd08a, type: 3}
+    volume: 1
+  - audioName: FishingSFX
+    clips:
+    - {fileID: 8300000, guid: 19eb3e6a84938d547bf99af0c863bc74, type: 3}
+    volume: 1
+  - audioName: GetItemSFX
+    clips:
+    - {fileID: 8300000, guid: 1c6d54fa5cd1caa42a41b774c4fa8b6e, type: 3}
+    volume: 1
+  - audioName: InteractSFX
+    clips:
+    - {fileID: 8300000, guid: 56afa5c7d0b8b1841ae9d80474cf77dd, type: 3}
     volume: 1

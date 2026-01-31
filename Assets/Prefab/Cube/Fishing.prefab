@@ -470,6 +470,7 @@ MonoBehaviour:
   isInteracting: 0
   shouldMoveCurrentPlayerToCentre: 1
   allowInteract: 1
+  fishingSFX: {fileID: 11400000, guid: cd0f236abb561a041baec9ae8520be9e, type: 2}
   rotateSpeed: 90
   FishingSprite: {fileID: 6301250949807361951}
   aimLineDots: {fileID: 8144427819434498299}

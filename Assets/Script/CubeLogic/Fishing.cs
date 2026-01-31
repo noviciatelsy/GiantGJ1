@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Fishing : CubeBase
 {
+    [SerializeField] private AudioEventSO fishingSFX;
+
+
     private BoatMove boatMove;
 
     //瞄准线
@@ -90,6 +93,7 @@ public class Fishing : CubeBase
         if (!isCharging)
         {
             aimLine.currentLength = mindist;
+            aimLineDots.gameObject.SetActive(true); // 显示瞄准线
             isCharging = true;
             chargeTimer = 0f;
         }
@@ -99,7 +103,9 @@ public class Fishing : CubeBase
     public override void EndCubeUse()
     {
         base.EndCubeUse();
-
+        aimLineDots.gameObject.SetActive(false); // 隐藏瞄准线
+        aimLine.currentLength = mindist;
         isCharging = false;
+        fishingSFX.Play(); // 播放甩杆音效
     }
 }

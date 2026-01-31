@@ -30,8 +30,8 @@ public class CubeDetailsUI : MonoBehaviour
             cubeDurability.text = "ÄÍ¾Ã£º" + currentDurability.ToString() + "/2";
             woodAmountToFix.text = "x"+cubeDatail.materialsToRepair.woodCost;
             ironAmountToFix.text="x"+cubeDatail.materialsToRepair.IronCost;
-            totalWoodAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
-            totalIronAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
+            totalWoodAmount.text = "x" + StorageManager.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
+            totalIronAmount.text = "x" + StorageManager.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
         }
         else
         {
@@ -46,8 +46,8 @@ public class CubeDetailsUI : MonoBehaviour
             cubeDurability.text = "ÄÍ¾Ã£º" + currentDurability.ToString() + "/"+cubeDatail.maxDurability.ToString();
             woodAmountToFix.text = "x" + cubeDatail.materialsToRepair.woodCost;
             ironAmountToFix.text = "x" + cubeDatail.materialsToRepair.IronCost;
-            totalWoodAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
-            totalIronAmount.text = "x" + StorageCube.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
+            totalWoodAmount.text = "x" + StorageManager.Instance.inventoryStorage.GetAvaliableAmountOf(woodData);
+            totalIronAmount.text = "x" + StorageManager.Instance.inventoryStorage.GetAvaliableAmountOf(ironData);
         }
     }
 
