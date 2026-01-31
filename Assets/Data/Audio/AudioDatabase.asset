@@ -16,7 +16,7 @@ MonoBehaviour:
   - audioName: MainMenuBGM
     clips:
     - {fileID: 8300000, guid: 16b61c44089c4e740836d10a8c35da19, type: 3}
-    volume: 0.35
+    volume: 0.25
   - audioName: LevelBGM
     clips:
     - {fileID: 8300000, guid: b4db15a2c7821934a8b2064f5102e429, type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
   - audioName: BoatBangSFX
     clips:
     - {fileID: 8300000, guid: 65ab2856a7f09fc429a0d433d30f21b3, type: 3}
-    volume: 1
+    volume: 0.5
   - audioName: BoatFixSFX
     clips:
     - {fileID: 8300000, guid: e20ed6db0e2fb3c42a22f8dd805ca6a4, type: 3}
@@ -55,7 +55,7 @@ MonoBehaviour:
   - audioName: WoodBreakSFX
     clips:
     - {fileID: 8300000, guid: 9eed6329864fd444f905fe98978dec22, type: 3}
-    volume: 1
+    volume: 0.5
   - audioName: FootStepSFX
     clips:
     - {fileID: 8300000, guid: e593bb7f278c6f24f8861a9a90b42b1b, type: 3}
@@ -63,7 +63,7 @@ MonoBehaviour:
   - audioName: RockBreakSFX
     clips:
     - {fileID: 8300000, guid: d16ce1b27280a8d46bbb6307dc5e429e, type: 3}
-    volume: 1
+    volume: 0.5
   - audioName: WaveBreakSFX
     clips:
     - {fileID: 8300000, guid: 51e28a3ec20526f49b033e9d0e8d6c77, type: 3}

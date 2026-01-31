@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Vector3 direction = Vector3.zero;
-    private float speed = 50f;
+    [SerializeField] private float speed = 50f;
     public int damage = 10;
 
 

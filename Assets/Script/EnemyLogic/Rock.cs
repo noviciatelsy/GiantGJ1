@@ -22,7 +22,7 @@ public class Rock : EnemyCommonLogic
 
                 Debug.Log("Crush");
                 boatBangSFX.Play();
-                rockBreakSFX.Play();
+
                 ToDestroySelf();
             }
         }
@@ -31,6 +31,7 @@ public class Rock : EnemyCommonLogic
     public override void ToDestroySelf()
     {
         base.ToDestroySelf();
+        rockBreakSFX.Play();
         StartCoroutine(DestroySelf());
     }
 

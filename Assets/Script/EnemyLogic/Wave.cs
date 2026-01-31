@@ -30,7 +30,7 @@ public class Wave : EnemyCommonLogic
 
                 Debug.Log("Crush");
                 boatBangSFX.Play();
-                waveBreakSFX.Play();
+
                 ToDestroySelf();
             }
         }
@@ -39,6 +39,7 @@ public class Wave : EnemyCommonLogic
     public override void ToDestroySelf()
     {
         base.ToDestroySelf();
+        waveBreakSFX.Play();
         StartCoroutine(DestroySelf());
     }
 
