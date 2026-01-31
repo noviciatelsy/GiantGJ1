@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff933021210d314891a0f4b5c6eb478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PLControl
+  footStepSFX: {fileID: 11400000, guid: 90c633c2160c85a4bb6b25c8b24df975, type: 2}
   boatSize: {x: 3, y: 3}
   moveLimitX: {x: 3, y: 3}
   moveLimitY: {x: 3, y: 3}

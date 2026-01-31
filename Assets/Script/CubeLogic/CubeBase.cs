@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 public class CubeBase : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioEventSO floorSqueakSFX;
+    [SerializeField] private AudioEventSO waterSplashSFX;
+    [SerializeField] private AudioEventSO woodBreakSFX;
+    [Space]
+
     public Vector2Int cubePos;
     public CubeItemDataSO cubeData;
 
@@ -25,12 +31,6 @@ public class CubeBase : MonoBehaviour
         landNumber = 0;
     }
 
-    void Start()
-    {
-        //CubeCrush();
-        CubeCrush();
-    }
-
     void Update()
     {
         if(isInteracting)
@@ -47,6 +47,8 @@ public class CubeBase : MonoBehaviour
             StartCoroutine(MoveToCoroutine(transform, transform.position + positionOffset, 0.1f));
         }
         chosenImage.ChooseCube();
+        floorSqueakSFX.Play();
+        waterSplashSFX.Play(); 
     }
     public void EndLand()
     {
@@ -148,6 +150,7 @@ public class CubeBase : MonoBehaviour
     public void CubeCrush()
     {
         handlefix.HealthBarCrush();
+        woodBreakSFX.Play();
         if(CheckCubeHealth()==1&&currentPlayer!=null) // 如果撞坏时（被撞时剩1血）刚好有玩家处于交互
         {
             currentPlayer.SetPlayerInteractingState(false); // 强制人物退出交互

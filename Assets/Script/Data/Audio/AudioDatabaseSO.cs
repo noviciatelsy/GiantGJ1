@@ -5,6 +5,8 @@ using UnityEngine;
 public class AudioDatabaseSO : ScriptableObject
 {
     public List<AudioClipData> backgroundMusic;
+    public List<AudioClipData> UI;
+    public List<AudioClipData> SFX;
 
     public Dictionary<string, AudioClipData> clipCollection;
 
@@ -13,6 +15,8 @@ public class AudioDatabaseSO : ScriptableObject
         clipCollection = new Dictionary<string, AudioClipData>(); // Çå¿Õ×Öµä
 
         AddToCollection(backgroundMusic);
+        AddToCollection(UI);
+        AddToCollection(SFX);
     }
 
     public AudioClipData GetAudioClipDataByName(string groupName)

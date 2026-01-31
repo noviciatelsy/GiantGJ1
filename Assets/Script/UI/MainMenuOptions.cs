@@ -4,6 +4,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuOptions : MonoBehaviour
 {
     [SerializeField] private string InGameSceneName = "LevelScene";
+    [SerializeField] private AudioEventSO mainMenuBGM;
+
+    private void Awake()
+    {
+        mainMenuBGM.Play();
+        AudioManager.Instance.StopAllLoopSFX();
+    }
     public void SinglePlayerButton()
     {
         FadeScreen.Instance.PlayFade(() =>

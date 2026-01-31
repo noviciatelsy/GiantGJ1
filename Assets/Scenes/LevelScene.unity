@@ -5006,6 +5006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864f8266fd23b5345ad9033d1c1a5bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelUI
+  levelBGM: {fileID: 11400000, guid: 627bfd2e65c01704c95dc899cb35c87a, type: 2}
+  waveEnvironmentSFX: {fileID: 11400000, guid: e75cbfcb6e585224db3f175e6de6dd85, type: 2}
 --- !u!1 &781058660
 GameObject:
   m_ObjectHideFlags: 0

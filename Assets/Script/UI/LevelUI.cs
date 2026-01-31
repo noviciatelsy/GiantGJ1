@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class LevelUI : MonoBehaviour
 {
+    [SerializeField] private AudioEventSO levelBGM;
+    [SerializeField] private AudioEventSO waveEnvironmentSFX;
     public static LevelUI Instance;
     public StoragePanel storagePanel { get; private set; }
     public PausePanel pausePanel { get; private set; }
@@ -26,6 +28,8 @@ public class LevelUI : MonoBehaviour
         hintMessage = GetComponentInChildren<HintMessage>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
         pausePanelEnabled = pausePanel.gameObject.activeSelf;
+        levelBGM.Play();
+        waveEnvironmentSFX.PlayLoop2D();
     }
 
     private void OnEnable()

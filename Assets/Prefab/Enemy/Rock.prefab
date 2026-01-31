@@ -162,6 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Rock
   EnemyHealth: 20
   impulseStrength: 50
+  boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
+  rockBreakSFX: {fileID: 11400000, guid: e68a96f765909a6438c9fe2b9513f0db, type: 2}
 --- !u!114 &2044043604970430053
 MonoBehaviour:
   m_ObjectHideFlags: 0

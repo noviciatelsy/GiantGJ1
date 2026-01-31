@@ -364,8 +364,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344e0e76efd3a824c94664df96964e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeBase
+  floorSqueakSFX: {fileID: 11400000, guid: 9f2bbe69fabfe064ca8d5ac22cd5e7ed, type: 2}
+  waterSplashSFX: {fileID: 11400000, guid: 707c0f431ce5b834db5761f62e16e849, type: 2}
+  woodBreakSFX: {fileID: 11400000, guid: 5018811f7e9316e489605deebbcfcdb4, type: 2}
   cubePos: {x: 0, y: 0}
+  cubeData: {fileID: 0}
+  handlefix: {fileID: 0}
   isInteracting: 0
+  shouldMoveCurrentPlayerToCentre: 0
+  allowInteract: 0
 --- !u!114 &289251797940280723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd63b361839e2fe46adae76dd119cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandleFix
+  boatFixSFX: {fileID: 11400000, guid: 0c7a32e421b0b9645bab4d4540d77e90, type: 2}
   HealthBar: {fileID: 5897613418771112434}
   Bars:
   - {fileID: 8124634790231242818}
@@ -386,6 +394,7 @@ MonoBehaviour:
   isCrushed: 0
   CubeOrigin: {fileID: 7325484858116251021}
   CubeCrushed: {fileID: 5646824382531745745}
+  canAutoFix: 0
 --- !u!65 &5531319595386046547
 BoxCollider:
   m_ObjectHideFlags: 0

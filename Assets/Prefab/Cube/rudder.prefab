@@ -343,6 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c417a4a5c6410944939ba227b2f12e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rudder
+  floorSqueakSFX: {fileID: 11400000, guid: 9f2bbe69fabfe064ca8d5ac22cd5e7ed, type: 2}
+  waterSplashSFX: {fileID: 11400000, guid: 707c0f431ce5b834db5761f62e16e849, type: 2}
+  woodBreakSFX: {fileID: 11400000, guid: 5018811f7e9316e489605deebbcfcdb4, type: 2}
   cubePos: {x: 0, y: 0}
   cubeData: {fileID: 11400000, guid: 19c5a525e5e93c543bfc4d3491ada07f, type: 2}
   handlefix: {fileID: 0}

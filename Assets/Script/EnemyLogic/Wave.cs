@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Wave : EnemyCommonLogic
 {
+    [Header("Audio")]
+    [SerializeField] AudioEventSO boatBangSFX;
+    [SerializeField] AudioEventSO waveBreakSFX;
+
     private bool isDestroy = false;
     private float moveSpeed = 20.0f;
 
@@ -25,6 +29,8 @@ public class Wave : EnemyCommonLogic
                 ApplyImpulseToBoat();
 
                 Debug.Log("Crush");
+                boatBangSFX.Play();
+                waveBreakSFX.Play();
                 ToDestroySelf();
             }
         }

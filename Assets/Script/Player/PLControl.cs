@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PLControl : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioEventSO footStepSFX;
+    private AudioSource footStepAudioSource;
+
     // 移动
     private float playerSpeed = 15f;
     public Vector2Int boatSize = new Vector2Int(3, 3); // x = 宽，y = 长
@@ -69,15 +73,29 @@ public class PLControl : MonoBehaviour
         if (isInteracting) // 交互阶段强制静止
         {
             animator.SetBool("isMoving", false);
+            if(footStepAudioSource != null )
+            {
+                footStepSFX.StopLoop(footStepAudioSource);
+                footStepAudioSource=null;
+            }
             return;
         }
         if (moveInput != Vector2.zero)
         {
             animator.SetBool("isMoving", true);
+            if(footStepAudioSource == null )
+            {
+                footStepAudioSource=footStepSFX.PlayLoop2D();
+            }
         }
         else
         {
             animator.SetBool("isMoving", false);
+            if (footStepAudioSource != null)
+            {
+                footStepSFX.StopLoop(footStepAudioSource);
+                footStepAudioSource = null;
+            }
         }
         Vector3 delta = new Vector3(
             moveInput.x * playerSpeed * Time.fixedDeltaTime,

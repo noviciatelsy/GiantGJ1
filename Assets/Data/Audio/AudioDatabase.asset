@@ -12,4 +12,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528b2f10e5a04574a884acf5eefb6339, type: 3}
   m_Name: AudioDatabase
   m_EditorClassIdentifier: Assembly-CSharp::AudioDatabaseSO
-  backgroundMusic: []
+  backgroundMusic:
+  - audioName: MainMenuBGM
+    clips:
+    - {fileID: 8300000, guid: 16b61c44089c4e740836d10a8c35da19, type: 3}
+    volume: 0.35
+  - audioName: LevelBGM
+    clips:
+    - {fileID: 8300000, guid: b4db15a2c7821934a8b2064f5102e429, type: 3}
+    volume: 0.15
+  - audioName: StoreBGM
+    clips:
+    - {fileID: 8300000, guid: 592130f7d9daf2e4f86c827a16f8fdd4, type: 3}
+    volume: 0.35
+  UI: []
+  SFX:
+  - audioName: WaveEnvironmentSFX
+    clips:
+    - {fileID: 8300000, guid: 6f2e61af53af84e48a2685ccbaaaf320, type: 3}
+    volume: 0.5
+  - audioName: FloorSqueakSFX
+    clips:
+    - {fileID: 8300000, guid: cb0d74dba7dbd77418dfef5bcc74e062, type: 3}
+    - {fileID: 8300000, guid: a043ae6b19599f341bc427da8f9a04a1, type: 3}
+    - {fileID: 8300000, guid: e62179958d67adc4ba3ee230b41fee09, type: 3}
+    volume: 1
+  - audioName: WaterSplashSFX
+    clips:
+    - {fileID: 8300000, guid: fa4fa68c0fa4dbc458a8000d79d674a8, type: 3}
+    - {fileID: 8300000, guid: c2ecbe540f5a91943b0c0dee28c58b47, type: 3}
+    - {fileID: 8300000, guid: be34839d50a30db4e86cde668fa34a06, type: 3}
+    - {fileID: 8300000, guid: 1fbc8631be40ae14bafc36950ad705bf, type: 3}
+    volume: 0.4
+  - audioName: BoatBangSFX
+    clips:
+    - {fileID: 8300000, guid: 65ab2856a7f09fc429a0d433d30f21b3, type: 3}
+    volume: 1
+  - audioName: BoatFixSFX
+    clips:
+    - {fileID: 8300000, guid: e20ed6db0e2fb3c42a22f8dd805ca6a4, type: 3}
+    volume: 1
+  - audioName: WoodBreakSFX
+    clips:
+    - {fileID: 8300000, guid: 9eed6329864fd444f905fe98978dec22, type: 3}
+    volume: 1
+  - audioName: FootStepSFX
+    clips:
+    - {fileID: 8300000, guid: e593bb7f278c6f24f8861a9a90b42b1b, type: 3}
+    volume: 0.5
+  - audioName: RockBreakSFX
+    clips:
+    - {fileID: 8300000, guid: d16ce1b27280a8d46bbb6307dc5e429e, type: 3}
+    volume: 1
+  - audioName: WaveBreakSFX
+    clips:
+    - {fileID: 8300000, guid: 51e28a3ec20526f49b033e9d0e8d6c77, type: 3}
+    volume: 1

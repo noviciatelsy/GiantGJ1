@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Rock : EnemyCommonLogic
 {
+    [Header("Audio")]
+    [SerializeField] AudioEventSO boatBangSFX;
+    [SerializeField] AudioEventSO rockBreakSFX;
+
     private bool isDestroy = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +21,8 @@ public class Rock : EnemyCommonLogic
                 ApplyImpulseToBoat();
 
                 Debug.Log("Crush");
+                boatBangSFX.Play();
+                rockBreakSFX.Play();
                 ToDestroySelf();
             }
         }

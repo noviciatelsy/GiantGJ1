@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class HandleFix : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioEventSO boatFixSFX;
+    [Space]
+
     public GameObject HealthBar;
     public List<GameObject> Bars;
 
@@ -83,6 +87,11 @@ public class HandleFix : MonoBehaviour
         if (FixProgress >= 1)
         {
             currentBarCount += 1; // 耐久度+1
+            if(!canAutoFix)
+            {
+                boatFixSFX.Play();
+            }
+
             if (StorageCube.Instance.inventoryStorage.HasEnoughWood(cube.cubeData.materialsToRepair.woodCost)) // 如果wood足够这一次修复
             {
                 StorageCube.Instance.inventoryStorage.ConsumeWood(cube.cubeData.materialsToRepair.woodCost);
