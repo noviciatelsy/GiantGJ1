@@ -24,7 +24,7 @@ MonoBehaviour:
   - audioName: StoreBGM
     clips:
     - {fileID: 8300000, guid: 592130f7d9daf2e4f86c827a16f8fdd4, type: 3}
-    volume: 0.35
+    volume: 0.2
   UI: []
   SFX:
   - audioName: WaveEnvironmentSFX
