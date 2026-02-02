@@ -24,4 +24,7 @@ MonoBehaviour:
   materialsToRepair:
     woodCost: 0
     IronCost: 1
+  piece:
+    woodCost: 0
+    IronCost: 10
   maxDurability: 4

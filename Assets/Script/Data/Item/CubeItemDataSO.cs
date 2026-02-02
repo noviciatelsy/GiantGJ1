@@ -9,11 +9,19 @@ public class CubeItemDataSO : ItemDataSO
     public Sprite spriteToShow; // 用于展示的贴图
     [TextArea] public string howToUse; 
     public MaterialCost materialsToRepair;
+    public cubePiece piece;
     public int maxDurability; // 最大耐久
 }
 
 [Serializable]
 public class MaterialCost
+{
+    public int woodCost;
+    public int IronCost;
+}
+
+[Serializable]
+public class cubePiece
 {
     public int woodCost;
     public int IronCost;
