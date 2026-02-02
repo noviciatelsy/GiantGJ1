@@ -33,7 +33,8 @@ public class EnemyCommonLogic : MonoBehaviour
         Vector3 dir = (BoatMove.Instance.transform.position - transform.position).normalized;
         dir.y = 0f;
 
-        Vector3 impulse = dir * impulseStrength;
+        //Vector3 impulse = dir * impulseStrength;
+        Vector3 impulse = new Vector3(dir.x * 0.9f, dir.y * 0.6f, dir.z * 1.4f) * impulseStrength;
         BoatMove.Instance.AddImpulse(impulse);
     }
 

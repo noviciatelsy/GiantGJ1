@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   EnemyHealth: 20
-  impulseStrength: 12
+  impulseStrength: 9
   boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
   waveBreakSFX: {fileID: 11400000, guid: 1a4d5cbd90373144e90fc47c6e0d77df, type: 2}
+  impulseDuration: 0.5

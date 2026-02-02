@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8147655718598371423}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0.02, z: 0.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.087155685, y: -0.00015139478, z: -0.0017304468, w: 0.9961932}
+  m_LocalPosition: {x: -0.00041707358, y: 0.09, z: 0.1999995}
+  m_LocalScale: {x: 2.5, y: 1.875, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3232039240257817253}
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: -0.035, z: -0.202}
 --- !u!212 &4108334493132473755
 SpriteRenderer:
   serializedVersion: 2
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5504db66d4848b74f8e94799690e1733, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6aeb858ed8cbcd2469f82fdbfcc74f38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,8 +103,9 @@ GameObject:
   - component: {fileID: 9023747753346780699}
   - component: {fileID: 8658598168486970010}
   - component: {fileID: 2044043604970430053}
+  - component: {fileID: 4131645800166493170}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,8 +147,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.5088496, y: 7.7137194, z: 4.0729494}
-  m_Center: {x: -0.012403488, y: 0.9563155, z: -0.2992289}
+  m_Size: {x: 12, y: 7.7137194, z: 4.0729494}
+  m_Center: {x: 0, y: 0.9563155, z: 0}
 --- !u!114 &8658598168486970010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rock
   EnemyHealth: 20
-  impulseStrength: 40
+  impulseStrength: 30
   boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
   rockBreakSFX: {fileID: 11400000, guid: e68a96f765909a6438c9fe2b9513f0db, type: 2}
 --- !u!114 &2044043604970430053
@@ -176,6 +177,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
+--- !u!114 &4131645800166493170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034303998135744201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ba6c441deffe34fb80980360b6d5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tree
+  EnemyHealth: 20
+  impulseStrength: 12
+  boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
+  TreeBreakSFX: {fileID: 11400000, guid: 5018811f7e9316e489605deebbcfcdb4, type: 2}
+  woodItemdata: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
 --- !u!1 &9104833745105614764
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,13 +219,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9104833745105614764}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0.02, z: 0.21}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalRotation: {x: 0.087155685, y: -0.00015139478, z: -0.0017304468, w: 0.9961932}
+  m_LocalPosition: {x: 0, y: 0.1799995, z: 0.21000037}
+  m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3232039240257817253}
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: -0.035, z: -0.202}
 --- !u!212 &7033312688596581416
 SpriteRenderer:
   serializedVersion: 2
@@ -257,7 +275,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5504db66d4848b74f8e94799690e1733, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6aeb858ed8cbcd2469f82fdbfcc74f38, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

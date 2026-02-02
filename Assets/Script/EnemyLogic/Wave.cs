@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Wave : EnemyCommonLogic
 {
@@ -8,7 +9,13 @@ public class Wave : EnemyCommonLogic
     [SerializeField] AudioEventSO waveBreakSFX;
 
     private bool isDestroy = false;
-    private float moveSpeed = 20.0f;
+    private float moveSpeed = 40.0f;
+
+    private HashSet<GameObject> hitCubes = new HashSet<GameObject>();
+
+    public float impulseDuration = 0.5f;
+    private bool isImpulseActive = false;
+    private float impulseInterval = 0.08f;
 
     void FixedUpdate()
     {
@@ -21,19 +28,49 @@ public class Wave : EnemyCommonLogic
         CubeBase cube = other.GetComponent<CubeBase>();
         if (cube != null)
         {
-            //耐久度>0才会碰撞
-            if (cube.CheckCubeHealth() > 0 && !isDestroy)
+            // 如果该浮块已经被处理过，跳过
+            if (!hitCubes.Contains(other.gameObject))
             {
-                isDestroy = true;
-                cube.CubeCrush();
-                ApplyImpulseToBoat();
+                // 耐久度 > 0 才会碰撞
+                if (cube.CheckCubeHealth() > 0 && !isDestroy)
+                {
+                    // 造成伤害并加入列表
+                    hitCubes.Add(other.gameObject);
 
-                Debug.Log("Crush");
-                boatBangSFX.Play();
+                    // 造成伤害
+                    cube.CubeCrush();
+                    //ApplyImpulseToBoat();
 
-                ToDestroySelf();
+                    // 播放音效
+                    boatBangSFX.Play();
+                    waveBreakSFX.Play();
+
+                    if (!isImpulseActive)
+                    {
+                        isImpulseActive = true;
+                        StartCoroutine(ApplyImpulseToBoatForDuration());
+                    }
+
+                    Debug.Log("Crush");
+                }
             }
         }
+    }
+
+    private IEnumerator ApplyImpulseToBoatForDuration()
+    {
+        float elapsedTime = 0f;
+
+        // 每隔一定时间施加冲量
+        while (elapsedTime < impulseDuration)
+        {
+            ApplyImpulseToBoat();  // 施加冲量
+            elapsedTime += impulseInterval;  // 增加已过去时间
+            yield return new WaitForSeconds(impulseInterval);  // 等待下一个冲量时刻
+        }
+
+        // 冲量时间结束
+        isImpulseActive = false;
     }
 
     public override void ToDestroySelf()
