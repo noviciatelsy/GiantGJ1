@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Fishing : CubeBase
@@ -103,9 +104,35 @@ public class Fishing : CubeBase
     public override void EndCubeUse()
     {
         base.EndCubeUse();
+
+        LandPoint landPoint = GetComponentInChildren<LandPoint>();
+        if (landPoint == null)
+        {
+            Debug.LogWarning("未找到 LandPoint 子物体！");
+            return;
+        }
+        List<MaterialBase> materials = landPoint.GetMatInLandPoint();
+        if (materials == null || materials.Count == 0)
+        {
+            Debug.Log("落点区域内没有材料");
+            return;
+        }
+
+        foreach (MaterialBase mat in materials)
+        {
+            if (mat == null) continue;
+            mat.isFished();
+            //StorageManager.Instance.GetItem(
+            //    mat.MaterialData,
+            //    mat.ItemNum
+            //);
+            //Destroy(mat.gameObject);
+        }
+
         aimLineDots.gameObject.SetActive(false); // 隐藏瞄准线
         aimLine.currentLength = mindist;
         isCharging = false;
         fishingSFX.Play(); // 播放甩杆音效
     }
+
 }

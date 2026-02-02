@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1658513702350157925}
   - component: {fileID: 5009956144990672429}
   - component: {fileID: 2063803306981354788}
+  - component: {fileID: 8851559788375880587}
   m_Layer: 0
   m_Name: WoodMatLarge
   m_TagString: Untagged
@@ -158,3 +159,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 18.300154, y: 16.114746, z: 15}
   m_Center: {x: -0.1944952, y: 0.22646523, z: 0}
+--- !u!114 &8851559788375880587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7297107096564270129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f209ec99a609c8a459609f90e98a37ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaterialBase
+  MaterialData: {fileID: 11400000, guid: 64de5ec735ddb8e4f8988810fbc8d924, type: 2}
+  ItemNum: 5

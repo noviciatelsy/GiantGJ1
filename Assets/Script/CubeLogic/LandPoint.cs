@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LandPoint : MonoBehaviour
@@ -6,6 +7,8 @@ public class LandPoint : MonoBehaviour
     public float radius = 5f;          // 检测范围半径
     public Transform collidertrans;
     private Collider landPointCollider;  // 当前物体的 Collider
+
+    private List<MaterialBase> currentMats = new List<MaterialBase>();
 
     void Start()
     {
@@ -29,7 +32,31 @@ public class LandPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("进入落点区域: " + other.name);
+        MaterialBase mat = other.GetComponent<MaterialBase>();
+        if (mat != null)
+        {
+            if (!currentMats.Contains(mat))
+            {
+                currentMats.Add(mat);
+                Debug.Log("进入落点区域: " + other.name);
+            }
+        }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        MaterialBase mat = other.GetComponent<MaterialBase>();
+        if (mat != null)
+        {
+            if (currentMats.Remove(mat))
+            {
+                Debug.Log("离开落点区域: " + other.name);
+            }
+        }
+    }
+
+    public List<MaterialBase> GetMatInLandPoint()
+    {
+        return currentMats;
+    }
 }
