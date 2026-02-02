@@ -285,7 +285,14 @@ public class HandleFix : MonoBehaviour
     {
         EndFix();
 
-        Bars[currentBarCount - 1].transform.localScale = new Vector3(0, 1, 1);
+        if (currentBarCount > 0 && currentBarCount <= Bars.Count)
+        {
+            Bars[currentBarCount - 1].transform.localScale = new Vector3(0, 1, 1);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid currentBarCount: " + currentBarCount);
+        }
     }
 
     public void StartFix(PLControl currentFixingPlayer)

@@ -19,7 +19,7 @@ public class BoatMove : MonoBehaviour
 
     //船受击参数
     [Header("Impulse")]
-    public float impulseDamping = 40f; // 冲量衰减速度（越大衰减越快）
+    public float impulseDamping = 50f; // 冲量衰减速度（越大衰减越快）
     private Vector3 impulseVelocity = Vector3.zero;
 
 

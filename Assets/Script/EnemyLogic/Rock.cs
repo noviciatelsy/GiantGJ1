@@ -37,7 +37,7 @@ public class Rock : EnemyCommonLogic
 
     private IEnumerator DestroySelf()
     {
-        Vector3 targetPos = new Vector3 (transform.position.x, transform.position.y - 2.0f, transform.position.z);
+        Vector3 targetPos = new Vector3 (transform.position.x, transform.position.y - 2.0f, transform.position.z - 1.0f);
         yield return MoveToCoroutine(transform, targetPos, 0.3f);
         Destroy(gameObject);
         yield return null;
