@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 4957110759365311479}
   - component: {fileID: 5094628490373267542}
   - component: {fileID: 4497000859528302510}
+  - component: {fileID: -6842677104091487343}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -283,9 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PLControl
   footStepSFX: {fileID: 11400000, guid: 90c633c2160c85a4bb6b25c8b24df975, type: 2}
   interactSFX: {fileID: 11400000, guid: 74d18db38d90fbe4099b13f78dd82b99, type: 2}
-  boatSize: {x: 3, y: 3}
-  moveLimitX: {x: 3, y: 3}
-  moveLimitY: {x: 3, y: 3}
   cubeToEquipSprite: {fileID: 2248416468863312368}
   emptySprite: {fileID: -1951186563, guid: 77b9d360c1b464e44ab1c7644e5c7c67, type: 3}
 --- !u!114 &5094628490373267542
@@ -407,3 +405,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6842677104091487343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272838063412364494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1544fec474ac47439dab3a3b2176ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableScanner

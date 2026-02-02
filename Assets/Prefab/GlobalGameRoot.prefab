@@ -1734,9 +1734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   playerKeyboardPrefab: {fileID: 1331769846662404220, guid: 5c4ce87297568ee4c8814a2bf21c0593, type: 3}
   playerGamepadPrefab: {fileID: 3003062794363636344, guid: 14a72adfa35fecf408ceef23aea1d2c9, type: 3}
-  singlePlayerSpwanPosition: {x: 0, y: 7.5, z: 7.5}
-  multiPlayerOneSpawnPosition: {x: 7.5, y: 7.5, z: 7.5}
-  multiPlayerTwoSpawnPosition: {x: -7.5, y: 7.5, z: 7.5}
+  singlePlayerSpwanPositionOnBoat: {x: 0, y: 7.5, z: 7.5}
+  multiPlayerOneSpawnPositionOnBoat: {x: -5, y: 7.5, z: 7.5}
+  multiPlayerTwoSpawnPositionOnBoat: {x: 5, y: 7.5, z: 7.5}
+  PlayerSpawnPositionInStore: {x: -38, y: 13, z: 7.5}
 --- !u!1 &7276970246779294034
 GameObject:
   m_ObjectHideFlags: 0

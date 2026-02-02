@@ -206,50 +206,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: PlayerSpawnPositionInStore.x
-      value: -38
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: PlayerSpawnPositionInStore.y
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: PlayerSpawnPositionInStore.z
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: singlePlayerSpwanPositionOnBoat.y
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: singlePlayerSpwanPositionOnBoat.z
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerOneSpawnPositionOnBoat.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerOneSpawnPositionOnBoat.y
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerOneSpawnPositionOnBoat.z
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerTwoSpawnPositionOnBoat.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerTwoSpawnPositionOnBoat.y
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 491723684020630627, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
-      propertyPath: multiPlayerTwoSpawnPositionOnBoat.z
-      value: 7.5
-      objectReference: {fileID: 0}
     - target: {fileID: 616697580702199444, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_Name
       value: GlobalGameRoot

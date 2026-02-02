@@ -1,154 +1,116 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
+
 
 public class InteractableScanner : MonoBehaviour
 {
-    [Header("Scan Settings")]
-    [SerializeField] private float scanRadius = 2.0f;                          // 扫描半径
-    [SerializeField] private float scanInterval = 0.2f;                        // 扫描间隔（秒），比如 0.2 就是每 0.2 秒扫一次
-    [SerializeField] private LayerMask scanMask = ~0;                          // 扫描层（建议只勾可交互层）
-    [SerializeField] private QueryTriggerInteraction triggerInteraction = QueryTriggerInteraction.Ignore;
-
-    [Header("Origin Offset")]
-    [SerializeField] private Vector3 originOffset = new Vector3(0f, 1.0f, 0f); // 球心偏移（比如胸口高度）
-
-    [Header("Performance")]
-    [SerializeField] private int overlapBufferSize = 32;                       // OverlapSphereNonAlloc 缓冲大小
-
-    public IInteractable currentInteractableObject
-    {
-        get;
-        private set;
-    }
-
-    private Collider[] _overlapBuffer;
-
-    // 复用容器：避免 GC
-    private readonly List<MonoBehaviour> _monoBuffer = new List<MonoBehaviour>(8);
-
-    // 计时器
-    private float _scanTimer = 0f;
+    private IInteractable currentInteractableObject;
+    private List<IInteractable> nearbyInteractableObjects;
+    private float refreshInterval = 0.1f;
+    private float refreshTimer = 0f;
 
     private void Awake()
     {
-        overlapBufferSize = Mathf.Max(1, overlapBufferSize);
-        _overlapBuffer = new Collider[overlapBufferSize];
-    }
-
-    private void OnDisable()
-    {
-        currentInteractableObject = null;
-        _scanTimer = 0f;
+        nearbyInteractableObjects = new List<IInteractable>();
     }
 
     private void Update()
     {
-        // 防止填 0 或负数导致疯狂扫描
-        float interval = Mathf.Max(0.02f, scanInterval);
+        RefreshCurrentInteractableObject();
+    }
 
-        _scanTimer += Time.deltaTime;
-
-        if (_scanTimer < interval)
+    private void RefreshCurrentInteractableObject()
+    {
+        if(refreshTimer<refreshInterval)
         {
+            refreshTimer += Time.deltaTime;
             return;
         }
-
-        // 到点了：扫一次
-        _scanTimer = 0f;
-        ScanOnce();
+        else
+        {
+            FindNearestInteractableObject();
+            refreshTimer = 0f;
+        }
     }
 
-    private void ScanOnce()
+    private void FindNearestInteractableObject()
     {
-        Vector3 originPos = transform.position + originOffset;
+        IInteractable nearest = null;
+        float minDist = float.MaxValue;
 
-        int hitCount = Physics.OverlapSphereNonAlloc(
-            originPos,
-            scanRadius,
-            _overlapBuffer,
-            scanMask,
-            triggerInteraction
-        );
-
-        IInteractable bestInteractable = null;
-        float bestSqrDistance = float.PositiveInfinity;
-
-        for (int i = 0; i < hitCount; i++)
+        foreach (var interactable in nearbyInteractableObjects )
         {
-            Collider col = _overlapBuffer[i];
+            if (interactable== null) continue;
 
-            if (col == null)
+            var interactableMb = interactable as MonoBehaviour;
+            if (interactableMb == null)
             {
                 continue;
             }
 
-            // 排除自己（角色自身的碰撞体）
-            if (col.transform == transform || col.transform.IsChildOf(transform))
-            {
-                continue;
-            }
+            Vector3 targetPos = interactableMb.transform.position;
 
-            // 找到实现 IInteractable 的组件（允许脚本挂在父物体）
-            if (!TryGetInteractableFromCollider(col, out IInteractable interactable))
-            {
-                continue;
-            }
+            float dist = Vector2.Distance(
+                 new Vector2(transform.position.x, transform.position.z),
+                new Vector2(targetPos.x, targetPos.z)
+            );
 
-            // 用碰撞体表面最近点计算距离（更符合“贴近”的手感）
-            Vector3 closestPoint = col.ClosestPoint(originPos);
-            float sqrDist = (closestPoint - originPos).sqrMagnitude;
-
-            if (sqrDist < bestSqrDistance)
+            if (dist < minDist)
             {
-                bestSqrDistance = sqrDist;
-                bestInteractable = interactable;
+                minDist = dist;
+                nearest = interactable;
             }
         }
 
-        currentInteractableObject = bestInteractable;
-    }
-
-    private bool TryGetInteractableFromCollider(Collider col, out IInteractable interactable)
-    {
-        interactable = null;
-
-        _monoBuffer.Clear();
-
-        // 用 MonoBehaviour 作中间列表，再用 is IInteractable 判断（版本兼容更稳）
-        col.GetComponentsInParent(true, _monoBuffer);
-
-        for (int i = 0; i < _monoBuffer.Count; i++)
+        // 如果最近的发生变化
+        if (nearest != currentInteractableObject)
         {
-            MonoBehaviour mb = _monoBuffer[i];
 
-            if (mb == null)
+            // 旧的取消可交互
+            if (currentInteractableObject != null)
             {
-                continue;
+                currentInteractableObject.SetInterable(false);
             }
 
-            if (mb is IInteractable found)
+            currentInteractableObject= nearest;
+
+            // 新的设为可交互
+            if (currentInteractableObject != null)
             {
-                interactable = found;
-                return true;
+                currentInteractableObject.SetInterable(true);
             }
         }
-
-        return false;
     }
 
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
+    private void OnTriggerEnter(Collider other)
     {
-        Vector3 originPos = transform.position + originOffset;
-
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(originPos, scanRadius);
+        IInteractable interactableObject= other.GetComponent<IInteractable>();
+        if (interactableObject!= null)
+        {
+            if(!nearbyInteractableObjects.Contains(interactableObject))
+            {
+                nearbyInteractableObjects.Add(interactableObject);
+            }
+        }
     }
-#endif
+
+    private void OnTriggerExit(Collider other)
+    {
+        IInteractable interactableObject = other.GetComponent<IInteractable>();
+        if (interactableObject != null)
+        {
+            if (nearbyInteractableObjects.Contains(interactableObject))
+            {
+                nearbyInteractableObjects.Remove(interactableObject);
+            }
+        }
+    }
 }
 
 public interface IInteractable
 {
     public void Interact();
+
+    public void SetInterable(bool isInteractable);
+
 }
