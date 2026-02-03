@@ -101,7 +101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3232039240257817253}
   - component: {fileID: 9023747753346780699}
-  - component: {fileID: 8658598168486970010}
   - component: {fileID: 2044043604970430053}
   - component: {fileID: 4131645800166493170}
   m_Layer: 0
@@ -126,6 +125,7 @@ Transform:
   m_Children:
   - {fileID: 4102128372648184183}
   - {fileID: 8019649443409780008}
+  - {fileID: 7432778818967185996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9023747753346780699
@@ -149,22 +149,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12, y: 7.7137194, z: 4.0729494}
   m_Center: {x: 0, y: 0.9563155, z: 0}
---- !u!114 &8658598168486970010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034303998135744201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c2b76f2f687534b99d4bda1ac508d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rock
-  EnemyHealth: 20
-  impulseStrength: 30
-  boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
-  rockBreakSFX: {fileID: 11400000, guid: e68a96f765909a6438c9fe2b9513f0db, type: 2}
 --- !u!114 &2044043604970430053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ba6c441deffe34fb80980360b6d5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tree
-  EnemyHealth: 20
+  EnemyHealth: 30
   impulseStrength: 12
   boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
   TreeBreakSFX: {fileID: 11400000, guid: 5018811f7e9316e489605deebbcfcdb4, type: 2}
@@ -285,3 +269,73 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &469124817945985387
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3232039240257817253}
+    m_Modifications:
+    - target: {fileID: 5708005965683493166, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: EnemyMaxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961947
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08715578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139881771747822891, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+--- !u!4 &7432778818967185996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+  m_PrefabInstance: {fileID: 469124817945985387}
+  m_PrefabAsset: {fileID: 0}

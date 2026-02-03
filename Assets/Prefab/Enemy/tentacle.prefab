@@ -239,8 +239,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3232039240257817253}
   - component: {fileID: 9023747753346780699}
-  - component: {fileID: 8658598168486970010}
   - component: {fileID: 2044043604970430053}
+  - component: {fileID: 3717562010654532241}
   m_Layer: 0
   m_Name: tentacle
   m_TagString: Untagged
@@ -262,6 +262,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1463844095316848807}
+  - {fileID: 4065159045454556521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9023747753346780699
@@ -285,22 +286,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 5}
   m_Center: {x: 0, y: 0.9563155, z: 0}
---- !u!114 &8658598168486970010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034303998135744201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c2b76f2f687534b99d4bda1ac508d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rock
-  EnemyHealth: 20
-  impulseStrength: 40
-  boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
-  rockBreakSFX: {fileID: 11400000, guid: e68a96f765909a6438c9fe2b9513f0db, type: 2}
 --- !u!114 &2044043604970430053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,3 +298,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
+--- !u!114 &3717562010654532241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034303998135744201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c858bad7f2460f3488d4d17651209289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::tentacle
+  EnemyHealth: 30
+  impulseStrength: 30
+  canDamaged: 1
+  boatBangSFX: {fileID: 11400000, guid: ff3c379aabdbe4842a1c29a283fcfa89, type: 2}
+  rockBreakSFX: {fileID: 11400000, guid: fb82ff0fb1cce8c44a3649774b647df3, type: 2}
+--- !u!1001 &6471244820385056334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3232039240257817253}
+    m_Modifications:
+    - target: {fileID: 5708005965683493166, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: EnemyMaxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139881771747822891, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+--- !u!4 &4065159045454556521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7035786441857411879, guid: 501dc6b7a38ce02408b3be2fc7050203, type: 3}
+  m_PrefabInstance: {fileID: 6471244820385056334}
+  m_PrefabAsset: {fileID: 0}

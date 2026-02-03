@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
     {
         //等待完成
         EnemyCommonLogic enemy = other.GetComponent<EnemyCommonLogic>();
-        if (enemy != null)
+        if (enemy != null && enemy.canDamaged)
         {
             Debug.Log("子弹打到敌人");
             enemy.Ondamage(damage); // 对敌人造成伤害
