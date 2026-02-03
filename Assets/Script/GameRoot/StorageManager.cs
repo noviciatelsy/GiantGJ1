@@ -50,7 +50,7 @@ public class StorageManager : MonoBehaviour
     {
         inventoryStorage.AddItem(itemToGet, amount);
         string getItemMessage = "ÒÑ»ñµÃ£º" + itemToGet.itemName + "x" + amount;
-        LevelUI.Instance.hintMessage.ShowQuickMessage(getItemMessage);
+        HintMessage.Instance.ShowQuickMessage(getItemMessage);
         getItemSFX.Play();
     }
 }

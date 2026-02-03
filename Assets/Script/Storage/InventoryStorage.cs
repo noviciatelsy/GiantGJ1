@@ -67,7 +67,7 @@ public class InventoryStorage : MonoBehaviour
     {
         var slot=materialItemSlotList[slotIndex];
         string discardMessage = "已弃置：" + slot.itemInSlot.ItemData.itemName + "x" + slot.itemInSlot.stackSize;
-        LevelUI.Instance.hintMessage.ShowQuickMessage(discardMessage);
+        HintMessage.Instance.ShowQuickMessage(discardMessage);
         slot.itemInSlot=null; // 清空该格子
         onStorageChanged?.Invoke();
     }
@@ -77,7 +77,7 @@ public class InventoryStorage : MonoBehaviour
 
         var slot = cubeItemSlotList[slotIndex];
         string discardMessage = "已弃置：" + slot.itemInSlot.ItemData.itemName + "x" + slot.itemInSlot.stackSize;
-        LevelUI.Instance.hintMessage.ShowQuickMessage(discardMessage);
+        HintMessage.Instance.ShowQuickMessage(discardMessage);
         slot.itemInSlot = null; // 清空该格子
         onStorageChanged?.Invoke();
     }
@@ -87,7 +87,7 @@ public class InventoryStorage : MonoBehaviour
         var slot = cubeItemSlotList[slotIndex];
         var cubeData=slot.itemInSlot;
         string equipCubeMessage = "在闲置的船体上可按下键盘\"E\"/手柄\"A\"来放置模块，按下键盘\"Q\"/手柄\"B\"取消放置";
-        LevelUI.Instance.hintMessage.ShowLongTimeMessage(equipCubeMessage);
+        HintMessage.Instance.ShowLongTimeMessage(equipCubeMessage);
         slot.itemInSlot = null; // 清空该格子
         onStorageChanged?.Invoke();
         return (CubeItemDataSO)cubeData.ItemData;

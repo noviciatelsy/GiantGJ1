@@ -27,6 +27,8 @@ public class HintMessage : MonoBehaviour
     [SerializeField] private bool useFade = true;                 // 是否淡入淡出
     [SerializeField] private float fadeSeconds = 0.12f;           // 淡入淡出时间
 
+    public static HintMessage Instance;
+
     private Queue<string> quickQueue = new Queue<string>();
     private Coroutine quickCoroutine;
     private Coroutine longCoroutine;
@@ -36,7 +38,12 @@ public class HintMessage : MonoBehaviour
 
     private void Awake()
     {
-
+        if(Instance != null&&Instance!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         HideAllImmediately();
     }
 

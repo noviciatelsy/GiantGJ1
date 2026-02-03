@@ -19,7 +19,7 @@ MonoBehaviour:
   itemIcon: {fileID: 935551526, guid: b5b63a21c0a3311448bed77948a951d0, type: 3}
   maxStackSize: 1
   cubePrefab: {fileID: 4404716930417283125, guid: 753acb86ed46acc419b7da52af67182e, type: 3}
-  spriteToShow: {fileID: 935551526, guid: b5b63a21c0a3311448bed77948a951d0, type: 3}
+  spriteToShow: {fileID: 1896525157, guid: b5b63a21c0a3311448bed77948a951d0, type: 3}
   howToUse: 
   materialsToRepair:
     woodCost: 0

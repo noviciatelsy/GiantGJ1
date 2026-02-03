@@ -354,6 +354,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoreItem
   itemTooltip: {fileID: 3135496325756508397}
+  itemSprite: {fileID: 3618980643384180437}
+  itemName: {fileID: 5446326376750734894}
+  itemDescription: {fileID: 5178585464005554060}
+  woodCost: {fileID: 5984742338190716815}
+  ironCost: {fileID: 6031920662979613424}
+  cubeDatas:
+  - {fileID: 11400000, guid: 79cff48be47ad0148a9b8bd6819fc742, type: 2}
+  - {fileID: 11400000, guid: 4280e25afc5f8a340a8fe9a9a6e5d0a0, type: 2}
+  - {fileID: 11400000, guid: e3ca34db7068bff469a64ea8e297b8f8, type: 2}
+  - {fileID: 11400000, guid: 25ecc5a8711486046b268b6b083de4b1, type: 2}
+  setInteractableSFX: {fileID: 11400000, guid: 74d18db38d90fbe4099b13f78dd82b99, type: 2}
+  buyItemSFX: {fileID: 11400000, guid: 7ad077685c2bd104199ec081f6b4fa49, type: 2}
 --- !u!65 &2271412892076650143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1005,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 13}
+  m_AnchoredPosition: {x: 0, y: 12.5}
   m_SizeDelta: {x: 8, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2411860948324278386

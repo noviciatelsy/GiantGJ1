@@ -88,3 +88,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 56afa5c7d0b8b1841ae9d80474cf77dd, type: 3}
     volume: 1
+  - audioName: BuyItemSFX
+    clips:
+    - {fileID: 8300000, guid: bc9e9a841053be44d8c145c4dc10bd26, type: 3}
+    volume: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableScanner : MonoBehaviour
 {
-    private IInteractable currentInteractableObject;
+    public IInteractable currentInteractableObject {  get; private set; }
     private List<IInteractable> nearbyInteractableObjects;
     private float refreshInterval = 0.1f;
     private float refreshTimer = 0f;

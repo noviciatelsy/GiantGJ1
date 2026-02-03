@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class Wharf : MonoBehaviour
 {
     [SerializeField] private string storeSceneName = "Store";
-    [SerializeField] private AudioEventSO storeBGM;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,9 +14,10 @@ public class Wharf : MonoBehaviour
             FadeScreen.Instance.PlayFade(() =>
             {
                 GameManager.Instance.playerManager.DestroyPlayer();
+                AudioManager.Instance.StopAllLoopSFX();
                 GameManager.Instance.playerManager.SpawnPlayerInStore();
                 SceneManager.LoadScene(storeSceneName);
-                storeBGM.Play();
+            
             });
         }
     }

@@ -15,9 +15,9 @@ public class EmptyCube : CubeBase
         }
         CubeItemDataSO cubeData = interactPlayer.cubeToEquip;
         string equipMessage = "已装备：" + cubeData.itemName;
-        LevelUI.Instance.hintMessage.ShowQuickMessage( equipMessage );
+        HintMessage.Instance.ShowQuickMessage( equipMessage );
         interactPlayer.ResetCubeToEquip(); // 清除人物待装配的浮块
-        LevelUI.Instance.hintMessage.StopLongTimeMessage();
+        HintMessage.Instance.StopLongTimeMessage();
         ReplaceSelf(cubeData.cubePrefab);
     }
 

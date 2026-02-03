@@ -20,6 +20,7 @@ public class PLControl : MonoBehaviour
     // 交互
     private bool isInteracting = false;
     private bool longPressTriggered;
+    private InteractableScanner interactableScanner;
 
     private Animator animator;
     public Vector2 moveInput { get; private set; } // 缓存的移动输入（来自 PlayerInput 的回调）
@@ -44,6 +45,7 @@ public class PLControl : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rb=GetComponent<Rigidbody>();
+        interactableScanner = GetComponent<InteractableScanner>();
     }
 
     //void Start()
@@ -274,6 +276,13 @@ public class PLControl : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if(interactableScanner.currentInteractableObject != null)
+            {
+                interactableScanner.currentInteractableObject.Interact();
+            }
+        }
 
         
     }
@@ -314,7 +323,7 @@ public class PLControl : MonoBehaviour
             }
             if (contex.performed) // 当取消装备时
             {
-                LevelUI.Instance.hintMessage.StopLongTimeMessage();
+                HintMessage.Instance.StopLongTimeMessage();
                 StorageManager.Instance.GetItem(cubeToEquip, 1);
                 ResetCubeToEquip();
             }
