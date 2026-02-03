@@ -273,7 +273,10 @@ public class HandleFix : MonoBehaviour
     {
         //float fixedPercent = fixingTimer / timeToFix; // ¼ÆËã½ø¶È
         //fixedPercent = Mathf.Clamp01(fixedPercent);
-        Bars[currentBarCount].transform.localScale = new Vector3(fixedPercent, 1, 1);
+        if (currentBarCount >= 0)
+        {
+            Bars[currentBarCount].transform.localScale = new Vector3(fixedPercent, 1, 1);
+        }
     }
 
     private void ResetCurrentBar()

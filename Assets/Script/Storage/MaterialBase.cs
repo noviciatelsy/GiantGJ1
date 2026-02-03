@@ -50,4 +50,16 @@ public class MaterialBase : MonoBehaviour
         StorageManager.Instance.GetItem(MaterialData,ItemNum);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CubeBase cube = other.GetComponent<CubeBase>();
+        if (cube != null)
+        {
+            Debug.Log("GetMaterial");
+            StorageManager.Instance.GetItem(MaterialData, ItemNum);
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7722738312061259290}
   - component: {fileID: 9065359516760173881}
   - component: {fileID: 3709874458110792066}
+  - component: {fileID: 8254660944527240913}
   m_Layer: 0
   m_Name: Wharf
   m_TagString: Untagged
@@ -72,7 +73,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wharf
   storeSceneName: Store
-  storeBGM: {fileID: 11400000, guid: 3829e94f34b5ebe4aab604e259ba7fd7, type: 2}
+  isEndingLine: 0
+--- !u!114 &8254660944527240913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801687314815813277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
 --- !u!1 &875169668554666560
 GameObject:
   m_ObjectHideFlags: 0
