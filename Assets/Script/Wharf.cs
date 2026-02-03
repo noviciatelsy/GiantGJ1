@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 public class Wharf : MonoBehaviour
 {
     [SerializeField] private string storeSceneName = "Store";
-
+    [SerializeField] private bool isEndingLine;
     private void OnTriggerEnter(Collider other)
     {
         CubeBase cube = other.GetComponent<CubeBase>();
         if (cube != null)
         {
+            if(!isEndingLine)
             FadeScreen.Instance.PlayFade(() =>
             {
                 GameManager.Instance.playerManager.DestroyPlayer();
@@ -19,6 +20,10 @@ public class Wharf : MonoBehaviour
                 SceneManager.LoadScene(storeSceneName);
             
             });
+            else
+            {
+                LevelUI.Instance.endingPanel.gameObject.SetActive(true);
+            }
         }
     }
 }

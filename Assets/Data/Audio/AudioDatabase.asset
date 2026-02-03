@@ -96,3 +96,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: b3990d2aa6e061f4cae712de49e373e4, type: 3}
     volume: 1
+  - audioName: LevelWinSFX
+    clips:
+    - {fileID: 8300000, guid: 3d8d6b13612225c4a80ded6950d775e2, type: 3}
+    volume: 1
