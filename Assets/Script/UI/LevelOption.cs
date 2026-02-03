@@ -24,7 +24,12 @@ public class LevelOption : MonoBehaviour, IPointerClickHandler
         {
             FadeScreen.Instance.PlayFade(() =>
             {
+                GlobalUI.Instance.levelSelectUI.gameObject.SetActive(false);
+                GameManager.Instance.playerManager.DestroyPlayer();
+                AudioManager.Instance.StopAllLoopSFX();
+                GameManager.Instance.playerManager.SpawnPlayerOnBoat();
                 SceneManager.LoadScene(levelData.levelSceneName);
+
             });
         }
     }

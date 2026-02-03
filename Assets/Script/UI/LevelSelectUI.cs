@@ -7,9 +7,10 @@ public class LevelSelectUI : MonoBehaviour
     [SerializeField] private LevelDataSO[] specialLevelOptions;
 
     private LevelOption[] levelOptions;
-
+    private bool timeIsPaused = false;
     private void Awake()
     {
+
         levelOptions = GetComponentsInChildren<LevelOption>();
     }
 
@@ -44,6 +45,13 @@ public class LevelSelectUI : MonoBehaviour
         {
             Debug.LogError("[LevelSelectUI] 没有足够的 Special 关卡数据（specialLevelOptions 为空或数量不足）。");
         }
+
+        PauseGame(true);
+    }
+
+    private void OnDisable()
+    {
+        PauseGame(false);
     }
 
     private LevelDataSO[] GetRandomSpecialLevelOptions(int optionAmount)
@@ -78,6 +86,7 @@ public class LevelSelectUI : MonoBehaviour
         }
 
         return results;
+
     }
 
     private LevelDataSO GetRandomNormalLevelOption()
@@ -136,4 +145,34 @@ public class LevelSelectUI : MonoBehaviour
             list[randomIndex] = temp;
         }
     }
+
+    private void PauseGame(bool pause)
+    {
+        if (pause)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
+        }
+    }
+
+    private void Pause()
+    {
+        if (timeIsPaused) return;
+        timeIsPaused = true;
+        Time.timeScale = 0f;
+        GameManager.Instance.inputManager.DisableAllPlayersInput(); // 禁用玩家操作
+        Debug.Log("pause");
+    }
+
+    private void Resume()
+    {
+        if (!timeIsPaused) return;
+        timeIsPaused = false;
+        Time.timeScale = 1f;
+        GameManager.Instance.inputManager.EnableAllPlayersInput(); // 启用玩家操作
+    }
+
 }

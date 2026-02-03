@@ -649,7 +649,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// …Ë÷√ UI ◊‹“Ù¡ø£®0~1£©°£
     /// </summary>
-    public void SetUiMasterVolume(float value)
+    public void SetUIMasterVolume(float value)
     {
         float uiMasterVolume = Mathf.Clamp01(value);
 
@@ -668,7 +668,7 @@ public class AudioManager : MonoBehaviour
 
         SetBgmMasterVolume(data.bgmVolume);
         SetSfxMasterVolume(data.sfxVolume);
-        SetUiMasterVolume(data.uiVolume);
+        SetUIMasterVolume(data.uiVolume);
     }
 
     #endregion

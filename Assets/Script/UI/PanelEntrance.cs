@@ -11,7 +11,7 @@ public class PanelEntrance : MonoBehaviour
 
     [Header("Adaptive Hidden Position")]
     [Tooltip("用哪个 Rect 作为“屏幕可视区域”的参考（Canvas 或面板的父物体RectTransform）")]
-    private RectTransform referenceRect;
+    [SerializeField] private RectTransform referenceRect;
 
     public enum HideDirection
     {

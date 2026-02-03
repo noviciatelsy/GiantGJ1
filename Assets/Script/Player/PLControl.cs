@@ -7,7 +7,7 @@ public class PLControl : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] private AudioEventSO footStepSFX;
-    private AudioSource footStepAudioSource;
+    public AudioSource footStepAudioSource {  get; private set; }
     [SerializeField] private AudioEventSO interactSFX;
 
     // ÒÆ¶¯

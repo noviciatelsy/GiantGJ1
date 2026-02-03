@@ -5,11 +5,13 @@ public class MainMenuOptions : MonoBehaviour
 {
     [SerializeField] private string InGameSceneName = "LevelScene";
     [SerializeField] private AudioEventSO mainMenuBGM;
+    private SettingsPanel settingsPanel;
 
     private void Awake()
     {
         mainMenuBGM.Play();
         AudioManager.Instance.StopAllLoopSFX();
+        settingsPanel=GetComponentInChildren<SettingsPanel>(true);
     }
     public void SinglePlayerButton()
     {
@@ -35,7 +37,7 @@ public class MainMenuOptions : MonoBehaviour
 
     public void SettingsButton()
     {
-
+        settingsPanel.gameObject.SetActive(true);
     }
 
     public void ExitGameButton()
