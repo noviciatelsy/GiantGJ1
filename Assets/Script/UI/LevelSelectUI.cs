@@ -130,6 +130,12 @@ public class LevelSelectUI : MonoBehaviour
             {
                 pool.Add(data);
             }
+
+            if(GlobalGameData.isEnd == true)
+            {
+                //失败ui
+                //返回主界面
+            }
         }
 
         return pool;
