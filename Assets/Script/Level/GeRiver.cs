@@ -30,6 +30,7 @@ public class GeRiver : MonoBehaviour
 
     public void GeNewRiver()
     {
+        Debug.Log("生成新的河流");
         // 找到最前面的河流
         float maxZ = float.MinValue;
 
