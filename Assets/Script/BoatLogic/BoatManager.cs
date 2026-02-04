@@ -73,7 +73,7 @@ public class BoatManager : MonoBehaviour
                 }
                 else Debug.Log("没有找到cubebase");
 
-                Debug.Log($"生成方块 [{i},{j}] worldPos=({posX}, -1, {posZ})");
+                //Debug.Log($"生成方块 [{i},{j}] worldPos=({posX}, -1, {posZ})");
                 Instantiate(
                     cube,
                     new Vector3(posX, -1f, posZ),

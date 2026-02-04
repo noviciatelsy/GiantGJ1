@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class RiverLogic : MonoBehaviour
 {
-    private GeRiver geRiver;
+    public GeRiver geRiver;
 
     void Start()
     {
-        geRiver = FindAnyObjectByType<GeRiver>();
+        //geRiver = FindAnyObjectByType<GeRiver>();
     }
 
     void FixedUpdate()
     {
-        if(transform.position.z < -500f)
+        if(transform.position.z < -300f)
         {
-            geRiver.GeNewRiver();
+            geRiver.GeNewRiver(transform.position.x);
             geRiver.DestoryRiver(this.gameObject);
         }
     }

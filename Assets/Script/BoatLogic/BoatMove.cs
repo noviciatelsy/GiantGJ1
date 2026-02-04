@@ -75,6 +75,9 @@ public class BoatMove : MonoBehaviour
         // 最终速度 = 控制速度 + 冲量
         Vector3 finalVelocity = velocity + impulseVelocity;
         GlobalGameData.BoatVelocity = finalVelocity;
+
+        GlobalGameData.BoatTravelDistance += GlobalGameData.BoatVelocity.magnitude * Time.deltaTime;
+        //Debug.Log(GlobalGameData.BoatTravelDistance);
     }
 
 

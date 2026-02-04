@@ -46,7 +46,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7451609753345046041}
-  - component: {fileID: 3643978054401317516}
   m_Layer: 0
   m_Name: SeaWaves
   m_TagString: Untagged
@@ -71,18 +70,6 @@ Transform:
   - {fileID: 5434630817839157221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3643978054401317516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2244542660180563842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
 --- !u!1 &3644596899055272494
 GameObject:
   m_ObjectHideFlags: 0

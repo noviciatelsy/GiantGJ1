@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6182207362976500868}
-  - component: {fileID: 1313146628355917943}
   - component: {fileID: 5198316630452974166}
   - component: {fileID: 1272480099395568204}
   m_Layer: 0
@@ -35,18 +34,6 @@ Transform:
   - {fileID: 7014158148760205645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
---- !u!114 &1313146628355917943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5096900518339350331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49086a381acee054a9b92dc5647e3ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RelativeMove
 --- !u!114 &5198316630452974166
 MonoBehaviour:
   m_ObjectHideFlags: 0

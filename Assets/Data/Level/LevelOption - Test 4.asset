@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993410549e1ebb34ba888cfb73853490, type: 3}
   m_Name: LevelOption - Test 4
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
-  levelSceneName: LevelScene
-  levelDisplayName: "\u6D4B\u8BD5\u5173\u53614"
-  levelDescription: "\u8FD9\u662F\u6D4B\u8BD5"
+  levelSceneName: LevelScene1
+  levelDisplayName: "\u5185\u6E7E\u822A\u7EBF"
+  levelDescription: "\u77ED\u9014\u822A\u7EBF"
   isNormalRoute: 0
