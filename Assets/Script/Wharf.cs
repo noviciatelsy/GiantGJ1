@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,15 +10,23 @@ public class Wharf : MonoBehaviour
         CubeBase cube = other.GetComponent<CubeBase>();
         if (cube != null)
         {
-            if(!isEndingLine)
-            FadeScreen.Instance.PlayFade(() =>
+            GameManager.Instance.levelPassed += 1;
+            if (GameManager.Instance.levelPassed == 4)
             {
-                GameManager.Instance.playerManager.DestroyPlayer();
-                AudioManager.Instance.StopAllLoopSFX();
-                GameManager.Instance.playerManager.SpawnPlayerInStore();
-                SceneManager.LoadScene(storeSceneName);
-            
-            });
+                LevelUI.Instance.endingPanel.gameObject.SetActive(true);
+                return;
+            }
+            if (!isEndingLine)
+            {
+                FadeScreen.Instance.PlayFade(() =>
+                {
+                    GameManager.Instance.playerManager.DestroyPlayer();
+                    AudioManager.Instance.StopAllLoopSFX();
+                    GameManager.Instance.playerManager.SpawnPlayerInStore();
+                    SceneManager.LoadScene(storeSceneName);
+
+                });
+            }
             else
             {
                 LevelUI.Instance.endingPanel.gameObject.SetActive(true);

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public InputManager inputManager {  get; private set; }
     public PlayerManager playerManager { get; private set; }
 
+    public int levelPassed;
+
     private void Awake()
     {
         if(Instance!=null&&Instance!=this)
@@ -17,5 +19,6 @@ public class GameManager : MonoBehaviour
 
         inputManager = GetComponentInChildren<InputManager>();
         playerManager = GetComponentInChildren<PlayerManager>();
+        levelPassed = 0;
     }
 }
