@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 396b534e82b559f49a663850d0fa5474
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cubeempty: {fileID: 11400000, guid: 94094f53224210d49a1bc204a8111e16, type: 2}
+  - rudder: {fileID: 11400000, guid: 19c5a525e5e93c543bfc4d3491ada07f, type: 2}
+  - storageBox: {fileID: 11400000, guid: fa8474a2552107441ae7950457fffdc2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

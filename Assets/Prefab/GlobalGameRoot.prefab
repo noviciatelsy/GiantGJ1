@@ -1946,6 +1946,7 @@ Transform:
   m_Children:
   - {fileID: 8395295364279659484}
   - {fileID: 339702627889211034}
+  - {fileID: 4094610860536083378}
   m_Father: {fileID: 2505094599343669845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4588486361020806247
@@ -2286,6 +2287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelEntrance
   shownAnchoredPosition: {x: 0, y: 0}
+  referenceRect: {fileID: 0}
   hideDirection: 0
   extraHidePadding: 8
   moveInDuration: 0.18
@@ -2374,6 +2376,55 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf30a3b7804a5bb4c8161597e6293a0b, type: 2}
   - {fileID: 11400000, guid: dc773b5feebc18d4298e4d77e529e6dc, type: 2}
   - {fileID: 11400000, guid: fe9f479e0cb43514d9369e91e419c824, type: 2}
+--- !u!1 &7389225937362207227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4094610860536083378}
+  - component: {fileID: 3305082268063619921}
+  m_Layer: 0
+  m_Name: BoatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4094610860536083378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389225937362207227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7180257520881148628}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3305082268063619921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389225937362207227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396b534e82b559f49a663850d0fa5474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoatManager
+  cubeDatas: []
+  cubeempty: {fileID: 11400000, guid: 94094f53224210d49a1bc204a8111e16, type: 2}
+  rudder: {fileID: 11400000, guid: 19c5a525e5e93c543bfc4d3491ada07f, type: 2}
+  storageBox: {fileID: 11400000, guid: fa8474a2552107441ae7950457fffdc2, type: 2}
+  cubesize: {x: 3, y: 3}
 --- !u!1 &7738927614227593102
 GameObject:
   m_ObjectHideFlags: 0

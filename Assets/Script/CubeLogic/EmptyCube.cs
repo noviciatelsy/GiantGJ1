@@ -27,7 +27,10 @@ public class EmptyCube : CubeBase
         {
             return ;
         }
-
+        CubeBase cubeBase = newPrefab.GetComponent<CubeBase>();
+        int boatsizey = BoatManager.Instance.cubesize.y;
+        BoatManager.Instance.cubeDatas[cubePos.x * boatsizey + cubePos.y] = cubeBase.cubeData;
+        cubeBase.cubePos = this.cubePos;
         Transform oldTransform = transform;
 
         // 记录旧对象的“场景信息”

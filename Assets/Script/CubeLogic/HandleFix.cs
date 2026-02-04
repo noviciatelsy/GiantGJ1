@@ -178,7 +178,7 @@ public class HandleFix : MonoBehaviour
         yield return StartCoroutine(ShowHealthBar());
 
         DoDamageToBar(); // ÐÞÀíÌõ-1
-        currentBarCount--;
+        if(currentBarCount>0) currentBarCount--;
 
         if (!isfixing && !canAutoFix)
         {
@@ -281,7 +281,10 @@ public class HandleFix : MonoBehaviour
 
     private void ResetCurrentBar()
     {
-        Bars[currentBarCount].transform.localScale = new Vector3(0, 1, 1);
+        if (currentBarCount >= 0)
+        {
+            Bars[currentBarCount].transform.localScale = new Vector3(0, 1, 1);
+        }
     }
 
     private void DoDamageToBar()
