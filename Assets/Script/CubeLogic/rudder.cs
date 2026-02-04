@@ -25,4 +25,17 @@ public class rudder : CubeBase
         boatMove.ResetCurrentDriver();
     }
 
+    public void FixedUpdate()
+    {
+        if (handlefix.currentBarCount == 0)
+        {
+            Debug.Log("来自与舵rudder的消息：舵已损坏，游戏结束！");
+            GlobalGameData.isEnd = true;
+        }
+    }
+
+    public override void OnEasyInteract(PLControl interactPlayer)
+    {
+        //base.OnEasyInteract(interactPlayer);    不能替换
+    }
 }

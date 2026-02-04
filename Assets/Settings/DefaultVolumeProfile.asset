@@ -796,10 +796,10 @@ MonoBehaviour:
     m_Value: 0
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 550
+    m_Value: 400
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 550
+    m_Value: 1000
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 1.232
@@ -912,7 +912,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.151
   xMultiplier:
     m_OverrideState: 1
     m_Value: 1

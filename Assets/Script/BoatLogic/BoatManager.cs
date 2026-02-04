@@ -97,5 +97,10 @@ public class BoatManager : MonoBehaviour
         return cubeDurationDatas[index];
     }
 
-
+    public void ResteBoat()
+    {
+        cubeDatas = new CubeItemDataSO[cubesize.x * cubesize.y];
+        cubeDatas[0] = storageBox;
+        cubeDatas[1] = rudder;
+    }
 }

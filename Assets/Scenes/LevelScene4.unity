@@ -1238,10 +1238,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeRiver
   riverPrefabs:
+  - {fileID: 9083847168005004649, guid: 08c7d0471fb0f7f4180a0a9babfe4518, type: 3}
+  - {fileID: 9083847168005004649, guid: f96f8bef340125c46b8bbc1618209494, type: 3}
   - {fileID: 9083847168005004649, guid: 8b8a06c917a1eb342893319f11ff8547, type: 3}
   - {fileID: 9083847168005004649, guid: f96f8bef340125c46b8bbc1618209494, type: 3}
+  - {fileID: 9083847168005004649, guid: da0d7c674d1bd4d489103fe9b45ca141, type: 3}
   - {fileID: 9083847168005004649, guid: 783884e597dfe2d49b70edaa542c93d8, type: 3}
-  - {fileID: 9083847168005004649, guid: aee9842a85231894c9a7eb2f86566089, type: 3}
   Rivers: []
 --- !u!1 &2027964743
 GameObject:
@@ -1598,11 +1600,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -130
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalRotation.w

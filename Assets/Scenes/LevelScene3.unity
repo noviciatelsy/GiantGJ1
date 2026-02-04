@@ -1238,14 +1238,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeRiver
   riverPrefabs:
-  - {fileID: 9083847168005004649, guid: 8b8a06c917a1eb342893319f11ff8547, type: 3}
-  - {fileID: 9083847168005004649, guid: 9cecc2e794975684ea585bc2a0bf8a0e, type: 3}
-  - {fileID: 9083847168005004649, guid: 9cecc2e794975684ea585bc2a0bf8a0e, type: 3}
-  - {fileID: 9083847168005004649, guid: 9cecc2e794975684ea585bc2a0bf8a0e, type: 3}
-  - {fileID: 9083847168005004649, guid: 9cecc2e794975684ea585bc2a0bf8a0e, type: 3}
-  - {fileID: 9083847168005004649, guid: 9cecc2e794975684ea585bc2a0bf8a0e, type: 3}
-  - {fileID: 9083847168005004649, guid: 783884e597dfe2d49b70edaa542c93d8, type: 3}
-  - {fileID: 9083847168005004649, guid: aee9842a85231894c9a7eb2f86566089, type: 3}
+  - {fileID: 9083847168005004649, guid: 98b39457182caf447b0b36be69c24f18, type: 3}
+  - {fileID: 9083847168005004649, guid: b9ed465b2b02ce14a95e93b514aa77b4, type: 3}
+  - {fileID: 9083847168005004649, guid: 29e7ec02be4bd96409c135cf97609f10, type: 3}
+  - {fileID: 9083847168005004649, guid: 60f45c10d947fb64d8c61a4d574c08bd, type: 3}
   Rivers: []
 --- !u!1 &2027964743
 GameObject:
@@ -1602,11 +1598,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -130
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 249764090832711625, guid: c384ca28b0fb852429dbff467742516a, type: 3}
       propertyPath: m_LocalRotation.w

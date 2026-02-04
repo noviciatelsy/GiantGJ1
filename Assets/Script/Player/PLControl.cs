@@ -343,22 +343,32 @@ public class PLControl : MonoBehaviour
             return;
         }
         if (currentCube.CheckCubeHealth() == 0) return; // 完全损坏就无法交互
+
         if (currentCube.shouldMoveCurrentPlayerToCentre)
         {
-            if (!isInteracting)
+            if(cubeToEquip != null)
             {
-                currentCube.SetCurrentPlayer(this); // 设置浮块所有权
-                currentCube.MoveCurrentPlayerToCentre(); // 将玩家移至浮块中心
-                currentCube.OnInteractEnter();
-                isInteracting = true;
-                interactSFX.Play();
+                Debug.Log(cubeToEquip);
+                currentCube.OnEasyInteract(this); 
             }
             else
             {
-                currentCube.SetCurrentPlayer(null); // 还原浮块所有权
-                currentCube.OnInteractExit();
-                isInteracting = false;
+                if (!isInteracting)
+                {
+                    currentCube.SetCurrentPlayer(this); // 设置浮块所有权
+                    currentCube.MoveCurrentPlayerToCentre(); // 将玩家移至浮块中心
+                    currentCube.OnInteractEnter();
+                    isInteracting = true;
+                    interactSFX.Play();
+                }
+                else
+                {
+                    currentCube.SetCurrentPlayer(null); // 还原浮块所有权
+                    currentCube.OnInteractExit();
+                    isInteracting = false;
+                }
             }
+          
         }
         else
         {

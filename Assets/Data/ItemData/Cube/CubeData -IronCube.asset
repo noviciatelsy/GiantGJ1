@@ -23,7 +23,7 @@ MonoBehaviour:
   howToUse: 
   materialsToRepair:
     woodCost: 0
-    IronCost: 1
+    IronCost: 5
   piece:
     woodCost: 0
     IronCost: 10

@@ -11,8 +11,8 @@ public class StorageCube : CubeBase
 
     public override void OnEasyInteract(PLControl interactPlayer)
     {
-        base.OnEasyInteract(interactPlayer);
-        LevelUI.Instance.ToggleStoragePanel(StorageManager.Instance .inventoryStorage,interactPlayer);
+        //base.OnEasyInteract(interactPlayer);
+        LevelUI.Instance.ToggleStoragePanel(StorageManager.Instance.inventoryStorage,interactPlayer);
     }
 
 

@@ -18,7 +18,7 @@ public class InventoryStorage : MonoBehaviour
             return;
         }
 
-
+        Debug.Log(itemData);
         while (amount > 0)
         {
             // 优先把数量塞进已有堆叠
@@ -159,7 +159,7 @@ public class InventoryStorage : MonoBehaviour
     private InventoryItemSlot FindStackableItem(ItemDataSO itemData)
     {
 
-        // 查找列表内该物品的同种且可继续堆叠的物品 
+        // 查找列表内该物品的同种且可继续堆叠的物品
         if (itemData.itemType == ItemType.material)
         {
             return materialItemSlotList.Find(itemSlot => itemSlot.HasItem()

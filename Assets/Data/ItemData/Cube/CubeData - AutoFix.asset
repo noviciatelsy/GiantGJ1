@@ -22,9 +22,9 @@ MonoBehaviour:
   spriteToShow: {fileID: 21300000, guid: c71d232d3e1a04f4e990b01d2d24cc42, type: 3}
   howToUse: 
   materialsToRepair:
-    woodCost: 0
+    woodCost: 2
     IronCost: 0
   piece:
-    woodCost: 10
+    woodCost: 15
     IronCost: 0
   maxDurability: 2

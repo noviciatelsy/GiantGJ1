@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelOption - Test 2
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   levelSceneName: LevelScene3
-  levelDisplayName: "\u5947\u602A\u7684\u822A\u7EBF"
-  levelDescription: "\u611F\u89C9\u54EA\u91CC\u4E0D\u592A\u5BF9..."
-  isNormalRoute: 0
+  levelDisplayName: "\u6CBC\u6CFD\u8DEF\u6BB5"
+  levelDescription: "\u4E00\u6761\u521D\u7EA7\u4E2D\u8DDD\u79BB\u822A\u7EBF\uFF0C\u6811\u6728\u6BD4\u8F83\u591A"
+  isNormalRoute: 1

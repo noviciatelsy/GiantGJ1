@@ -1961,6 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bdde71c025969e4e8ebcab8f54aed6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  levelPassed: 0
 --- !u!1 &6424752138705346389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,10 +2373,17 @@ MonoBehaviour:
   normalLevelOptions:
   - {fileID: 11400000, guid: bb0a74bfcece8534db37d658f581a299, type: 2}
   - {fileID: 11400000, guid: 311d3819efd8c41459bf8eb193b48caa, type: 2}
-  specialLevelOptions:
   - {fileID: 11400000, guid: cf30a3b7804a5bb4c8161597e6293a0b, type: 2}
   - {fileID: 11400000, guid: dc773b5feebc18d4298e4d77e529e6dc, type: 2}
   - {fileID: 11400000, guid: fe9f479e0cb43514d9369e91e419c824, type: 2}
+  - {fileID: 11400000, guid: 4ff4791695a19e949b87bea6f753e498, type: 2}
+  - {fileID: 11400000, guid: 43d41d3a3e9d5c743a4b07395117ba20, type: 2}
+  - {fileID: 11400000, guid: 43d41d3a3e9d5c743a4b07395117ba20, type: 2}
+  - {fileID: 11400000, guid: 229d03efc7d6b61469c1b441c169b014, type: 2}
+  specialLevelOptions:
+  - {fileID: 11400000, guid: e48712285ddcf2f42b7bdcb25a8e7744, type: 2}
+  - {fileID: 11400000, guid: 43d41d3a3e9d5c743a4b07395117ba20, type: 2}
+  - {fileID: 11400000, guid: 9cb823857e1796c47a9162c90a68bba1, type: 2}
 --- !u!1 &7389225937362207227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoatManager
   cubeDatas: []
+  cubeDurationDatas: 
   cubeempty: {fileID: 11400000, guid: 94094f53224210d49a1bc204a8111e16, type: 2}
   rudder: {fileID: 11400000, guid: 19c5a525e5e93c543bfc4d3491ada07f, type: 2}
   storageBox: {fileID: 11400000, guid: fa8474a2552107441ae7950457fffdc2, type: 2}

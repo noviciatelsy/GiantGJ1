@@ -10,4 +10,6 @@ public static class GlobalGameData
     {
         BoatTravelDistance = 0f;
     }
+
+    public static bool isEnd = false;
 }
