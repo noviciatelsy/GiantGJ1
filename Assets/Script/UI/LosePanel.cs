@@ -2,14 +2,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class EndingPanel : MonoBehaviour
+public class LosePanel : MonoBehaviour
 {
     private bool timeIsPaused = false;
     [SerializeField] private string mainMenuSceneName = "MainMenu";
-    [SerializeField] private AudioEventSO levelWinSFX;
+    [SerializeField] private AudioEventSO levelLoseSFX;
 
     private void OnEnable()
     {
+
+        PauseGame(true);
         if (GameManager.Instance.playerManager.playerKeyboard != null)
         {
             GameManager.Instance.playerManager.playerKeyboard.GetComponent<PlayerInput>().actions.FindActionMap("UI").Disable();
@@ -23,13 +25,12 @@ public class EndingPanel : MonoBehaviour
             GameManager.Instance.playerManager.playerGamepad.GetComponent<PLControl>().footStepAudioSource.Stop();
         }
 
-        PauseGame(true );
-        levelWinSFX.Play();
+        levelLoseSFX.Play();
     }
 
     private void OnDisable()
     {
-        PauseGame(false );
+        PauseGame(false);
     }
 
     public void ReturnToMainMenuButton()

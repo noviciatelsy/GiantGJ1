@@ -5,12 +5,19 @@ public class Wharf : MonoBehaviour
 {
     [SerializeField] private string storeSceneName = "Store";
     [SerializeField] private bool isEndingLine;
+    private bool hasEntered;
     private void OnTriggerEnter(Collider other)
     {
         CubeBase cube = other.GetComponent<CubeBase>();
+
         if (cube != null)
         {
+            if (hasEntered)
+            {
+                return;
+            }
             GameManager.Instance.levelPassed += 1;
+            hasEntered = true;
             if (GameManager.Instance.levelPassed == 4)
             {
                 LevelUI.Instance.endingPanel.gameObject.SetActive(true);

@@ -12,6 +12,12 @@ public class MainMenuOptions : MonoBehaviour
         mainMenuBGM.Play();
         AudioManager.Instance.StopAllLoopSFX();
         settingsPanel=GetComponentInChildren<SettingsPanel>(true);
+
+        if(BoatManager.Instance!=null)
+        {
+            BoatManager.Instance.ResteBoat();
+        }
+        GameManager.Instance.levelPassed = 0;
     }
     public void SinglePlayerButton()
     {

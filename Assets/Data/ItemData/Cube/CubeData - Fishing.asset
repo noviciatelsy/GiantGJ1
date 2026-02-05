@@ -25,6 +25,6 @@ MonoBehaviour:
     woodCost: 5
     IronCost: 0
   piece:
-    woodCost: 20
+    woodCost: 15
     IronCost: 0
   maxDurability: 2

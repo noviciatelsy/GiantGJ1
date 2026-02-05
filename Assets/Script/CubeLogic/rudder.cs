@@ -31,6 +31,7 @@ public class rudder : CubeBase
         {
             Debug.Log("来自与舵rudder的消息：舵已损坏，游戏结束！");
             GlobalGameData.isEnd = true;
+            LevelUI.Instance.losePanel.gameObject.SetActive(true);
         }
     }
 

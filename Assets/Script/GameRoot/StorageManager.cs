@@ -6,14 +6,6 @@ public class StorageManager : MonoBehaviour
     public InventoryStorage inventoryStorage { get; private set; }
     [SerializeField] private AudioEventSO getItemSFX;
 
-
-    // ¡Ÿ ±≤‚ ‘”√
-    [SerializeField] private ItemDataSO wood;
-    [SerializeField] private ItemDataSO iron;
-    [SerializeField] private ItemDataSO cannon;
-    [SerializeField] private ItemDataSO fishing;
-
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -25,26 +17,6 @@ public class StorageManager : MonoBehaviour
         inventoryStorage=GetComponent<InventoryStorage>();
     }
 
-    private void Update()
-    {
-
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            GetItem(wood, 1);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            GetItem(iron, 1);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            GetItem(cannon, 1);
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha4))
-        {
-            GetItem(fishing, 1);
-        }
-    }
 
     public void GetItem(ItemDataSO itemToGet, int amount)
     {

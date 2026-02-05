@@ -100,3 +100,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 3d8d6b13612225c4a80ded6950d775e2, type: 3}
     volume: 1
+  - audioName: LevelLoseSFX
+    clips:
+    - {fileID: 8300000, guid: 108a6c70924530b40818c8fd82def502, type: 3}
+    volume: 0.5

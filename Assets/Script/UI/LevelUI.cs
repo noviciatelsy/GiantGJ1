@@ -10,6 +10,8 @@ public class LevelUI : MonoBehaviour
     public PausePanel pausePanel { get; private set; }
 
     public EndingPanel endingPanel { get; private set; }
+
+    public LosePanel losePanel { get; private set; }
     public CubeDetailsUI[] cubeDetails {  get; private set; }
 
     private bool timeIsPaused = false;
@@ -27,6 +29,7 @@ public class LevelUI : MonoBehaviour
         pausePanel= GetComponentInChildren<PausePanel>(true);
         cubeDetails = GetComponentsInChildren<CubeDetailsUI>(true);
         endingPanel = GetComponentInChildren<EndingPanel>(true);
+        losePanel=GetComponentInChildren<LosePanel>(true);
         storagePanelEnabled = storagePanel.gameObject.activeSelf;
         pausePanelEnabled = pausePanel.gameObject.activeSelf;
         levelBGM.Play();

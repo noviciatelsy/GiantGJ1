@@ -7,6 +7,7 @@ public class MaterialBase : MonoBehaviour
     public int ItemNum;
 
     private Coroutine fishCoroutine;
+    private bool materialIsGot;
 
     public void OnDestroy()
     {
@@ -47,7 +48,7 @@ public class MaterialBase : MonoBehaviour
             yield return null;
         }
 
-        StorageManager.Instance.GetItem(MaterialData,ItemNum);
+        StorageManager.Instance.GetItem(MaterialData, ItemNum);
         Destroy(gameObject);
     }
 
@@ -56,6 +57,11 @@ public class MaterialBase : MonoBehaviour
         CubeBase cube = other.GetComponent<CubeBase>();
         if (cube != null)
         {
+            if(materialIsGot)
+            {
+                return;
+            }
+            materialIsGot=true;
             Debug.Log("GetMaterial");
             StorageManager.Instance.GetItem(MaterialData, ItemNum);
             Destroy(gameObject);
