@@ -5,6 +5,8 @@ public class Wharf : MonoBehaviour
 {
     [SerializeField] private string storeSceneName = "Store";
     [SerializeField] private bool isEndingLine;
+
+    public int levelIncrease = 1; // 关卡进度条难度
     private bool hasEntered;
     private void OnTriggerEnter(Collider other)
     {
@@ -16,9 +18,9 @@ public class Wharf : MonoBehaviour
             {
                 return;
             }
-            GameManager.Instance.levelPassed += 1;
+            GameManager.Instance.levelPassed += levelIncrease;
             hasEntered = true;
-            if (GameManager.Instance.levelPassed == 4)
+            if (GameManager.Instance.levelPassed == 12)
             {
                 LevelUI.Instance.endingPanel.gameObject.SetActive(true);
                 return;

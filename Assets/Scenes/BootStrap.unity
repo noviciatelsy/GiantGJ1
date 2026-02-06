@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &396514958 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8252269725031518804, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+  m_PrefabInstance: {fileID: 1778351393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693717848
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +247,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2192418963728941378, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: Alltarget
+      value: 
+      objectReference: {fileID: 396514958}
     - target: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -281,6 +290,14 @@ PrefabInstance:
     - target: {fileID: 2505094599343669845, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784371499558701011, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: m_Name
+      value: BoatIMage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576209395930376165, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 6319511929045466940, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -357,6 +374,10 @@ PrefabInstance:
     - target: {fileID: 7428149258069872522, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252269725031518804, guid: c18e3aea33a22d149a89dc8d6994489c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -783,6 +783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wharf
       objectReference: {fileID: 0}
+    - target: {fileID: 3709874458110792066, guid: d95c2baee85957749b6c394a124b4e26, type: 3}
+      propertyPath: levelIncrease
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7722738312061259290, guid: d95c2baee85957749b6c394a124b4e26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 156.8

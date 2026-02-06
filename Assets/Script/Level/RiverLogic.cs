@@ -4,7 +4,7 @@ public class RiverLogic : MonoBehaviour
 {
     public GeRiver geRiver;
 
-    private float spacing = 360f;
+    private float spacing = 350f;
     private float bound;
     private float wrapWidth;
 
@@ -19,7 +19,7 @@ public class RiverLogic : MonoBehaviour
         if(transform.position.z < -300f)
         {
             // 只让中间列负责生成
-            if (Mathf.Abs(transform.position.x) < 190f)
+            if (Mathf.Abs(transform.position.x) < 180f)
             {
                 geRiver.GeNewRiver(transform.position.x);
             }

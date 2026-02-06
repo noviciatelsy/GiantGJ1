@@ -108,7 +108,7 @@ public class GeRiver : MonoBehaviour
 
     void SpawnRiverRow(float zPos)
     {
-        float spacing = 370f;
+        float spacing = 350f;
 
         GameObject prefabToSpawn = GetNextRiverPrefab(); //只取一次！
 
