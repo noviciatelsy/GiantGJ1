@@ -16,9 +16,8 @@ public class GeRiver : MonoBehaviour
 
     void Start()
     {
-        // 初始生成两个
-        SpawnNextRiver(0, 300f);
-        SpawnNextRiver(0, 900f);
+        SpawnRiverRow(300f);
+        SpawnRiverRow(900f);
     }
 
     void SpawnNextRiver(float x, float zPos)
@@ -80,14 +79,25 @@ public class GeRiver : MonoBehaviour
     {
         Debug.Log("生成新的河流");
 
+        //float maxZ = float.MinValue;
+        //foreach (GameObject r in Rivers)
+        //{
+        //    if (r.transform.position.z > maxZ)
+        //        maxZ = r.transform.position.z;
+        //}
+
+        //SpawnNextRiver(x, maxZ + riverLength);
         float maxZ = float.MinValue;
+
         foreach (GameObject r in Rivers)
         {
             if (r.transform.position.z > maxZ)
                 maxZ = r.transform.position.z;
         }
 
-        SpawnNextRiver(x, maxZ + riverLength);
+        float newZ = maxZ + riverLength;
+
+        SpawnRiverRow(newZ);
     }
 
     public void DestoryRiver(GameObject river)
@@ -95,4 +105,31 @@ public class GeRiver : MonoBehaviour
         Rivers.Remove(river);
         Destroy(river);
     }
+
+    void SpawnRiverRow(float zPos)
+    {
+        float spacing = 370f;
+
+        GameObject prefabToSpawn = GetNextRiverPrefab(); //只取一次！
+
+        SpawnSingle(prefabToSpawn, -spacing, zPos);
+        SpawnSingle(prefabToSpawn, 0, zPos);
+        SpawnSingle(prefabToSpawn, spacing, zPos);
+    }
+
+    void SpawnSingle(GameObject prefab, float x, float zPos)
+    {
+        GameObject river = Instantiate(
+            prefab,
+            new Vector3(x, 0f, zPos),
+            Quaternion.identity
+        );
+
+        RiverLogic riverlogic = river.GetComponent<RiverLogic>();
+        if (riverlogic != null)
+            riverlogic.geRiver = this;
+
+        Rivers.Add(river);
+    }
+
 }
